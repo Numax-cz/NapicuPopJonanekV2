@@ -19,15 +19,32 @@ export class JonanekComponent implements OnInit {
   protected Jonanek1: any;
   protected Jonanek2: any;
 
+  protected static buffer: AudioBuffer;
+  protected static ctx: AudioContext = new AudioContext();
+  protected static gainNode: GainNode = JonanekComponent.ctx.createGain();
+  protected song: string = "/assets/sounds/nevim.wav";
+  protected xhr: XMLHttpRequest = new XMLHttpRequest()
+
+
+
   SessionCounter: number = 0;
   count: number = this.Counter | 0;
-  protected Music: HTMLAudioElement = new Audio("/assets/sounds/nevim.mp3");
   readonly URL = "https://popjonanek.napicu.eu/api/update";
 
 
 
   constructor(@Inject(DOCUMENT) private doc: Document) {
-   }
+    JonanekComponent.gainNode.connect(JonanekComponent.ctx.destination);
+    this.xhr.open('GET', this.song, true);
+    this.xhr.responseType = 'arraybuffer';
+    this.xhr.send();
+    this.xhr.onload = function () {
+      JonanekComponent.ctx.decodeAudioData(this.response, function (b) {
+        JonanekComponent.buffer = b;
+      });
+      JonanekComponent.playSound(JonanekComponent.buffer);
+    }
+  }
 
 
 
@@ -55,22 +72,29 @@ export class JonanekComponent implements OnInit {
     //this.SessionCounter++; Pro Api
     this.Jonanek1.classList.replace("block", "none");
     this.Jonanek2.classList.replace("none", "block");
-    this.PlaySound();
+    JonanekComponent.playSound(JonanekComponent.buffer);
     window.localStorage.setItem("counter", this.count.toString());
   }
-  
+
   protected ClickNormal = (e: Event): void => {
     this.Clicked = false;
     this.Jonanek1.classList.replace("none", "block");
     this.Jonanek2.classList.replace("block", "none");
+    
+  }
+
+  protected static playSound(buf: AudioBuffer): void  {
+
+    var source = JonanekComponent.ctx.createBufferSource();
+    source.buffer = buf;
+    source.connect(JonanekComponent.gainNode);
+    source.onended = function () { if (this.stop) this.stop(); if (this.disconnect) this.disconnect(); }
+    source.start(0);
+
+
   }
   
-  protected PlaySound = (): void => {
 
-
-
-    this.Music.play();
-  }
 
 
 }
