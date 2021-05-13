@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button>xdxddxd</button>
+
+</body>
+
+</html>
+
+
+
+<script>
+
+
+    var buffer,
+        ctx = new AudioContext(),
+        gainNode = ctx.createGain();
+    gainNode.connect(ctx.destination);
+
+    var file = 'https://dl.dropboxusercontent.com/s/agepbh2agnduknz/camera.mp3',
+        xhr = new XMLHttpRequest();
+
+    xhr.onload = createBuffer;
+    xhr.open('GET', file, true);
+    xhr.responseType = 'arraybuffer';
+    xhr.send();
+
+    function createBuffer() {
+
+        ctx.decodeAudioData(this.response, function (b) {
+            buffer = b;
+        }, function (e) { console.warn(e) });
+        var button = document.querySelector('button');
+        button.addEventListener('click', function () { playSound(buffer) });
+        button.className = 'ready';
+    }
+
+
+    function playSound(buf) {
+
+        var source = ctx.createBufferSource();
+        source.buffer = buf;
+        source.connect(gainNode);
+        source.onended = function () { if (this.stop) this.stop(); if (this.disconnect) this.disconnect(); }
+        source.start(0);
+    }
+
+
+
+</script>
