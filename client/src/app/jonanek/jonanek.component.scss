@@ -18,3 +18,24 @@
     width: 100%;
     height: 100vh;
 }
+
+
+#Stats{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.Table{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 20px;
+    font-size: 1.5rem;
+}
+#MenuShop{
+    width: 5%;
+    cursor: pointer;
+    float: right;
+}

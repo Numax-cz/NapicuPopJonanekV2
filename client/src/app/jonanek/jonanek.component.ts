@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
-
+import { HttpClient } from "@angular/common/http"
 
 
 
@@ -14,26 +14,23 @@ import { Component, Inject, OnInit } from '@angular/core';
 
 export class JonanekComponent implements OnInit {
   protected Counter: number = window.localStorage.getItem("counter") as any || 0;
-
   protected Clicked: boolean = false;
   protected Jonanek1: any;
   protected Jonanek2: any;
-
   protected static buffer: AudioBuffer;
   protected static ctx: AudioContext = new AudioContext();
   protected static gainNode: GainNode = JonanekComponent.ctx.createGain();
-  protected song: string = "/assets/sounds/nevim.wav";
+  protected readonly song: string = "/assets/sounds/nevim.wav";
   protected xhr: XMLHttpRequest = new XMLHttpRequest()
-
-
 
   SessionCounter: number = 0;
   count: number = this.Counter | 0;
+  worldCounter: number = 0;
   readonly URL = "https://popjonanek.napicu.eu/api/update";
 
 
 
-  constructor(@Inject(DOCUMENT) private doc: Document) {
+  constructor(@Inject(DOCUMENT) private doc: Document, private http: HttpClient) {
     JonanekComponent.gainNode.connect(JonanekComponent.ctx.destination);
     this.xhr.open('GET', this.song, true);
     this.xhr.responseType = 'arraybuffer';
@@ -51,6 +48,12 @@ export class JonanekComponent implements OnInit {
   ngOnInit(): void {
     this.Jonanek1 = this.doc.getElementById("Jonanek1");
     this.Jonanek2 = this.doc.getElementById("Jonanek2");
+    this.getApiData();
+
+    setInterval(() => {
+      this.getApiData();
+    }, 1000 * 10);
+
   }
 
   ngAfterViewInit() {
@@ -69,7 +72,7 @@ export class JonanekComponent implements OnInit {
   }
   protected Click = (e: Event): void => {
     if (this.Clicked) return; this.Clicked = true; this.count++
-    //this.SessionCounter++; Pro Api
+    this.SessionCounter++;
     this.Jonanek1.classList.replace("block", "none");
     this.Jonanek2.classList.replace("none", "block");
     JonanekComponent.playSound(JonanekComponent.buffer);
@@ -80,22 +83,24 @@ export class JonanekComponent implements OnInit {
     this.Clicked = false;
     this.Jonanek1.classList.replace("none", "block");
     this.Jonanek2.classList.replace("block", "none");
-    
+
   }
 
-  protected static playSound(buf: AudioBuffer): void  {
-
+  protected static playSound(buf: AudioBuffer): void {
     var source = JonanekComponent.ctx.createBufferSource();
     source.buffer = buf;
     source.connect(JonanekComponent.gainNode);
     source.onended = function () { if (this.stop) this.stop(); if (this.disconnect) this.disconnect(); }
     source.start(0);
-
-
   }
-  
 
-
-
+  protected getApiData(): void {
+    this.http.post<any>("https://api.popjonanek.napicu.eu/api/update", { ClickCounter: this.SessionCounter }).subscribe(data => {
+      this.worldCounter = data;
+      console.log(data);
+      
+    });
+    this.SessionCounter = 0;
+  }
 }
 
