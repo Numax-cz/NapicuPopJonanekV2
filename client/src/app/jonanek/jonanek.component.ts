@@ -55,7 +55,7 @@ export class JonanekComponent implements OnInit {
 
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     window.addEventListener('keydown', this.Click);
     this.Jonanek1.addEventListener('touchstart', this.Click);
     this.Jonanek2.addEventListener('touchstart', this.Click);
@@ -70,6 +70,7 @@ export class JonanekComponent implements OnInit {
 
   }
   protected Click = (e: Event): void => {
+    //e.preventDefault();
     if (this.Clicked) return; this.Clicked = true; this.count++
     this.SessionCounter++;
     this.Jonanek1.classList.replace("block", "none");
@@ -79,10 +80,10 @@ export class JonanekComponent implements OnInit {
   }
 
   protected ClickNormal = (e: Event): void => {
+    //e.preventDefault();
     this.Clicked = false;
     this.Jonanek1.classList.replace("none", "block");
     this.Jonanek2.classList.replace("block", "none");
-
   }
 
   protected static playSound(buf: AudioBuffer): void {

@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { JonanekComponent } from './jonanek/jonanek.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JonanekComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule,
