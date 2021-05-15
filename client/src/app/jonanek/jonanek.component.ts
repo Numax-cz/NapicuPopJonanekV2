@@ -96,8 +96,6 @@ export class JonanekComponent implements OnInit {
   protected getApiData(): void {
     this.http.post<any>("https://api.popjonanek.napicu.eu/api/update", { ClickCounter: this.SessionCounter }).subscribe(data => {
       this.worldCounter = data;
-      console.log(data);
-
     });
     this.SessionCounter = 0;
   }
