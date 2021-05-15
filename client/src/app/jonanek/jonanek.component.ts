@@ -1,7 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http"
-
+import { HttpClient } from "@angular/common/http";
 
 
 
@@ -98,7 +97,7 @@ export class JonanekComponent implements OnInit {
     this.http.post<any>("https://api.popjonanek.napicu.eu/api/update", { ClickCounter: this.SessionCounter }).subscribe(data => {
       this.worldCounter = data;
       console.log(data);
-      
+
     });
     this.SessionCounter = 0;
   }
