@@ -14,7 +14,11 @@ import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
   { path: '', component: JonanekComponent },
-  { path: 'shop', component: ShopComponent },
+  {
+    path: 'shop', component: ShopComponent, children: [
+      { path: 'sound', component: ErrorComponent }
+    ]
+  },
   { path: '**', component: ErrorComponent }
 ]
 
