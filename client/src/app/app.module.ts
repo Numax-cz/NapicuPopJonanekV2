@@ -11,12 +11,18 @@ import { environment } from '../environments/environment';
 import { ShopComponent } from './shop/shop.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ErrorComponent } from './error/error.component';
+import { ShopSoundComponent } from './shop-sound/shop-sound.component';
+import { ShopBackgroundComponent } from './shop-background/shop-background.component';
+import { SettingsComponent } from './settings/settings.component';
+
 
 const routes: Routes = [
   { path: '', component: JonanekComponent },
   {
     path: 'shop', component: ShopComponent, children: [
-      { path: 'sound', component: ErrorComponent }
+      { path: 'sound', component: ShopSoundComponent },
+      { path: 'background', component: ShopBackgroundComponent },
+      { path: 'settings', component: SettingsComponent }
     ]
   },
   { path: '**', component: ErrorComponent }
@@ -28,6 +34,9 @@ const routes: Routes = [
     JonanekComponent,
     ShopComponent,
     ErrorComponent,
+    ShopSoundComponent,
+    ShopBackgroundComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,

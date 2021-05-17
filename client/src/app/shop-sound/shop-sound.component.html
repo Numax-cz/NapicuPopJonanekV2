@@ -1,0 +1,35 @@
+<div class="TableProduct">
+
+    <ul>
+        <li class="Item" *ngFor="let i of items">
+
+            <div class="Left">
+
+                <img src="{{img}}" id="Img">
+                <div class="Item-Title">
+                    {{i.title}}
+                    <div *ngIf="btn" class="Button" (click)="Play(i)">
+                        Poslechnout
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="Right">
+
+                <div class="BtnBuy"(click)="Buy(i)">
+
+                    <div ngClass="xdddd" class="BtnBuy-Title">
+                        koupit
+                    </div>
+                    <div class="BtnBuy-Prize">
+                        {{i.cena}}
+                    </div>
+                </div>
+
+            </div>
+
+        </li>
+    </ul>
+
+</div>
