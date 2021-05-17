@@ -17,9 +17,9 @@
             </div>
             <div class="Right">
 
-                <div class="BtnBuy"(click)="Buy(i)">
+                <div [ngClass]="i.owned ? 'owned' : 'noowned'" class="BtnBuy"(click)="Buy(i)">
 
-                    <div ngClass="xdddd" class="BtnBuy-Title">
+                    <div class="BtnBuy-Title">
                         koupit
                     </div>
                     <div class="BtnBuy-Prize">

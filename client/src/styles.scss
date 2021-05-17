@@ -93,11 +93,18 @@ a{
     width: 100px;
 }
 
-.BtnBuy{
+.owned{
+    background-color: #494949;
+}
+.noowned{
     background-color: #4cd137;
+}
+
+
+.BtnBuy{
     padding: 10px;
-    border-radius: 10px;
     cursor: pointer;
+    border-radius: 10px;
     .BtnBuy-Title{
         user-select: none;
         font-size: 1.5rem;
@@ -135,7 +142,7 @@ a{
         }
     }
 }
-.BtnBuy:hover{
+.noowned:hover{
     background-color: #44bd32;
 }
 .Right{

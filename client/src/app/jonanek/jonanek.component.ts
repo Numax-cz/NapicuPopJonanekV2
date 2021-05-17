@@ -26,8 +26,8 @@ export class JonanekComponent implements OnInit {
   static count: number = JonanekComponent.Counter | 0; //Money
   worldCounter: number = 0;
   readonly URL = "https://popjonanek.napicu.eu/api/update";
+ 
 
-  
 
   constructor(@Inject(DOCUMENT) private doc: Document, private http: HttpClient, private route: ActivatedRoute) {
 
@@ -44,6 +44,10 @@ export class JonanekComponent implements OnInit {
     setInterval(() => {
       this.getApiData();
     }, 1000 * 10);
+
+
+
+
   }
 
   get count(): number {
@@ -63,11 +67,11 @@ export class JonanekComponent implements OnInit {
     this.Jonanek2.addEventListener('touchend', this.ClickNormal);
   }
 
-  static Set(): void{
+  static Set(): void {
     window.localStorage.setItem("counter", JonanekComponent.count.toString());
   }
 
-  protected LoadSound(): void{
+  protected LoadSound(): void {
     JonanekComponent.gainNode.connect(JonanekComponent.ctx.destination);
     this.xhr.open('GET', this.song, true);
     this.xhr.responseType = 'arraybuffer';
@@ -90,7 +94,7 @@ export class JonanekComponent implements OnInit {
       JonanekComponent.Set();
     }
   }
-  
+
   protected ClickNormal = (e: Event): void => {
     //e.preventDefault();
     if (JonanekComponent.Move) {
