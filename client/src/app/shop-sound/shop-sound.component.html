@@ -12,15 +12,15 @@
                         Poslechnout
                     </div>
 
-
                 </div>
             </div>
             <div class="Right">
-                <div [ngClass]="i.owned ? 'owned' : 'noowned'" class="BtnBuy"(click)="Buy(i)">
+                <div [ngClass]="i.sound == Song ? 'selected' : (i.owned ? 'owned' : 'noowned' )" class="BtnBuy"
+                    (click)="Buy(i)">
                     <div *ngIf="!i.owned" class="BtnBuy-Title">
                         koupit
                     </div>
-                    <div class="BtnBuy-Prize" >
+                    <div class="BtnBuy-Prize">
                         {{i.cena}}
                     </div>
                 </div>

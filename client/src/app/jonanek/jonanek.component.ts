@@ -19,7 +19,8 @@ export class JonanekComponent implements OnInit {
   protected static buffer: AudioBuffer;
   protected static ctx: AudioContext = new AudioContext();
   protected static gainNode: GainNode = JonanekComponent.ctx.createGain();
-
+  
+  public static volume: number = 1; // localStorage
   public static song: string =  window.localStorage.getItem("song") || "/assets/sounds/nevim.wav";
   public static xhr: XMLHttpRequest = new XMLHttpRequest()
   
@@ -107,6 +108,7 @@ export class JonanekComponent implements OnInit {
     var source = JonanekComponent.ctx.createBufferSource();
     source.buffer = buf;
     source.connect(JonanekComponent.gainNode);
+    JonanekComponent.gainNode.gain.value = JonanekComponent.volume;
     source.onended = function () { if (this.stop) this.stop(); if (this.disconnect) this.disconnect(); }
     source.start(0);
   }

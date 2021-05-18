@@ -1,1 +1,16 @@
-<p>settings works!</p>
+<div class="TableProduct">
+    <div class="options">
+
+        <div class="Volume">
+            <div>Zvuk Jonánka</div>
+            <input type="range" min="0" max="100" value="{{VolumeJonanek}}" #ranger (change)="setVolumeJonanek(ranger.value)">
+
+            <div>Zvuk Efektů</div>
+            <input type="range" min="0" max="100" value="{{VolumeSt}}" #ranger2 (change)="setVolumeSt(ranger2.value)">
+        </div>
+    
+    
+    </div>
+
+
+</div>

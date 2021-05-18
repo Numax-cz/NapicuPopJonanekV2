@@ -8,26 +8,12 @@ import { JonanekComponent } from '../jonanek/jonanek.component';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  static forEach(arg0: (e: any) => void) {
-    throw new Error('Method not implemented.');
-  }
 
 
 
   public static OwnedSounds: string = window.localStorage.getItem("Sounds") || '["Smích"]';
 
-  constructor() {
-
-
-
-
-
-
-
-
-
-
-  }
+  constructor() { }
 
   ngOnInit(): void {
 
@@ -47,17 +33,13 @@ export class ShopComponent implements OnInit {
       localStorage.setItem("Sounds", JSON.stringify(array));
       this.OwnedSounds = JSON.stringify(array)
       ShopComponent.BuySound();
-
       JonanekComponent.Set();
     }
-
-    else {
-      //Error  
-    }
   }
+  
   static BuySound(): void {
     const audio = new Audio("assets/sounds/coinsound.wav")
-    audio.volume = 0.2
+    audio.volume = 0.1
     audio.play();
   }
 }

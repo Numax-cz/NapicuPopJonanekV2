@@ -12,20 +12,23 @@ export class ShopSoundComponent implements OnInit {
 
   img: string = "assets/sound.png";
   btn: boolean = true;
-  
+
   constructor() {
     this.Check();
   }
-  
-  ngDoCheck(): void{
+
+  ngDoCheck(): void {
     this.Check();
   }
 
-  ngOnInit(): void {  }
-  
+  ngOnInit(): void {
+    this.Check();
+  }
 
-  
-  protected Check(): void{
+
+
+  protected Check(): void {
+
     this.items.forEach((e: any) => {
       JSON.parse(ShopComponent.OwnedSounds).forEach((i: string) => {
         if (e.title === i) {
@@ -33,7 +36,14 @@ export class ShopSoundComponent implements OnInit {
           e.cena = "Vybrat";
           return;
         }
+
+        // if (e.sound === JonanekComponent.song) {
+        //   this.SelectSong(e);
+        // }
       });
+      if (e.sound === JonanekComponent.song) {
+        this.SelectSongRename(e);
+      }
     });
   }
 
@@ -43,19 +53,35 @@ export class ShopSoundComponent implements OnInit {
     sound.play();
   }
 
+  get Song(): string {
+    return JonanekComponent.song;
+  }
 
 
+
+
+  protected SelectSong(i: any) {
+    this.SelectSongRename(i);
+    JonanekComponent.song = i.sound;
+    window.localStorage.setItem("song", i.sound);
+    JonanekComponent.LoadSound();
+    this.Check();
+  }
+
+  protected SelectSongRename(i: any) {
+    i.cena = "Vybraný";
+  }
 
   Buy(i: any): void {
     JSON.parse(ShopComponent.OwnedSounds).forEach((e: string) => {
       if (e === i.title) {
-        window.localStorage.setItem("song", i.sound);
-        JonanekComponent.song = i.sound;
-        JonanekComponent.LoadSound();
+        this.SelectSong(i);
         return;
       }
-      ShopComponent.Buy(i);
     });
+    ShopComponent.Buy(i);
+    // this.SelectSong(i);
+    // this.Check();
   }
 
 
@@ -63,7 +89,7 @@ export class ShopSoundComponent implements OnInit {
     {
       title: "Smích",
       cena: "",
-      sound: "/assets/sounds/vole.wav",
+      sound: "/assets/sounds/nevim.wav",
       owned: false
     },
     {
@@ -117,14 +143,16 @@ export class ShopSoundComponent implements OnInit {
       title: "Plecháč",
       cena: 50000,
       sound: "/assets/sounds/plechac.wav",
-      owned: false
+      owned: false,
+      selected: false
 
     },
     {
       title: "Picus123",
       cena: 100000,
       sound: "/assets/sounds/Picus123.wav",
-      owned: false
+      owned: false,
+      selected: false
     },
   ]
 }
