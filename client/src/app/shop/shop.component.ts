@@ -48,7 +48,7 @@ export class ShopComponent implements OnInit {
       this.OwnedSounds = JSON.stringify(array)
       ShopComponent.BuySound();
 
-      //JonanekComponent.Set();
+      JonanekComponent.Set();
     }
 
     else {

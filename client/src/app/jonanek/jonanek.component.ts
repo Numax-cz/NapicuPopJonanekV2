@@ -19,8 +19,10 @@ export class JonanekComponent implements OnInit {
   protected static buffer: AudioBuffer;
   protected static ctx: AudioContext = new AudioContext();
   protected static gainNode: GainNode = JonanekComponent.ctx.createGain();
-  protected song: string = "/assets/sounds/nevim.wav";
-  protected xhr: XMLHttpRequest = new XMLHttpRequest()
+
+  public static song: string =  window.localStorage.getItem("song") || "/assets/sounds/nevim.wav";
+  public static xhr: XMLHttpRequest = new XMLHttpRequest()
+  
   protected static Move: boolean;
   SessionCounter: number = 0;
   static count: number = JonanekComponent.Counter | 0; //Money
@@ -30,11 +32,8 @@ export class JonanekComponent implements OnInit {
 
 
   constructor(@Inject(DOCUMENT) private doc: Document, private http: HttpClient, private route: ActivatedRoute) {
-
-    this.LoadSound();
+    JonanekComponent.LoadSound();
     JonanekComponent.Move = (!this.route.routeConfig?.path) ? true : false;
-
-
   }
 
   ngOnInit(): void {
@@ -71,9 +70,9 @@ export class JonanekComponent implements OnInit {
     window.localStorage.setItem("counter", JonanekComponent.count.toString());
   }
 
-  protected LoadSound(): void {
+  public static LoadSound(): void {
     JonanekComponent.gainNode.connect(JonanekComponent.ctx.destination);
-    this.xhr.open('GET', this.song, true);
+    this.xhr.open('GET', JonanekComponent.song, true);
     this.xhr.responseType = 'arraybuffer';
     this.xhr.send();
     this.xhr.onload = function () {

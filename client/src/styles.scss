@@ -51,7 +51,7 @@
     justify-content: space-around;
 }
 
-
+$ExitButtonPos: -20px;
 
 
 .ShopTitle{
@@ -92,9 +92,17 @@ a{
 #Img{
     width: 100px;
 }
+#Exit-Img{
+    width: 50px;
+    position: absolute;
+    right: $ExitButtonPos;
+    top: $ExitButtonPos;
+    
+}
 
 .owned{
-    background-color: #494949;
+    // background-color: #494949;
+    border: 2px solid #f1c40f;
 }
 .noowned{
     background-color: #4cd137;
