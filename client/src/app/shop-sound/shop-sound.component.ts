@@ -36,10 +36,10 @@ export class ShopSoundComponent implements OnInit {
           e.cena = "Vybrat";
           return;
         }
-
-        // if (e.sound === JonanekComponent.song) {
-        //   this.SelectSong(e);
-        // }
+        if (e.cena >= JonanekComponent.count && !e.owned) {
+          e.CBuy = true;
+          return;
+        }
       });
       if (e.sound === JonanekComponent.song) {
         this.SelectSongRename(e);
@@ -59,12 +59,12 @@ export class ShopSoundComponent implements OnInit {
 
 
 
-
   protected SelectSong(i: any) {
     this.SelectSongRename(i);
     JonanekComponent.song = i.sound;
     window.localStorage.setItem("song", i.sound);
     JonanekComponent.LoadSound();
+    ShopComponent.SelectSound();
     this.Check();
   }
 
@@ -73,6 +73,10 @@ export class ShopSoundComponent implements OnInit {
   }
 
   Buy(i: any): void {
+    if (i.CBuy && !i.owned) {
+      ShopComponent.ErrorSound();
+    }
+
     JSON.parse(ShopComponent.OwnedSounds).forEach((e: string) => {
       if (e === i.title) {
         this.SelectSong(i);
@@ -88,55 +92,63 @@ export class ShopSoundComponent implements OnInit {
   items = [
     {
       title: "Smích",
-      cena: "",
+      cena: "0",
       sound: "/assets/sounds/nevim.wav",
-      owned: false
+      owned: false,
+      CBuy: false
     },
     {
       title: "Vole",
       cena: 100,
       sound: "/assets/sounds/vole.wav",
-      owned: false
+      owned: false,
+      CBuy: false
     },
     {
       title: "Nemam",
       cena: 200,
       sound: "/assets/sounds/nema.wav",
-      owned: false
+      owned: false,
+      CBuy: false
 
     },
     {
       title: "Zdrave",
       cena: 450,
       sound: "/assets/sounds/zdrave.wav",
-      owned: false
+      owned: false,
+      CBuy: false
     },
     {
       title: "Síla",
       cena: 642,
       sound: "/assets/sounds/sila.wav",
-      owned: false
+      owned: false,
+      CBuy: false
 
     },
     {
       title: "AAAAAAA",
       cena: 700,
       sound: "/assets/sounds/AAAAAAA.wav",
-      owned: false
+      owned: false,
+      CBuy: false
 
     },
     {
       title: "Husté",
       cena: 850,
       sound: "/assets/sounds/huste.wav",
-      owned: false
+      owned: false,
+      CBuy: false
 
     },
     {
       title: "MMA",
       cena: 900,
       sound: "/assets/sounds/mma.wav",
-      owned: false
+      owned: false,
+      CBuy: false
 
     },
     {
@@ -144,7 +156,7 @@ export class ShopSoundComponent implements OnInit {
       cena: 1000,
       sound: "/assets/sounds/plechac.wav",
       owned: false,
-      selected: false
+      CBuy: false
 
     },
     {
@@ -152,7 +164,7 @@ export class ShopSoundComponent implements OnInit {
       cena: 2000,
       sound: "/assets/sounds/Picus123.wav",
       owned: false,
-      selected: false
+      CBuy: false
     },
   ]
 }

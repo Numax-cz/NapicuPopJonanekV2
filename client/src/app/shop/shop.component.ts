@@ -12,6 +12,7 @@ export class ShopComponent implements OnInit {
 
 
   public static OwnedSounds: string = window.localStorage.getItem("Sounds") || '["Smích"]';
+  public static readonly Volume: number = 0.2;
 
   constructor() { }
 
@@ -25,7 +26,7 @@ export class ShopComponent implements OnInit {
 
 
 
-  static Buy(e: any) {
+  public static Buy(e: any) {
     if (JonanekComponent.count >= e.cena) {
       JonanekComponent.count -= e.cena;
       var array = JSON.parse(this.OwnedSounds);
@@ -36,10 +37,21 @@ export class ShopComponent implements OnInit {
       JonanekComponent.Set();
     }
   }
-  
-  static BuySound(): void {
-    const audio = new Audio("assets/sounds/coinsound.wav")
-    audio.volume = 0.1
+
+  public static BuySound(): void {
+    const audio = new Audio("assets/sounds/Other/coinsound.wav")
+    audio.volume = this.Volume;
+    audio.play();
+  }
+
+  public static ErrorSound(): void {
+    const audio = new Audio("assets/sounds/Other/errorclick.wav");
+    audio.volume = this.Volume;
+    audio.play();
+  }
+  public static SelectSound(): void{
+    const audio = new Audio("assets/sounds/Other/select.wav");
+    audio.volume = this.Volume;
     audio.play();
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { JonanekComponent } from '../jonanek/jonanek.component';
 
 @Component({
@@ -8,12 +9,16 @@ import { JonanekComponent } from '../jonanek/jonanek.component';
 })
 export class SettingsAlertSessionComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
   clear(): void{
     window.localStorage.clear();
     JonanekComponent.Load();
+    this.router.navigate(["/shop/settings"]);
+  }
+  noclear(): void {
+    this.router.navigate(["/shop/settings"]);
   }
 }

@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="Right">
-                <div [ngClass]="i.sound == Song ? 'selected' : (i.owned ? 'owned' : 'noowned' )" class="BtnBuy"
+                <div [ngClass]="i.sound == Song ? 'selected' : i.owned ? 'owned' : i.CBuy ? 'nbuy' : 'noowned' " class="BtnBuy"
                     (click)="Buy(i)">
                     <div *ngIf="!i.owned" class="BtnBuy-Title">
                         koupit
