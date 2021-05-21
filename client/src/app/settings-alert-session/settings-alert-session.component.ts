@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { JonanekComponent } from '../jonanek/jonanek.component';
+import { ShopComponent } from '../shop/shop.component';
 
 @Component({
   selector: 'app-settings-alert-session',
@@ -16,6 +17,7 @@ export class SettingsAlertSessionComponent implements OnInit {
   clear(): void{
     window.localStorage.clear();
     JonanekComponent.Load();
+    ShopComponent.Load();
     this.router.navigate(["/shop/settings"]);
   }
   noclear(): void {

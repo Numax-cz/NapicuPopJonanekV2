@@ -3,18 +3,27 @@ import { Component, OnInit } from '@angular/core';
 import { JonanekComponent } from '../jonanek/jonanek.component';
 import { ShopComponent } from '../shop/shop.component';
 
+interface ArrayList {
+  title: string,
+  cena: string | number,
+  sound: string,
+  owned: boolean,
+  CBuy: boolean
+}
 @Component({
   selector: 'app-shop-sound',
   templateUrl: './shop-sound.component.html',
   styleUrls: ['./shop-sound.component.scss']
 })
+
+
 export class ShopSoundComponent implements OnInit {
 
   img: string = "assets/sound.png";
   btn: boolean = true;
 
   constructor() {
-    this.Check();
+    ShopComponent.Load();
   }
 
   ngDoCheck(): void {
@@ -26,10 +35,10 @@ export class ShopSoundComponent implements OnInit {
   }
 
 
-
   protected Check(): void {
 
-    this.items.forEach((e: any) => {
+
+    this.items.forEach((e: ArrayList) => {
       JSON.parse(ShopComponent.OwnedSounds).forEach((i: string) => {
         if (e.title === i) {
           e.owned = true;
@@ -47,7 +56,7 @@ export class ShopSoundComponent implements OnInit {
     });
   }
 
-  public Play(e: any): void {
+  public Play(e: ArrayList): void {
     console.log(e.sound);
     var sound = new Audio(e.sound);
     sound.play();
@@ -57,9 +66,7 @@ export class ShopSoundComponent implements OnInit {
     return JonanekComponent.song;
   }
 
-
-
-  protected SelectSong(i: any) {
+  protected SelectSong(i: ArrayList) {
     this.SelectSongRename(i);
     JonanekComponent.song = i.sound;
     window.localStorage.setItem("song", i.sound);
@@ -68,11 +75,13 @@ export class ShopSoundComponent implements OnInit {
     this.Check();
   }
 
-  protected SelectSongRename(i: any) {
+  protected SelectSongRename(i: ArrayList) {
     i.cena = "Vybraný";
   }
 
-  Buy(i: any): void {
+
+
+  public Buy(i: ArrayList): void {
     if (i.CBuy && !i.owned) {
       ShopComponent.ErrorSound();
     }
@@ -84,15 +93,13 @@ export class ShopSoundComponent implements OnInit {
       }
     });
     ShopComponent.Buy(i);
-    // this.SelectSong(i);
-    // this.Check();
   }
 
 
-  items = [
+  items: ArrayList[] = [
     {
       title: "Smích",
-      cena: "0",
+      cena: 0,
       sound: "/assets/sounds/nevim.wav",
       owned: false,
       CBuy: false

@@ -11,19 +11,19 @@ export class ShopComponent implements OnInit {
 
 
 
-  public static OwnedSounds: string = window.localStorage.getItem("Sounds") || '["Smích"]';
+  public static OwnedSounds: string;
   public static readonly Volume: number = 0.2;
 
   constructor() { }
 
   ngOnInit(): void {
+    JonanekComponent.Load();
+   }
 
 
-
-
-
+  public static Load(): void {
+    this.OwnedSounds = window.localStorage.getItem("Sounds") || '["Smích"]';
   }
-
 
 
   public static Buy(e: any) {
@@ -49,7 +49,7 @@ export class ShopComponent implements OnInit {
     audio.volume = this.Volume;
     audio.play();
   }
-  public static SelectSound(): void{
+  public static SelectSound(): void {
     const audio = new Audio("assets/sounds/Other/select.wav");
     audio.volume = this.Volume;
     audio.play();
