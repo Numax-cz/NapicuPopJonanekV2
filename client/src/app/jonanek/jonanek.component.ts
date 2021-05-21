@@ -19,17 +19,17 @@ export class JonanekComponent implements OnInit {
   protected static buffer: AudioBuffer;
   protected static ctx: AudioContext = new AudioContext();
   protected static gainNode: GainNode = JonanekComponent.ctx.createGain();
-  
-  public static volume: number = 1; // localStorage
-  public static song: string =  window.localStorage.getItem("song") || "/assets/sounds/nevim.wav";
+
+
+  public static song: string = window.localStorage.getItem("song") || "/assets/sounds/nevim.wav";
   public static xhr: XMLHttpRequest = new XMLHttpRequest()
-  
+
   protected static Move: boolean;
   SessionCounter: number = 0;
   static count: number = JonanekComponent.Counter | 0; //Money
   worldCounter: number = 0;
   readonly URL = "https://popjonanek.napicu.eu/api/update";
- 
+
 
 
   constructor(@Inject(DOCUMENT) private doc: Document, private http: HttpClient, private route: ActivatedRoute) {
@@ -104,11 +104,16 @@ export class JonanekComponent implements OnInit {
     }
   }
 
+  
+
   protected static playSound(buf: AudioBuffer): void {
+
+
     var source = JonanekComponent.ctx.createBufferSource();
+
     source.buffer = buf;
+
     source.connect(JonanekComponent.gainNode);
-    JonanekComponent.gainNode.gain.value = JonanekComponent.volume;
     source.onended = function () { if (this.stop) this.stop(); if (this.disconnect) this.disconnect(); }
     source.start(0);
   }

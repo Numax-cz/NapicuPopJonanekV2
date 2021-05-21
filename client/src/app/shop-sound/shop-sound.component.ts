@@ -94,54 +94,54 @@ export class ShopSoundComponent implements OnInit {
     },
     {
       title: "Vole",
-      cena: 1000,
+      cena: 100,
       sound: "/assets/sounds/vole.wav",
       owned: false
     },
     {
       title: "Nemam",
-      cena: 2000,
+      cena: 200,
       sound: "/assets/sounds/nema.wav",
       owned: false
 
     },
     {
       title: "Zdrave",
-      cena: 4500,
+      cena: 450,
       sound: "/assets/sounds/zdrave.wav",
       owned: false
     },
     {
       title: "Síla",
-      cena: 6422,
+      cena: 642,
       sound: "/assets/sounds/sila.wav",
       owned: false
 
     },
     {
       title: "AAAAAAA",
-      cena: 7000,
+      cena: 700,
       sound: "/assets/sounds/AAAAAAA.wav",
       owned: false
 
     },
     {
       title: "Husté",
-      cena: 8500,
+      cena: 850,
       sound: "/assets/sounds/huste.wav",
       owned: false
 
     },
     {
       title: "MMA",
-      cena: 13000,
+      cena: 900,
       sound: "/assets/sounds/mma.wav",
       owned: false
 
     },
     {
       title: "Plecháč",
-      cena: 50000,
+      cena: 1000,
       sound: "/assets/sounds/plechac.wav",
       owned: false,
       selected: false
@@ -149,7 +149,7 @@ export class ShopSoundComponent implements OnInit {
     },
     {
       title: "Picus123",
-      cena: 100000,
+      cena: 2000,
       sound: "/assets/sounds/Picus123.wav",
       owned: false,
       selected: false

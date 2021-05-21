@@ -162,6 +162,17 @@ a{
 }
 
 
+.DeleteAll{
+    background-color: #EA2027;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
 @media screen and (max-width:1283px){
     .TableProduct{
         max-width: 70%;
@@ -358,6 +369,9 @@ a{
             font-size: 1rem;
         }
     }
+
+
+
 
     .Left{
         .Item-Title{

@@ -14,6 +14,7 @@ import { ErrorComponent } from './error/error.component';
 import { ShopSoundComponent } from './shop-sound/shop-sound.component';
 import { ShopBackgroundComponent } from './shop-background/shop-background.component';
 import { SettingsComponent } from './settings/settings.component';
+import { SettingsAlertSessionComponent } from './settings-alert-session/settings-alert-session.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
     path: 'shop', component: ShopComponent, children: [
       { path: 'sound', component: ShopSoundComponent },
       { path: 'background', component: ShopBackgroundComponent },
-      { path: 'settings', component: SettingsComponent }
+      { path: 'settings', component: SettingsComponent },
+      { path: 'settings/session', component: SettingsAlertSessionComponent }
     ]
   },
   { path: '**', component: ErrorComponent }
@@ -37,6 +39,7 @@ const routes: Routes = [
     ShopSoundComponent,
     ShopBackgroundComponent,
     SettingsComponent,
+    SettingsAlertSessionComponent,
   ],
   imports: [
     BrowserModule,
