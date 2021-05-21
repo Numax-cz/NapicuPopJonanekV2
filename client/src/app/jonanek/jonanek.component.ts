@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 
 
 export class JonanekComponent implements OnInit {
-  protected static Counter: number = window.localStorage.getItem("counter") as any || 0;
+  protected static Counter: number;
   protected Clicked: boolean = false;
   protected Jonanek1: any;
   protected Jonanek2: any;
@@ -21,20 +21,21 @@ export class JonanekComponent implements OnInit {
   protected static gainNode: GainNode = JonanekComponent.ctx.createGain();
 
 
-  public static song: string = window.localStorage.getItem("song") || "/assets/sounds/nevim.wav";
+  public static song: string;
   public static xhr: XMLHttpRequest = new XMLHttpRequest()
 
   protected static Move: boolean;
   SessionCounter: number = 0;
-  static count: number = JonanekComponent.Counter | 0; //Money
+  static count: number; //Money
   worldCounter: number = 0;
   readonly URL = "https://popjonanek.napicu.eu/api/update";
 
 
 
-  constructor(@Inject(DOCUMENT) private doc: Document, private http: HttpClient, private route: ActivatedRoute) {
-    JonanekComponent.LoadSound();
+  constructor(@Inject(DOCUMENT) private doc: Document, private http: HttpClient, public route: ActivatedRoute) {
+    JonanekComponent.Load();
     JonanekComponent.Move = (!this.route.routeConfig?.path) ? true : false;
+    
   }
 
   ngOnInit(): void {
@@ -44,10 +45,13 @@ export class JonanekComponent implements OnInit {
     setInterval(() => {
       this.getApiData();
     }, 1000 * 10);
+  }
 
-
-
-
+  public static Load(): void {
+    this.song = window.localStorage.getItem("song") || "/assets/sounds/nevim.wav"
+    JonanekComponent.Counter = window.localStorage.getItem("counter") as any || 0;
+    JonanekComponent.count = JonanekComponent.Counter | 0;
+    JonanekComponent.LoadSound();
   }
 
   get count(): number {
@@ -104,7 +108,8 @@ export class JonanekComponent implements OnInit {
     }
   }
 
-  
+
+
 
   protected static playSound(buf: AudioBuffer): void {
 

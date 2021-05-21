@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JonanekComponent } from '../jonanek/jonanek.component';
 
 @Component({
   selector: 'app-settings-alert-session',
@@ -11,5 +12,8 @@ export class SettingsAlertSessionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  clear(): void{
+    window.localStorage.clear();
+    JonanekComponent.Load();
+  }
 }
