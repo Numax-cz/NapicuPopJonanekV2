@@ -57,7 +57,6 @@ export class ShopSoundComponent implements OnInit {
   }
 
   public Play(e: ArrayList): void {
-    console.log(e.sound);
     var sound = new Audio(e.sound);
     sound.play();
   }

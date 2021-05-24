@@ -20,7 +20,7 @@
                     <div *ngIf="!i.owned" class="BtnBuy-Title">
                         koupit
                     </div>
-                    <div class="BtnBuy-Prize">
+                    <div  [ngClass]="i.owned ? 'BtnBuy-Title' : 'BtnBuy-Prize'" >
                         {{i.cena}}
                     </div>
                 </div>

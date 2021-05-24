@@ -35,7 +35,7 @@ export class JonanekComponent implements OnInit {
   constructor(@Inject(DOCUMENT) private doc: Document, private http: HttpClient, public route: ActivatedRoute) {
     JonanekComponent.Load();
     JonanekComponent.Move = (!this.route.routeConfig?.path) ? true : false;
-    
+
   }
 
   ngOnInit(): void {
@@ -88,7 +88,7 @@ export class JonanekComponent implements OnInit {
   }
 
   protected Click = (e: Event): void => {
-    //e.preventDefault();
+    e.preventDefault();
     if (JonanekComponent.Move) {
       if (this.Clicked) return; this.Clicked = true; JonanekComponent.count++
       this.SessionCounter++;
@@ -100,7 +100,7 @@ export class JonanekComponent implements OnInit {
   }
 
   protected ClickNormal = (e: Event): void => {
-    //e.preventDefault();
+    e.preventDefault();
     if (JonanekComponent.Move) {
       this.Clicked = false;
       this.Jonanek1.classList.replace("none", "block");
