@@ -104,9 +104,23 @@ export class ShopSoundComponent implements OnInit {
       CBuy: false
     },
     {
+      title: "Pupek1",
+      cena: 50,
+      sound: "/assets/sounds/pupek2.wav",
+      owned: false,
+      CBuy: false
+    },
+    {
       title: "Vole",
       cena: 100,
       sound: "/assets/sounds/vole.wav",
+      owned: false,
+      CBuy: false
+    },
+    {
+      title: "Pupek2",
+      cena: 150,
+      sound: "/assets/sounds/pupek3.wav",
       owned: false,
       CBuy: false
     },
@@ -172,5 +186,13 @@ export class ShopSoundComponent implements OnInit {
       owned: false,
       CBuy: false
     },
+    {
+      title: "Pupek3",
+      cena: 2500,
+      sound: "/assets/sounds/pupek1.wav",
+      owned: false,
+      CBuy: false
+    },
+
   ]
 }
