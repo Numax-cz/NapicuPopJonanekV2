@@ -1,1 +1,32 @@
-Není zatím :(
+<div class="TableProduct">
+
+    <ul>
+        <li class="Item" *ngFor="let i of items">
+
+            <div class="Left">
+
+                <img src="{{i.img}}" id="Img">
+                <div class="Item-Title">
+                    {{i.title}}
+                    <div *ngIf="btn" class="Button" >
+                        Prohlédnout
+                    </div>
+
+                </div>
+            </div>
+            <div class="Right">
+                <div [ngClass]="i.img == Song ? 'selected' : i.owned ? 'owned' : i.CBuy ? 'nbuy' : 'noowned' " class="BtnBuy"
+                    (click)="Buy(i)">
+                    <div *ngIf="!i.owned" class="BtnBuy-Title">
+                        koupit
+                    </div>
+                    <div  [ngClass]="i.owned ? 'BtnBuy-Title' : 'BtnBuy-Prize'" >
+                        {{i.cena}}
+                    </div>
+                </div>
+            </div>
+
+        </li>
+    </ul>
+
+</div>
