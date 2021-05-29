@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { JonanekComponent } from '../jonanek/jonanek.component';
 import { ShopComponent } from '../shop/shop.component';
 
-interface ArrayList {
+export interface ArrayListSound {
   title: string,
   cena: string | number,
   sound: string,
@@ -38,7 +38,7 @@ export class ShopSoundComponent implements OnInit {
   protected Check(): void {
 
 
-    this.items.forEach((e: ArrayList) => {
+    this.items.forEach((e: ArrayListSound) => {
       JSON.parse(ShopComponent.OwnedSounds).forEach((i: string) => {
         if (e.title === i) {
           e.owned = true;
@@ -56,7 +56,7 @@ export class ShopSoundComponent implements OnInit {
     });
   }
 
-  public Play(e: ArrayList): void {
+  public Play(e: ArrayListSound): void {
     var sound = new Audio(e.sound);
     sound.play();
   }
@@ -65,24 +65,24 @@ export class ShopSoundComponent implements OnInit {
     return JonanekComponent.song;
   }
 
-  protected SelectSong(i: ArrayList) {
+  protected SelectSong(i: ArrayListSound) {
     this.SelectSongRename(i);
     JonanekComponent.song = i.sound;
     window.localStorage.setItem("song", i.sound);
     JonanekComponent.LoadSound();
-    ShopComponent.SelectSound();
+    ShopComponent.PlaySelectSound();
     this.Check();
   }
 
-  protected SelectSongRename(i: ArrayList) {
+  protected SelectSongRename(i: ArrayListSound) {
     i.cena = "Vybraný";
   }
 
 
 
-  public Buy(i: ArrayList): void {
+  public BuySong(i: ArrayListSound): void {
     if (i.CBuy && !i.owned) {
-      ShopComponent.ErrorSound();
+      ShopComponent.PlayErrorSound();
     }
 
     JSON.parse(ShopComponent.OwnedSounds).forEach((e: string) => {
@@ -91,11 +91,11 @@ export class ShopSoundComponent implements OnInit {
         return;
       }
     });
-    ShopComponent.Buy(i);
+    ShopComponent.BuySound(i);
   }
 
 
-  items: ArrayList[] = [
+  items: ArrayListSound[] = [
     {
       title: "Smích",
       cena: 0,

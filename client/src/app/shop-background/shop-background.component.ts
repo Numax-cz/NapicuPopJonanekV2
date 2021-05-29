@@ -1,13 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { JonanekComponent } from '../jonanek/jonanek.component';
 import { ShopComponent } from '../shop/shop.component';
-interface ArrayList {
+
+
+interface ArrayImg {
+  img1: string,
+  img2: string
+}
+
+
+export interface ArrayListImg {
   title: string,
   cena: string | number,
-  img: string,
+  imgs: ArrayImg[],
   owned: boolean,
   CBuy: boolean
 }
+
 
 @Component({
   selector: 'app-shop-background',
@@ -34,77 +43,72 @@ export class ShopBackgroundComponent implements OnInit {
 
 
   protected Check(): void {
-
-
-    this.items.forEach((e: ArrayList) => {
-      JSON.parse(ShopComponent.OwnedSounds).forEach((i: string) => {
-        if (e.title === i) {
-          e.owned = true;
-          e.cena = "Vybrat";
-          return;
+    this.items.forEach((e: ArrayListImg) => {
+        JSON.parse(ShopComponent.OwnedBackground).forEach((i: string) => {
+          if (e.title == i) {
+            e.owned = true;
+            e.cena = "Vybrat";
+            return;
+          }
+          if (e.cena >= JonanekComponent.count && !e.owned) {
+            e.CBuy = true;
+            return;
+          }
+        });
+        if (1 > 1) {
+          this.SelectBackgroundRename(e);
         }
-        if (e.cena >= JonanekComponent.count && !e.owned) {
-          e.CBuy = true;
-          return;
-        }
-      });
-      if (e.img === JonanekComponent.song) {
-        this.SelectSongRename(e);
-      }
     });
+
+
   }
 
 
-  get Song(): string { //ToDO Fix
-    return JonanekComponent.song;
+  get Background(): string { 
+    return JonanekComponent.background1;
   }
 
-  protected SelectSong(i: ArrayList) {
-    this.SelectSongRename(i);
-    JonanekComponent.song = i.img;
-    window.localStorage.setItem("song", i.img);
-    JonanekComponent.LoadSound();
+  protected SelectBackground(i: ArrayListImg) {
+    this.SelectBackgroundRename(i);
+    var img1 = i.imgs[0].img1;
+    var img2 = i.imgs[0].img2;
+    JonanekComponent.background1 = img1;
+    JonanekComponent.background2 = img2;
+    var list = JSON.stringify([img1, img2]);
+
+    window.localStorage.setItem("background", list);
+    JonanekComponent.LoadBackground();
     ShopComponent.PlaySelectSound();
+
     this.Check();
   }
 
-  protected SelectSongRename(i: ArrayList) {
+  protected SelectBackgroundRename(i: ArrayListImg) {
     i.cena = "Vybraný";
   }
 
 
 
-  public Buy(i: ArrayList): void {
-    if (i.CBuy && !i.owned) {
-      ShopComponent.PlayErrorSound();
-    }
+  public BuyBc(i: ArrayListImg): void {
 
-    JSON.parse(ShopComponent.OwnedSounds).forEach((e: string) => {
-      if (e === i.title) {
-        this.SelectSong(i);
-        return;
-      }
-    });
-    ShopComponent.BuySound(i);
   }
 
 
-  items: ArrayList[] = [
+  items: ArrayListImg[] = [
     {
       title: "JonánekSmích",
       cena: 0,
-      img: "/assets/Jonanek2.webp",
+      imgs: [{ img1: "/assets/Jonanek1.webp", img2: "/assets/Jonanek2.webp" }],
       owned: false,
       CBuy: false
     },
     {
       title: "JonánekSmile",
       cena: 50,
-      img: "/assets/JonanekSmile2.jpg",
+      imgs: [{ img1: "/assets/JonanekSmile1.webp", img2: "/assets/JonanekSmile2.webp" }],
       owned: false,
       CBuy: false
     },
-
 
   ]
 }

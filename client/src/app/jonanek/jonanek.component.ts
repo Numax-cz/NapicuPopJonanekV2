@@ -22,13 +22,19 @@ export class JonanekComponent implements OnInit {
 
 
   public static song: string;
-  public static xhr: XMLHttpRequest = new XMLHttpRequest()
+  
+
+  public static xhr: XMLHttpRequest = new XMLHttpRequest();
+
+  public static background1: string; //Výchozí 
+  public static background2: string;
+
 
   protected static Move: boolean;
   SessionCounter: number = 0;
-  static count: number; //Money
+  static count: number;
   worldCounter: number = 0;
-  readonly URL = "https://popjonanek.napicu.eu/api/update";
+  readonly URL = "https://api.popjonanek.napicu.eu/api/update";
 
 
 
@@ -48,7 +54,12 @@ export class JonanekComponent implements OnInit {
   }
 
   public static Load(): void {
-    this.song = window.localStorage.getItem("song") || "/assets/sounds/nevim.wav"
+    var Backgrounds = window.localStorage.getItem("background") || '["/assets/Jonanek1.webp", "/assets/Jonanek2.webp"]'
+    var Song = window.localStorage.getItem("song") || "/assets/sounds/nevim.wav"
+    
+    this.song = Song
+    this.background1 = JSON.parse(Backgrounds)[0];
+    this.background2 = JSON.parse(Backgrounds)[1];
     JonanekComponent.Counter = window.localStorage.getItem("counter") as any || 0;
     JonanekComponent.count = JonanekComponent.Counter | 0;
     JonanekComponent.LoadSound();
@@ -56,6 +67,13 @@ export class JonanekComponent implements OnInit {
 
   get count(): number {
     return JonanekComponent.count;
+  }
+
+  get background1(): string {
+    return JonanekComponent.background1
+  }
+  get background2(): string {
+    return JonanekComponent.background2
   }
 
   ngAfterViewInit(): void {
@@ -71,7 +89,7 @@ export class JonanekComponent implements OnInit {
     this.Jonanek2.addEventListener('touchend', this.ClickNormal);
   }
 
-  static Set(): void {
+  static SetCounter(): void {
     window.localStorage.setItem("counter", JonanekComponent.count.toString());
   }
 
@@ -86,6 +104,9 @@ export class JonanekComponent implements OnInit {
       });
     }
   }
+  public static LoadBackground(): void {
+
+  }
 
   protected Click = (e: Event): void => {
     e.preventDefault();
@@ -95,7 +116,7 @@ export class JonanekComponent implements OnInit {
       this.Jonanek1.classList.replace("block", "none");
       this.Jonanek2.classList.replace("none", "block");
       JonanekComponent.playSound(JonanekComponent.buffer);
-      JonanekComponent.Set();
+      JonanekComponent.SetCounter();
     }
   }
 
@@ -124,7 +145,7 @@ export class JonanekComponent implements OnInit {
   }
 
   protected getApiData(): void {
-    this.http.post<any>("https://api.popjonanek.napicu.eu/api/update", { ClickCounter: this.SessionCounter }).subscribe(data => {
+    this.http.post<any>(this.URL, { ClickCounter: this.SessionCounter }).subscribe(data => {
       this.worldCounter = data;
     });
     this.SessionCounter = 0;
