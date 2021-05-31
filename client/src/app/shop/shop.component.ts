@@ -57,19 +57,25 @@ export class ShopComponent implements OnInit {
 
 
   public static PlayBuySound(): void {
-    const audio = new Audio("assets/sounds/Other/coinsound.wav")
-    audio.volume = this.Volume;
-    audio.play();
+    if (JonanekComponent.CheckBeforePlaySn()) {
+      const audio = new Audio("assets/sounds/Other/coinsound.wav")
+      audio.volume = this.Volume;
+      audio.play();
+    }
   }
 
   public static PlayErrorSound(): void {
-    const audio = new Audio("assets/sounds/Other/errorclick.wav");
-    audio.volume = this.Volume;
-    audio.play();
+    if (JonanekComponent.CheckBeforePlaySn()) {
+      const audio = new Audio("assets/sounds/Other/errorclick.wav");
+      audio.volume = this.Volume;
+      audio.play();
+    }
   }
   public static PlaySelectSound(): void {
-    const audio = new Audio("assets/sounds/Other/select.wav");
-    audio.volume = this.Volume;
-    audio.play();
+    if (JonanekComponent.CheckBeforePlaySn()) {
+      const audio = new Audio("assets/sounds/Other/select.wav");
+      audio.volume = this.Volume;
+      audio.play();
+    }
   }
 }

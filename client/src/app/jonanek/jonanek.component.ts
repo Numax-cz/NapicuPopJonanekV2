@@ -22,14 +22,14 @@ export class JonanekComponent implements OnInit {
 
 
   public static song: string;
-  
+
 
   public static xhr: XMLHttpRequest = new XMLHttpRequest();
 
   public static background1: string; //Výchozí 
   public static background2: string;
 
-
+  public static SoundsVoice: boolean;
   protected static Move: boolean;
   SessionCounter: number = 0;
   static count: number;
@@ -56,13 +56,14 @@ export class JonanekComponent implements OnInit {
   public static Load(): void {
     var Backgrounds = window.localStorage.getItem("background") || '["/assets/Jonanek1.webp", "/assets/Jonanek2.webp"]'
     var Song = window.localStorage.getItem("song") || "/assets/sounds/nevim.wav"
-    
+    this.LoadAllVoice();
     this.song = Song
     this.background1 = JSON.parse(Backgrounds)[0];
     this.background2 = JSON.parse(Backgrounds)[1];
     JonanekComponent.Counter = window.localStorage.getItem("counter") as any || 0;
     JonanekComponent.count = JonanekComponent.Counter | 0;
     JonanekComponent.LoadSound();
+    JonanekComponent.LoadBackground();
   }
 
   get count(): number {
@@ -89,8 +90,16 @@ export class JonanekComponent implements OnInit {
     this.Jonanek2.addEventListener('touchend', this.ClickNormal);
   }
 
-  static SetCounter(): void {
+  public static SetCounter(): void {
     window.localStorage.setItem("counter", JonanekComponent.count.toString());
+  }
+  public static OffVoice(): void{
+    window.localStorage.setItem("allsound", "false");
+    this.LoadAllVoice();
+  }
+  public static OnVoice(): void{
+    window.localStorage.removeItem("allsound");
+    this.LoadAllVoice();
   }
 
   public static LoadSound(): void {
@@ -106,6 +115,9 @@ export class JonanekComponent implements OnInit {
   }
   public static LoadBackground(): void {
 
+  }
+  public static LoadAllVoice(): void {
+    JonanekComponent.SoundsVoice = !window.localStorage.getItem("allsound") ? true : false;
   }
 
   protected Click = (e: Event): void => {
@@ -129,19 +141,22 @@ export class JonanekComponent implements OnInit {
     }
   }
 
-
+  public static CheckBeforePlaySn(): boolean {
+    if (JonanekComponent.SoundsVoice) {
+      return true;
+    }
+    return false;
+  }
 
 
   protected static playSound(buf: AudioBuffer): void {
-
-
-    var source = JonanekComponent.ctx.createBufferSource();
-
-    source.buffer = buf;
-
-    source.connect(JonanekComponent.gainNode);
-    source.onended = function () { if (this.stop) this.stop(); if (this.disconnect) this.disconnect(); }
-    source.start(0);
+    if (JonanekComponent.CheckBeforePlaySn()) {
+      var source = JonanekComponent.ctx.createBufferSource();
+      source.buffer = buf;
+      source.connect(JonanekComponent.gainNode);
+      source.onended = function () { if (this.stop) this.stop(); if (this.disconnect) this.disconnect(); }
+      source.start(0);
+    }
   }
 
   protected getApiData(): void {

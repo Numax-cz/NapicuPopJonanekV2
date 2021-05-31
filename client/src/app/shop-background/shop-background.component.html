@@ -16,7 +16,7 @@
             </div>
             <div class="Right">
                 <div [ngClass]="i.imgs[0].img1 == Background ? 'selected' : i.owned ? 'owned' : i.CBuy ? 'nbuy' : 'noowned' " class="BtnBuy"
-                    (click)="BuyBc(i)" >
+                    (click)="BuyBackground(i)" >
                     <div *ngIf="!i.owned" class="BtnBuy-Title">
                         koupit
                     </div>

@@ -45,7 +45,7 @@ export class ShopBackgroundComponent implements OnInit {
   protected Check(): void {
     this.items.forEach((e: ArrayListImg) => {
         JSON.parse(ShopComponent.OwnedBackground).forEach((i: string) => {
-          if (e.title == i) {
+          if (e.title === i) {
             e.owned = true;
             e.cena = "Vybrat";
             return;
@@ -55,7 +55,7 @@ export class ShopBackgroundComponent implements OnInit {
             return;
           }
         });
-        if (1 > 1) {
+        if (e.imgs[0].img1 === JonanekComponent.background1 ) {
           this.SelectBackgroundRename(e);
         }
     });
@@ -89,8 +89,17 @@ export class ShopBackgroundComponent implements OnInit {
 
 
 
-  public BuyBc(i: ArrayListImg): void {
-
+  public BuyBackground(i: ArrayListImg): void {
+    if (i.CBuy && !i.owned) {
+      ShopComponent.PlayErrorSound();
+    }
+    JSON.parse(ShopComponent.OwnedBackground).forEach((e: string) => {
+      if (e === i.title) {
+        this.SelectBackground(i);
+        return;
+      }
+    });
+    ShopComponent.BuyBackground(i);
   }
 
 
