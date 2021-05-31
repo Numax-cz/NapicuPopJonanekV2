@@ -42,6 +42,7 @@ export class ShopComponent implements OnInit {
     if (this.Price(e)) {
       var array = JSON.parse(this.OwnedBackground);
       array.push(e.title);
+      this.OwnedBackground = JSON.stringify(array);
     }
   }
 

@@ -54,16 +54,13 @@ export class JonanekComponent implements OnInit {
   }
 
   public static Load(): void {
-    var Backgrounds = window.localStorage.getItem("background") || '["/assets/Jonanek1.webp", "/assets/Jonanek2.webp"]'
     var Song = window.localStorage.getItem("song") || "/assets/sounds/nevim.wav"
-    this.LoadAllVoice();
     this.song = Song
-    this.background1 = JSON.parse(Backgrounds)[0];
-    this.background2 = JSON.parse(Backgrounds)[1];
-    JonanekComponent.Counter = window.localStorage.getItem("counter") as any || 0;
-    JonanekComponent.count = JonanekComponent.Counter | 0;
-    JonanekComponent.LoadSound();
-    JonanekComponent.LoadBackground();
+    this.Counter = window.localStorage.getItem("counter") as any || 0;
+    this.count = JonanekComponent.Counter | 0;
+    this.LoadAllVoice();
+    this.LoadSound();
+    this.LoadBackground();
   }
 
   get count(): number {
@@ -93,11 +90,11 @@ export class JonanekComponent implements OnInit {
   public static SetCounter(): void {
     window.localStorage.setItem("counter", JonanekComponent.count.toString());
   }
-  public static OffVoice(): void{
+  public static OffVoice(): void {
     window.localStorage.setItem("allsound", "false");
     this.LoadAllVoice();
   }
-  public static OnVoice(): void{
+  public static OnVoice(): void {
     window.localStorage.removeItem("allsound");
     this.LoadAllVoice();
   }
@@ -113,9 +110,13 @@ export class JonanekComponent implements OnInit {
       });
     }
   }
-  public static LoadBackground(): void {
 
+  public static LoadBackground(): void {
+    var Backgrounds = window.localStorage.getItem("background") || '["/assets/Jonanek1.webp", "/assets/Jonanek2.webp"]'
+    this.background1 = JSON.parse(Backgrounds)[0];
+    this.background2 = JSON.parse(Backgrounds)[1];
   }
+
   public static LoadAllVoice(): void {
     JonanekComponent.SoundsVoice = !window.localStorage.getItem("allsound") ? true : false;
   }
