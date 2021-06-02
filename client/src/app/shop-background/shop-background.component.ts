@@ -44,27 +44,26 @@ export class ShopBackgroundComponent implements OnInit {
 
   protected Check(): void {
     this.items.forEach((e: ArrayListImg) => {
-        JSON.parse(ShopComponent.OwnedBackground).forEach((i: string) => {
-          if (e.title === i) {
-            e.owned = true;
-            e.cena = "Vybrat";
-            return;
-          }
-          if (e.cena >= JonanekComponent.count && !e.owned) {
-            e.CBuy = true;
-            return;
-          }
-        });
-        if (e.imgs[0].img1 === JonanekComponent.background1 ) {
-          this.SelectBackgroundRename(e);
+      JSON.parse(ShopComponent.OwnedBackground).forEach((i: string) => {
+
+        if (e.title === i) {
+          e.owned = true;
+          e.cena = "Vybrat";
+          return;
         }
+        if (e.cena >= JonanekComponent.count && !e.owned) {
+          e.CBuy = true;
+          return;
+        }
+      });
+      if (e.imgs[0].img1 === JonanekComponent.background1) {
+        this.SelectBackgroundRename(e);
+      }
     });
-
-
   }
 
 
-  get Background(): string { 
+  get Background(): string {
     return JonanekComponent.background1;
   }
 
@@ -105,14 +104,14 @@ export class ShopBackgroundComponent implements OnInit {
 
   items: ArrayListImg[] = [
     {
-      title: "JonánekSmích",
+      title: "Smích",
       cena: 0,
       imgs: [{ img1: "/assets/Jonanek1.webp", img2: "/assets/Jonanek2.webp" }],
       owned: false,
       CBuy: false
     },
     {
-      title: "JonánekSmile",
+      title: "Smile",
       cena: 50,
       imgs: [{ img1: "/assets/JonanekSmile1.webp", img2: "/assets/JonanekSmile2.webp" }],
       owned: false,

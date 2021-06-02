@@ -26,7 +26,7 @@ export class ShopComponent implements OnInit {
 
   public static Load(): void {
     this.OwnedSounds = window.localStorage.getItem("Sounds") || '["Smích"]';
-    this.OwnedBackground = window.localStorage.getItem("Backgrounds") || '["JonánekSmích"]';
+    this.OwnedBackground = window.localStorage.getItem("Backgrounds") || '["Smích"]';
   }
 
   public static BuySound(e: ArrayListSound) {
@@ -42,6 +42,7 @@ export class ShopComponent implements OnInit {
     if (this.Price(e)) {
       var array = JSON.parse(this.OwnedBackground);
       array.push(e.title);
+      localStorage.setItem("Backgrounds", JSON.stringify(array));
       this.OwnedBackground = JSON.stringify(array);
     }
   }
