@@ -111,6 +111,13 @@ export class ShopSoundComponent implements OnInit {
       CBuy: false
     },
     {
+      title: "Bum!!",
+      cena: 80,
+      sound: "/assets/sounds/bum.wav",
+      owned: false,
+      CBuy: false
+    },
+    {
       title: "Vole",
       cena: 100,
       sound: "/assets/sounds/vole.wav",
@@ -121,6 +128,20 @@ export class ShopSoundComponent implements OnInit {
       title: "Pupek2",
       cena: 150,
       sound: "/assets/sounds/pupek3.wav",
+      owned: false,
+      CBuy: false
+    },
+    {
+      title: "Ha",
+      cena: 170,
+      sound: "/assets/sounds/ha.wav",
+      owned: false,
+      CBuy: false
+    },
+    {
+      title: "Hahaha",
+      cena: 580,
+      sound: "/assets/sounds/hahaha.wav",
       owned: false,
       CBuy: false
     },
@@ -140,6 +161,13 @@ export class ShopSoundComponent implements OnInit {
       CBuy: false
     },
     {
+      title: "Hmmm",
+      cena: 500,
+      sound: "/assets/sounds/hm.wav",
+      owned: false,
+      CBuy: false
+    },
+    {
       title: "Síla",
       cena: 642,
       sound: "/assets/sounds/sila.wav",
@@ -151,6 +179,14 @@ export class ShopSoundComponent implements OnInit {
       title: "AAAAAAA",
       cena: 700,
       sound: "/assets/sounds/AAAAAAA.wav",
+      owned: false,
+      CBuy: false
+
+    },
+    {
+      title: "Nechtěl bych",
+      cena: 725,
+      sound: "/assets/sounds/nechtelbych.wav",
       owned: false,
       CBuy: false
 
