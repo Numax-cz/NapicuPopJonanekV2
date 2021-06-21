@@ -4,7 +4,7 @@
 ## Instalace 
 1. Naklonování repozitáře
     ```sh
-    git clone https://github.com/Numax-cz/NapicuPopJonanekV2
+    git clone https://github.com/Numax-cz/NapicuPopJonanekV2.git
    ```
 2. Nainstalování balíčků (server)
    ```sh

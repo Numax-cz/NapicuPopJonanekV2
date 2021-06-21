@@ -1,6 +1,10 @@
 # PopJonanek 2 - Web
 ## Instalace
-1. Nainstalování balíčků (web)
+1. Naklonování repozitáře
+    ```sh
+    git clone https://github.com/Numax-cz/NapicuPopJonanekV2.git
+   ```
+2. Nainstalování balíčků (web)
    ```sh
    npm install
    ```

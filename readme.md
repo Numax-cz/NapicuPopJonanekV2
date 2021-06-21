@@ -2,7 +2,7 @@
 * Vytvořeno v [Angular](https://angular.io/)
 1. Naklonování repozitáře
     ```sh
-    git clone https://github.com/Numax-cz/NapicuPopJonanekV2
+    git clone https://github.com/Numax-cz/NapicuPopJonanekV2.git
    ```
 ## PopJonanek 2 - Web
 ### Instalace
