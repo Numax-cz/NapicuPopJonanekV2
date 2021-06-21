@@ -4,13 +4,13 @@
     ```sh
     git clone https://github.com/Numax-cz/NapicuPopJonanekV2
    ```
-# PopJonanek 2 - Web
-## Instalace
+## PopJonanek 2 - Web
+### Instalace
 1. Nainstalování balíčků (web)
    ```sh
    npm install
    ```
-## Spuštění 
+#### Spuštění 
 1. Spuštění aplikace na localhostu
    ```sh
    npm run start
@@ -19,10 +19,10 @@
    ```sh
    npm run build
    ```
-# PopJonanek 2 - Api
+## PopJonanek 2 - Api
 * Api pro [PopJonanek](https://popjonanek.napicu.eu)
 * Aplikace pro zobrazení světového skore
-## Instalace 
+### Instalace 
 1. Nainstalování balíčků (server)
    ```sh
    npm install
@@ -43,7 +43,7 @@
     DB_DB=
     DB_PASS=
     ```
-## Spuštění 
+### Spuštění 
 2. Spuštění aplikace
 * Server
     ```sh
