@@ -118,5 +118,37 @@ export class ShopBackgroundComponent implements OnInit {
       CBuy: false
     },
 
+
+
+
+    {
+      title: "JonanekThinking",
+      cena: 100,
+      imgs: [{ img1: "/assets/Thinking1.webp", img2: "/assets/Thinking2.webp" }],
+      owned: false,
+      CBuy: false
+    },
+    {
+      title: "JonanekVenku",
+      cena: 150,
+      imgs: [{ img1: "/assets/JonanekVenku1.webp", img2: "/assets/JonanekVenku2.webp" }],
+      owned: false,
+      CBuy: false
+    },
+    {
+      title: "JonanekSpi",
+      cena: 200,
+      imgs: [{ img1: "/assets/JonanekSpi1.webp", img2: "/assets/JonanekSpi2.webp" }],
+      owned: false,
+      CBuy: false
+    },
+    {
+      title: "JonanekBirell",
+      cena: 350,
+      imgs: [{ img1: "/assets/JonanekLavice1.webp", img2: "/assets/JonanekLavice2.webp" }],
+      owned: false,
+      CBuy: false
+    },
+
   ]
 }
