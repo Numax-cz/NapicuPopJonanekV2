@@ -19,13 +19,9 @@ app.all("/*", function (req, res, next) {
 
 app.post("/api/update", (req, res) => {
     var ClickCounter = req.body.ClickCounter;
-
-
-
     if (ClickCounter > 1000) {
         ClickCounter = 1000
     }
-
     connection.query(`SELECT counter FROM popjonanek WHERE id='1'`, function (err, DataBaseData, fl) {
         var x = Math.floor(ClickCounter);
         var y = DataBaseData[0].counter + x;
