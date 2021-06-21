@@ -53,7 +53,7 @@
     ```sh
     npm run start
     ```
-# Další odkazy komponentů
+# Další odkazy 
 * [Jonanek (Hlavní stránka)](https://github.com/Numax-cz/NapicuPopJonanekV2/tree/main/client/src/app/jonanek)
 * [Nastavení](https://github.com/Numax-cz/NapicuPopJonanekV2/tree/main/client/src/app/settings)
 * [Nastavení - session](https://github.com/Numax-cz/NapicuPopJonanekV2/tree/main/client/src/app/settings-alert-session)
