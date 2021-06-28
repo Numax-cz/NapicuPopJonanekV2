@@ -51,7 +51,7 @@
     ```
 * Developer 
     ```sh
-    npm run start
+    npm run dev
     ```
 # Další odkazy 
 * [Jonanek (Hlavní stránka)](https://github.com/Numax-cz/NapicuPopJonanekV2/tree/main/client/src/app/jonanek)
