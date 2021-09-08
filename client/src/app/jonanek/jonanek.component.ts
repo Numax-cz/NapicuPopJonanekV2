@@ -1,16 +1,13 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-
 
 @Component({
   selector: 'napicu-jonanek',
   templateUrl: './jonanek.component.html',
-  styleUrls: ['./jonanek.component.scss']
+  styleUrls: ['./jonanek.component.scss'],
 })
-
-
 export class JonanekComponent implements OnInit {
   protected static Counter: number;
   protected Clicked: boolean = false;
@@ -19,14 +16,12 @@ export class JonanekComponent implements OnInit {
   protected static buffer: AudioBuffer;
   protected static ctx: AudioContext = new AudioContext();
   protected static gainNode: GainNode = JonanekComponent.ctx.createGain();
-
-
+  public static shopOpen: boolean;
   public static song: string;
-
 
   public static xhr: XMLHttpRequest = new XMLHttpRequest();
 
-  public static background1: string; //Výchozí 
+  public static background1: string; //Výchozí
   public static background2: string;
 
   public static SoundsVoice: boolean;
@@ -34,47 +29,22 @@ export class JonanekComponent implements OnInit {
   SessionCounter: number = 0;
   static count: number;
   worldCounter: number = 0;
-  readonly URL = "https://api.popjonanek.napicu.eu/api/update";
-
-
+  readonly URL = 'https://api.popjonanek.napicu.eu/api/update';
 
   constructor(@Inject(DOCUMENT) private doc: Document, private http: HttpClient, public route: ActivatedRoute) {
     JonanekComponent.Load();
-    JonanekComponent.Move = (!this.route.routeConfig?.path) ? true : false;
-
+    JonanekComponent.shopOpen = true;
+    JonanekComponent.Move = !this.route.routeConfig?.path ? true : false;
   }
-
+  
   ngOnInit(): void {
-    this.Jonanek1 = this.doc.getElementById("Jonanek1");
-    this.Jonanek2 = this.doc.getElementById("Jonanek2");
+    this.Jonanek1 = this.doc.getElementById('Jonanek1');
+    this.Jonanek2 = this.doc.getElementById('Jonanek2');
     this.getApiData();
     setInterval(() => {
       this.getApiData();
     }, 1000 * 10);
-  }
 
-  public static Load(): void {
-    var Song = window.localStorage.getItem("song") || "/assets/sounds/nevim.wav"
-    this.song = Song
-    this.Counter = window.localStorage.getItem("counter") as any || 0;
-    this.count = JonanekComponent.Counter | 0;
-    this.LoadAllVoice();
-    this.LoadSound();
-    this.LoadBackground();
-  }
-
-  get count(): number {
-    return JonanekComponent.count;
-  }
-
-  get background1(): string {
-    return JonanekComponent.background1
-  }
-  get background2(): string {
-    return JonanekComponent.background2
-  }
-
-  ngAfterViewInit(): void {
     window.addEventListener('keydown', this.Click);
     this.Jonanek1.addEventListener('touchstart', this.Click);
     this.Jonanek2.addEventListener('touchstart', this.Click);
@@ -85,17 +55,43 @@ export class JonanekComponent implements OnInit {
     this.Jonanek1.addEventListener('touchend', this.ClickNormal);
     this.Jonanek2.addEventListener('mouseup', this.ClickNormal);
     this.Jonanek2.addEventListener('touchend', this.ClickNormal);
+
   }
 
+  public static Load(): void {
+    var Song = window.localStorage.getItem('song') || '/assets/sounds/nevim.wav';
+    this.song = Song;
+    this.Counter = (window.localStorage.getItem('counter') as any) || 0;
+    this.count = JonanekComponent.Counter | 0;
+    this.LoadAllVoice();
+    this.LoadSound();
+    this.LoadBackground();
+  }
+
+  get count(): number {
+    return JonanekComponent.count;
+  }
+  get shopOpen(): boolean{
+    return JonanekComponent.shopOpen;
+  }
+  get background1(): string {
+    return JonanekComponent.background1;
+  }
+  get background2(): string {
+    return JonanekComponent.background2;
+  }
+
+  ngAfterViewInit(): void {}
+
   public static SetCounter(): void {
-    window.localStorage.setItem("counter", JonanekComponent.count.toString());
+    window.localStorage.setItem('counter', JonanekComponent.count.toString());
   }
   public static OffVoice(): void {
-    window.localStorage.setItem("allsound", "false");
+    window.localStorage.setItem('allsound', 'false');
     this.LoadAllVoice();
   }
   public static OnVoice(): void {
-    window.localStorage.removeItem("allsound");
+    window.localStorage.removeItem('allsound');
     this.LoadAllVoice();
   }
 
@@ -108,39 +104,41 @@ export class JonanekComponent implements OnInit {
       JonanekComponent.ctx.decodeAudioData(this.response, function (b) {
         JonanekComponent.buffer = b;
       });
-    }
+    };
   }
 
   public static LoadBackground(): void {
-    var Backgrounds = window.localStorage.getItem("background") || '["/assets/Jonanek1.webp", "/assets/Jonanek2.webp"]'
+    var Backgrounds = window.localStorage.getItem('background') || '["/assets/Jonanek1.webp", "/assets/Jonanek2.webp"]';
     this.background1 = JSON.parse(Backgrounds)[0];
     this.background2 = JSON.parse(Backgrounds)[1];
   }
 
   public static LoadAllVoice(): void {
-    JonanekComponent.SoundsVoice = !window.localStorage.getItem("allsound") ? true : false;
+    JonanekComponent.SoundsVoice = !window.localStorage.getItem('allsound') ? true : false;
   }
 
   protected Click = (e: Event): void => {
     e.preventDefault();
     if (JonanekComponent.Move) {
-      if (this.Clicked) return; this.Clicked = true; JonanekComponent.count++
+      if (this.Clicked) return;
+      this.Clicked = true;
+      JonanekComponent.count++;
       this.SessionCounter++;
-      this.Jonanek1.classList.replace("block", "none");
-      this.Jonanek2.classList.replace("none", "block");
+      this.Jonanek1.classList.replace('block', 'none');
+      this.Jonanek2.classList.replace('none', 'block');
       JonanekComponent.playSound(JonanekComponent.buffer);
       JonanekComponent.SetCounter();
     }
-  }
+  };
 
   protected ClickNormal = (e: Event): void => {
     e.preventDefault();
     if (JonanekComponent.Move) {
       this.Clicked = false;
-      this.Jonanek1.classList.replace("none", "block");
-      this.Jonanek2.classList.replace("block", "none");
+      this.Jonanek1.classList.replace('none', 'block');
+      this.Jonanek2.classList.replace('block', 'none');
     }
-  }
+  };
 
   public static CheckBeforePlaySn(): boolean {
     if (JonanekComponent.SoundsVoice) {
@@ -149,22 +147,23 @@ export class JonanekComponent implements OnInit {
     return false;
   }
 
-
   protected static playSound(buf: AudioBuffer): void {
     if (JonanekComponent.CheckBeforePlaySn()) {
       var source = JonanekComponent.ctx.createBufferSource();
       source.buffer = buf;
       source.connect(JonanekComponent.gainNode);
-      source.onended = function () { if (this.stop) this.stop(); if (this.disconnect) this.disconnect(); }
+      source.onended = function () {
+        if (this.stop) this.stop();
+        if (this.disconnect) this.disconnect();
+      };
       source.start(0);
     }
   }
 
   protected getApiData(): void {
-    this.http.post<any>(this.URL, { ClickCounter: this.SessionCounter }).subscribe(data => {
+    this.http.post<any>(this.URL, { ClickCounter: this.SessionCounter }).subscribe((data) => {
       this.worldCounter = data;
     });
     this.SessionCounter = 0;
   }
 }
-

@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
-import { RouterModule, Routes } from "@angular/router";
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 
-
-import { AppComponent } from "./app.component";
+import { AppComponent } from './app.component';
 import { JonanekComponent } from './jonanek/jonanek.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -16,39 +15,31 @@ import { ShopBackgroundComponent } from './shop-background/shop-background.compo
 import { SettingsComponent } from './settings/settings.component';
 import { SettingsAlertSessionComponent } from './settings-alert-session/settings-alert-session.component';
 
-
 const routes: Routes = [
-  { path: '', component: JonanekComponent },
   {
-    path: 'shop', component: ShopComponent, children: [
-      { path: 'sound', component: ShopSoundComponent },
-      { path: 'background', component: ShopBackgroundComponent },
-      { path: 'settings', component: SettingsComponent },
-      { path: 'settings/session', component: SettingsAlertSessionComponent }
-    ]
+    path: '',
+    component: JonanekComponent,
+    children: [
+      {
+        path: 'shop',
+        component: ShopComponent,
+        children: [
+          { path: 'sound', component: ShopSoundComponent },
+          { path: 'background', component: ShopBackgroundComponent },
+          { path: 'settings', component: SettingsComponent },
+          { path: 'settings/session', component: SettingsAlertSessionComponent },
+        ],
+      },
+    ],
   },
-  { path: '**', component: ErrorComponent }
-]
+  {},
+  { path: '**', component: ErrorComponent },
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    JonanekComponent,
-    ShopComponent,
-    ErrorComponent,
-    ShopSoundComponent,
-    ShopBackgroundComponent,
-    SettingsComponent,
-    SettingsAlertSessionComponent,
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
-    AppRoutingModule,
-    RouterModule.forRoot(routes)
-  ],
+  declarations: [AppComponent, JonanekComponent, ShopComponent, ErrorComponent, ShopSoundComponent, ShopBackgroundComponent, SettingsComponent, SettingsAlertSessionComponent],
+  imports: [BrowserModule, HttpClientModule, environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [], AppRoutingModule, RouterModule.forRoot(routes)],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
