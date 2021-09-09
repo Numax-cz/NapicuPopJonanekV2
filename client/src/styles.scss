@@ -1,683 +1,624 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    user-select: none;
-    font-family: 'Source Code Pro', monospace;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: 'Source Code Pro', monospace;
 }
 
-
-
-#Shop{
-    position: absolute;
-    width: 60%;
-    height: 90vh;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    background-color: rgb(39, 110, 198);
-    border-radius: 15px;
-    
+#Shop {
+  position: absolute;
+  width: 60%;
+  height: 90vh;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  background-color: rgb(39, 110, 198);
+  border-radius: 15px;
 }
-
 
 ::-webkit-scrollbar {
-    width: 10px;
-}
-  
-  /* Track */
-::-webkit-scrollbar-track {
-    background: rgba(48, 70, 99, 0.637); 
-}
-   
-  /* Handle */
-::-webkit-scrollbar-thumb {
-    background: #747d8c; 
-}
-  
-  /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #57606f; 
+  width: 10px;
 }
 
-.Op{
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(48, 70, 99, 0.637);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #747d8c;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #57606f;
+}
+
+.Op {
+  margin-top: 2%;
+  margin-bottom: 4%;
+  width: 100%;
+  max-width: 60%;
+  margin-left: auto;
+  font-size: 1.5rem;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.marginImg {
+  margin-left: 10%;
+}
+.ShopTitle {
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  padding-top: 20px;
+}
+.TableProduct {
+  max-height: 65vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 60%;
+  margin-left: auto;
+  padding: 20px;
+  margin-right: auto;
+}
+
+ul {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.Item {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  justify-content: space-between;
+}
+#Img {
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+  max-height: 100px;
+  max-width: 100px;
+}
+#Exit-Img {
+  width: 50px;
+  position: absolute;
+  right: -20px;
+  top: -20px;
+}
+
+.owned {
+  // background-color: #494949;
+  border: 2px solid #f1c40f;
+}
+.noowned {
+  background-color: #4cd137;
+}
+.selected {
+  border: 2px solid #e74c3c;
+}
+
+.BtnBuy {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  .BtnBuy-Title {
+    user-select: none;
+    font-size: 1.5rem;
+  }
+  .BtnBuy-Prize {
+    user-select: none;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+}
+.Left {
+  display: flex;
+  align-items: center;
+}
+
+.Item-Title {
+  font-size: 2rem;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  margin-left: 8%;
+  width: 100%;
+}
+.nomargin {
+  margin-left: 0%;
+}
+.Button {
+  font-size: 1.3rem;
+  background-color: #00a8ff;
+  margin-top: 5%;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px;
+}
+.Button:hover {
+  background-color: #0097e6;
+}
+
+.noowned:hover {
+  background-color: #44bd32;
+}
+.Right {
+  display: flex;
+  align-items: center;
+}
+
+.nbuy {
+  background-color: #718093;
+}
+
+.DeleteAll {
+  background-color: #ea2027;
+  border: none;
+  outline: none;
+  font-size: 1.4rem;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.block {
+  display: block;
+}
+.none {
+  display: none;
+}
+
+#count {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 5rem;
+}
+
+#Jonanek1,
+#Jonanek2 {
+  width: 100%;
+  height: 100vh;
+}
+
+#Stats {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.Table {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 20px;
+  font-size: 1.5rem;
+}
+#MenuShop {
+  width: 43px;
+  cursor: pointer;
+  float: right;
+}
+@media screen and (max-width: 1691px) {
+  .Item-Title {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 1489px) {
+  .Item-Title {
+    font-size: 1.5rem;
+    margin-left: 1.45%;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .Op {
     margin-top: 2%;
     margin-bottom: 4%;
-    width: 100%;
     max-width: 60%;
-    margin-left: auto;
     font-size: 1.5rem;
-    margin-right: auto;
-    display: flex;
-    justify-content: space-around;
-}
-
-
-
-.ShopTitle{
-    text-align: center;
-    font-size: 2rem;
-    color: white;
-    padding-top: 20px;
-}
-.TableProduct{
-    max-height: 65vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    width: 100%;
+  }
+  .TableProduct {
+    max-height: 70vh;
     max-width: 60%;
-    margin-left: auto;
     padding: 20px;
-    margin-right: auto;
-}
-
-
-ul{
-    width: 100%;
-}
-a{
-    text-decoration: none;
-    color: white;
-}
-.Item{
-    display: flex;
-    width: 100%;
-    padding: 10px;
-    background-color: white;
-    border-radius: 10px;
-    margin-bottom: 50px;
-    justify-content: space-between;
-    
-}
-#Img{
-    width: 100px;
-    height: 100px;
-    min-width: 100px;
-    max-height: 100px;
-    max-width: 100px;
-}
-#Exit-Img{
+  }
+  #Shop {
+    width: 60%;
+  }
+  #Img {
+    width: 90px;
+    height: 90px;
+    min-width: 90px;
+    max-height: 90px;
+    max-width: 90px;
+  }
+  #Exit-Img {
     width: 50px;
     position: absolute;
     right: -20px;
     top: -20px;
-    
-}
-
-.owned{
-    // background-color: #494949;
-    border: 2px solid #f1c40f;
-}
-.noowned{
-    background-color: #4cd137;
-}
-.selected{
-    border: 2px solid #e74c3c;
-
-}
-
-.BtnBuy{
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    .BtnBuy-Title{
-        user-select: none;
-        font-size: 1.5rem;
-    }
-    .BtnBuy-Prize{
-        user-select: none;
-        font-size: 1.3rem;
-        text-align: center;
-    }
-}
-.Left{
-    display: flex;
-    align-items: center;
-    .Item-Title{
-        font-size: 2rem;
-        padding: 10px;
-        margin-left: 7%;
-        .Button{
-            font-size: 1.3rem;
-            background-color: #00a8ff;
-            margin-top: 5%;
-            user-select: none;
-            cursor: pointer;
-            border-radius: 10px;
-            padding: 10px;
-        }
-    }
-}
-
-.Left{
-    .Item-Title{
-        .Button:hover{
-
-            background-color: #0097e6;
-
-        }
-    }
-}
-.noowned:hover{
-    background-color: #44bd32;
-}
-.Right{
-    display: flex;
-    align-items: center;
-}
-
-.nbuy{
-    background-color: #718093;
-}
-
-
-.DeleteAll{
-    background-color: #EA2027;
-    border: none;
-    outline: none;
+  }
+  .Item-Title {
     font-size: 1.4rem;
+    margin-left: 1.45%;
+  }
+  .BtnBuy {
     padding: 10px;
     border-radius: 10px;
-    cursor: pointer;
+    .BtnBuy-Title {
+      font-size: 1.3rem;
+    }
+    .BtnBuy-Prize {
+      font-size: 1.25rem;
+    }
+  }
+}
+@media screen and (max-width: 1267px) {
+  .Item-Title {
+    font-size: 1.265rem;
+  }
 }
 
-
-
-
-
-.block{
-    display: block;
-}
-.none{
-    display: none;
-}
-
-#count{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    text-align: center;
-    font-size: 5rem;
-}
-
-#Jonanek1,
-#Jonanek2{
-    width: 100%;
-    height: 100vh;
-}
-
-
-#Stats{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-.Table{
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: white;
-    padding: 20px;
+@media screen and (max-width: 1210px) {
+  .Op {
+    margin-top: 2%;
+    margin-bottom: 4%;
+    max-width: 60%;
     font-size: 1.5rem;
-}
-#MenuShop{
-    width: 43px;
-    cursor: pointer;
-    float: right;
-}
-
-
-@media screen and (max-width:1303px){
-    .Op{
-        margin-top: 2%;
-        margin-bottom: 4%;
-        max-width: 60%;
-        font-size: 1.5rem;
+  }
+  .TableProduct {
+    max-height: 50vh;
+    max-width: 60%;
+    padding: 20px;
+  }
+  #Shop {
+    width: 80%;
+    height: 90vh;
+  }
+  #Img {
+    width: 90px;
+    height: 90px;
+    min-width: 90px;
+    max-height: 90px;
+    max-width: 90px;
+  }
+  #Exit-Img {
+    width: 50px;
+    position: absolute;
+    right: -20px;
+    top: -20px;
+  }
+  .Button {
+    font-size: 1.2rem;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .BtnBuy {
+    padding: 10px;
+    border-radius: 10px;
+    .BtnBuy-Title {
+      font-size: 1.3rem;
     }
-    .TableProduct {
-        max-height: 50vh;
-        max-width: 60%;
-        padding: 20px;
+    .BtnBuy-Prize {
+      font-size: 1.25rem;
     }
-    #Shop{
-        width: 60%;
-    }
-    #Img{
-        width: 90px;
-        height: 90px;
-        min-width: 90px;
-        max-height: 90px;
-        max-width: 90px;
-    }
-    #Exit-Img{
-        width: 50px;
-        position: absolute;
-        right: -20px;
-        top: -20px;
-    }
-    .Left{
-        .Item-Title{
-            font-size: 1.6rem;
-            padding: 10px;
-            margin-left: 7%;
-            .Button{
-                font-size: 1.2rem;
-                margin-top: 5%;
-                border-radius: 10px;
-                padding: 10px;
-            }
-        }
-    }
-    .BtnBuy{
-        padding: 10px;
-        border-radius: 10px;
-        .BtnBuy-Title{
-            font-size: 1.3rem;
-        }
-        .BtnBuy-Prize{
-            font-size: 1.25rem;
-        }
-    }
+  }
 }
 
-@media screen and (max-width:1210px){
-    .Op{
-        margin-top: 2%;
-        margin-bottom: 4%;
-        max-width: 60%;
-        font-size: 1.5rem;
+@media screen and (max-width: 981px) {
+  #MenuShop {
+    width: 35px;
+  }
+
+  .Op {
+    margin-top: 2%;
+    margin-bottom: 4%;
+    max-width: 60%;
+    font-size: 1.5rem;
+  }
+
+  .TableProduct {
+    max-height: 50vh;
+    max-width: 70%;
+    padding: 20px;
+  }
+
+  #Shop {
+    width: 95%;
+    height: 90vh;
+  }
+  #Img {
+    width: 90px;
+    height: 90px;
+    min-width: 90px;
+    max-height: 90px;
+    max-width: 90px;
+  }
+  #Exit-Img {
+    width: 50px;
+    position: absolute;
+    right: -20px;
+    top: -20px;
+  }
+  .Button {
+    font-size: 1.2rem;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .BtnBuy {
+    padding: 10px;
+    border-radius: 10px;
+    .BtnBuy-Title {
+      font-size: 1.3rem;
     }
-    .TableProduct {
-        max-height: 50vh;
-        max-width: 60%;
-        padding: 20px;
+    .BtnBuy-Prize {
+      font-size: 1.25rem;
     }
-    #Shop{
-        width: 80%;
-        height: 90vh;
-    }
-    #Img{
-        width: 90px;
-        height: 90px;
-        min-width: 90px;
-        max-height: 90px;
-        max-width: 90px;
-    }
-    #Exit-Img{
-        width: 50px;
-        position: absolute;
-        right: -20px;
-        top: -20px;
-    }
-    .Left{
-        .Item-Title{
-            font-size: 1.6rem;
-            padding: 10px;
-            margin-left: 7%;
-            .Button{
-                font-size: 1.2rem;
-                margin-top: 5%;
-                border-radius: 10px;
-                padding: 10px;
-            }
-        }
-    }
-    .BtnBuy{
-        padding: 10px;
-        border-radius: 10px;
-        .BtnBuy-Title{
-            font-size: 1.3rem;
-        }
-        .BtnBuy-Prize{
-            font-size: 1.25rem;
-        }
-    }
+  }
 }
 
-@media screen and (max-width:981px){
+@media screen and (max-width: 705px) {
+  .Op {
+    margin-top: 2%;
+    margin-bottom: 4%;
+    max-width: 60%;
+    font-size: 1.5rem;
+  }
 
-        #MenuShop{
-            width: 35px;
-        }
+  .TableProduct {
+    max-height: 50vh;
+    max-width: 82%;
+    padding: 20px;
+  }
 
-    .Op{
-        margin-top: 2%;
-        margin-bottom: 4%;
-        max-width: 60%;
-        font-size: 1.5rem;
+  #Shop {
+    width: 95%;
+    height: 90vh;
+  }
+  #Img {
+    width: 90px;
+    height: 90px;
+    min-width: 90px;
+    max-height: 90px;
+    max-width: 90px;
+  }
+  #Exit-Img {
+    width: 50px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+  }
+  .Button {
+    font-size: 1.2rem;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .BtnBuy {
+    padding: 10px;
+    border-radius: 10px;
+    .BtnBuy-Title {
+      font-size: 1.3rem;
     }
-
-    .TableProduct {
-        max-height: 50vh;
-        max-width: 70%;
-        padding: 20px;
+    .BtnBuy-Prize {
+      font-size: 1.25rem;
     }
-
-    #Shop{
-        width: 95%;
-        height: 90vh;
-    }
-    #Img{
-        width: 90px;
-        height: 90px;
-        min-width: 90px;
-        max-height: 90px;
-        max-width: 90px;
-    }
-    #Exit-Img{
-        width: 50px;
-        position: absolute;
-        right: -20px;
-        top: -20px;
-    }
-    .Left{
-        .Item-Title{
-            font-size: 1.6rem;
-            padding: 10px;
-            margin-left: 7%;
-            .Button{
-                font-size: 1.2rem;
-                margin-top: 5%;
-                border-radius: 10px;
-                padding: 10px;
-            }
-        }
-    }
-    .BtnBuy{
-        padding: 10px;
-        border-radius: 10px;
-        .BtnBuy-Title{
-            font-size: 1.3rem;
-        }
-        .BtnBuy-Prize{
-            font-size: 1.25rem;
-        }
-    }
+  }
 }
 
-@media screen and (max-width:705px){
-    .Op{
-        margin-top: 2%;
-        margin-bottom: 4%;
-        max-width: 60%;
-        font-size: 1.5rem;
-    }
+@media screen and (max-width: 601px) {
+  .Op {
+    margin-top: 2%;
+    margin-bottom: 4%;
+    max-width: 80%;
+    font-size: 1.35rem;
+  }
 
-    .TableProduct {
-        max-height: 50vh;
-        max-width: 82%;
-        padding: 20px;
-    }
+  .TableProduct {
+    max-height: 65vh;
+    max-width: 82%;
+    padding: 20px;
+  }
 
-    #Shop{
-        width: 95%;
-        height: 90vh;
+  #Shop {
+    width: 95%;
+    height: 90vh;
+  }
+  #Img {
+    width: 85px;
+    height: 85px;
+    min-width: 85px;
+    max-height: 85px;
+    max-width: 85px;
+  }
+  #Exit-Img {
+    width: 50px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+  }
+  .Button {
+    font-size: 1.15rem;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 8px;
+  }
+
+  .BtnBuy {
+    padding: 8px;
+    border-radius: 10px;
+    .BtnBuy-Title {
+      font-size: 1.2rem;
     }
-    #Img{
-        width: 90px;
-        height: 90px;
-        min-width: 90px;
-        max-height: 90px;
-        max-width: 90px;
+    .BtnBuy-Prize {
+      font-size: 1.05rem;
     }
-    #Exit-Img{
-        width: 50px;
-        position: absolute;
-        right: -10px;
-        top: -10px;
-    }
-    .Left{
-        .Item-Title{
-            font-size: 1.6rem;
-            padding: 10px;
-            margin-left: 7%;
-            .Button{
-                font-size: 1.2rem;
-                margin-top: 5%;
-                border-radius: 10px;
-                padding: 10px;
-            }
-        }
-    }
-    .BtnBuy{
-        padding: 10px;
-        border-radius: 10px;
-        .BtnBuy-Title{
-            font-size: 1.3rem;
-        }
-        .BtnBuy-Prize{
-            font-size: 1.25rem;
-        }
-    }
+  }
 }
 
-@media screen and (max-width:601px){
-    .Op{
-        margin-top: 2%;
-        margin-bottom: 4%;
-        max-width: 80%;
-        font-size: 1.35rem;
-    }
+@media screen and (max-width: 535px) {
+  .Op {
+    margin-top: 2%;
+    margin-bottom: 4%;
+    max-width: 80%;
+    font-size: 1.35rem;
+  }
 
-    .TableProduct {
-        max-height: 65vh;
-        max-width: 82%;
-        padding: 20px;
-    }
+  .TableProduct {
+    max-height: 65vh;
+    max-width: 95%;
+    padding: 20px;
+  }
 
-    #Shop{
-        width: 95%;
-        height: 90vh;
+  #Shop {
+    width: 95%;
+    height: 90vh;
+  }
+  #Img {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    max-height: 65px;
+    max-width: 65px;
+  }
+  #Exit-Img {
+    width: 50px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+  }
+  .Button {
+    font-size: 1.15rem;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 8px;
+  }
+  .BtnBuy {
+    padding: 8px;
+    border-radius: 10px;
+    .BtnBuy-Title {
+      font-size: 1.2rem;
     }
-    #Img{
-        width: 85px;
-        height: 85px;
-        min-width: 85px;
-        max-height: 85px;
-        max-width: 85px;
+    .BtnBuy-Prize {
+      font-size: 1.05rem;
     }
-    #Exit-Img{
-        width: 50px;
-        position: absolute;
-        right: -10px;
-        top: -10px;
-    }
-    .Left{
-        .Item-Title{
-            font-size: 1.4rem;
-            padding: 10px;
-            margin-left: 7%;
-            .Button{
-                font-size: 1.15rem;
-                margin-top: 5%;
-                border-radius: 10px;
-                padding: 8px;
-            }
-        }
-    }
-    .BtnBuy{
-        padding: 8px;
-        border-radius: 10px;
-        .BtnBuy-Title{
-            font-size: 1.2rem;
-        }
-        .BtnBuy-Prize{
-            font-size: 1.05rem;
-        }
-    }
+  }
 }
 
-@media screen and (max-width:535px){
-    .Op{
-        margin-top: 2%;
-        margin-bottom: 4%;
-        max-width: 80%;
-        font-size: 1.35rem;
-    }
+@media screen and (max-width: 443px) {
+  .Op {
+    margin-top: 2%;
+    margin-bottom: 4%;
+    max-width: 80%;
+    font-size: 1.35rem;
+  }
 
-    .TableProduct {
-        max-height: 65vh;
-        max-width: 95%;
-        padding: 20px;
-    }
+  .TableProduct {
+    max-height: 65vh;
+    max-width: 95%;
+    padding: 10px;
+  }
+  .Item {
+    margin-bottom: 20px;
+  }
 
-    #Shop{
-        width: 95%;
-        height: 90vh;
+  #Shop {
+    width: 95%;
+    height: 90vh;
+  }
+  #Img {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    max-height: 65px;
+    max-width: 65px;
+  }
+  #Exit-Img {
+    width: 50px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+  }
+
+  .Item-Title {
+    font-size: 1rem;
+  }
+  .BtnBuy {
+    padding: 8px;
+    border-radius: 10px;
+    .BtnBuy-Title {
+      font-size: 1.2rem;
     }
-    #Img{
-        width: 65px;
-        height: 65px;
-        min-width: 65px;
-        max-height: 65px;
-        max-width: 65px;
+    .BtnBuy-Prize {
+      font-size: 1.05rem;
     }
-    #Exit-Img{
-        width: 50px;
-        position: absolute;
-        right: -10px;
-        top: -10px;
-    }
-    .Left{
-        .Item-Title{
-            font-size: 1.4rem;
-            padding: 10px;
-            margin-left: 7%;
-            .Button{
-                font-size: 1.15rem;
-                margin-top: 5%;
-                border-radius: 10px;
-                padding: 8px;
-            }
-        }
-    }
-    .BtnBuy{
-        padding: 8px;
-        border-radius: 10px;
-        .BtnBuy-Title{
-            font-size: 1.2rem;
-        }
-        .BtnBuy-Prize{
-            font-size: 1.05rem;
-        }
-    }
+  }
 }
 
-@media screen and (max-width:443px){
-    .Op{
-        margin-top: 2%;
-        margin-bottom: 4%;
-        max-width: 80%;
-        font-size: 1.35rem;
-    }
+@media screen and (max-width: 390px) {
+  .Op {
+    margin-top: 2%;
+    margin-bottom: 4%;
+    max-width: 92%;
+    font-size: 1.1rem;
+  }
 
-    .TableProduct {
-        max-height: 65vh;
-        max-width: 95%;
-        padding: 10px;
-    }
-    .Item {
-        margin-bottom: 20px;
-    }
+  .TableProduct {
+    max-height: 65vh;
+    max-width: 95%;
+    padding: 10px;
+  }
+  .Item {
+    margin-bottom: 20px;
+  }
 
-    #Shop{
-        width: 95%;
-        height: 90vh;
+  #Shop {
+    width: 95%;
+    height: 90vh;
+  }
+  #Img {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    max-height: 56px;
+    max-width: 56px;
+  }
+  #Exit-Img {
+    width: 50px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+  }
+  .Button {
+    font-size: 0.9rem;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 6px;
+  }
+  .BtnBuy {
+    padding: 6px;
+    border-radius: 10px;
+    .BtnBuy-Title {
+      font-size: 1.1rem;
     }
-    #Img{
-        width: 65px;
-        height: 65px;
-        min-width: 65px;
-        max-height: 65px;
-        max-width: 65px;
+    .BtnBuy-Prize {
+      font-size: 0.9rem;
     }
-    #Exit-Img{
-        width: 50px;
-        position: absolute;
-        right: -10px;
-        top: -10px;
-    }
-    .Left{
-        .Item-Title{
-            font-size: 1.25rem;
-            padding: 10px;
-            margin-left: 7%;
-            .Button{
-                font-size: 1rem;
-                margin-top: 5%;
-                border-radius: 10px;
-                padding: 8px;
-            }
-        }
-    }
-    .BtnBuy{
-        padding: 8px;
-        border-radius: 10px;
-        .BtnBuy-Title{
-            font-size: 1.2rem;
-        }
-        .BtnBuy-Prize{
-            font-size: 1.05rem;
-        }
-    }
-}
-
-@media screen and (max-width:390px){
-    .Op{
-        margin-top: 2%;
-        margin-bottom: 4%;
-        max-width: 92%;
-        font-size: 1.1rem;
-    }
-
-    .TableProduct {
-        max-height: 65vh;
-        max-width: 95%;
-        padding: 10px;
-    }
-    .Item {
-        margin-bottom: 20px;
-    }
-
-    #Shop{
-        width: 95%;
-        height: 90vh;
-    }
-    #Img{
-        width: 56px;
-        height: 56px;
-        min-width: 56px;
-        max-height: 56px;
-        max-width: 56px;
-    }
-    #Exit-Img{
-        width: 50px;
-        position: absolute;
-        right: -10px;
-        top: -10px;
-    }
-    .Left{
-        .Item-Title{
-            font-size: 1.1rem;
-            padding: 10px;
-            margin-left: 7%;
-            .Button{
-                font-size: .9rem;
-                margin-top: 5%;
-                border-radius: 10px;
-                padding: 6px;
-            }
-        }
-    }
-    .BtnBuy{
-        padding: 6px;
-        border-radius: 10px;
-        .BtnBuy-Title{
-            font-size: 1.1rem;
-        }
-        .BtnBuy-Prize{
-            font-size: .9rem;
-        }
-    }
+  }
 }

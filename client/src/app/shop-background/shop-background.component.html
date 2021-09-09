@@ -6,9 +6,9 @@
             <div class="Left">
 
                 <img src="{{i.imgs[0].img2}}" id="Img">
-                <div class="Item-Title">
-                    {{i.title}}
-                </div>
+            </div>
+            <div class="Item-Title">
+                {{i.title}}
             </div>
             <div class="Right">
                 <div [ngClass]="i.imgs[0].img1 == Background ? 'selected' : i.owned ? 'owned' : i.CBuy ? 'nbuy' : 'noowned' " class="BtnBuy"
