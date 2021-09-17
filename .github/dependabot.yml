@@ -5,6 +5,7 @@
 
 version: 2
 updates:
-  - package_manager: 'javascript' # See documentation for possible values
-    directory: '/client' # Location of package manifests
-    update_schedule: 'live'
+  - package-ecosystem: 'npm'
+    directory: '/client'
+    schedule:
+      interval: 'daily'
