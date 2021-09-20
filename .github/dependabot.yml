@@ -8,4 +8,8 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/client'
     schedule:
-      interval: 'daily'
+      interval: 'monthly'
+  - package-ecosystem: 'npm'
+    directory: '/server'
+    schedule:
+      interval: 'monthly'
