@@ -15,6 +15,7 @@ import { ShopBackgroundComponent } from './shop-background/shop-background.compo
 import { SettingsComponent } from './settings/settings.component';
 import { SettingsAlertSessionComponent } from './settings-alert-session/settings-alert-session.component';
 import { LoginComponent } from './login/login.component';
+import { BoardComponent } from './board/board.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,7 @@ const routes: Routes = [
     SettingsComponent,
     SettingsAlertSessionComponent,
     LoginComponent,
+    BoardComponent,
   ],
   imports: [
     BrowserModule,
