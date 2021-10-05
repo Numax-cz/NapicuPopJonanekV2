@@ -35,11 +35,11 @@ app.post("/api/update", (req, res) => {
 
 
 app.listen(process.env.PORT, () => {
-    console.log("Aplikace běží na portu: " + process.env.PORT);
+    console.log('The application is running on the port: ' + process.env.PORT);
 });
 connection.connect(function (e) {
     if (e) throw e;
-    console.log('Aplikace napojena na databázu!');
+    console.log('Application connected to the database!');
     setInterval(() => {
         connection.ping();
     }, 30 * 60 * 1000);
