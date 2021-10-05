@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { JonanekComponent } from '../jonanek/jonanek.component';
 
 import { ArrayListImg } from '../shop-background/shop-background.component';
@@ -9,7 +9,7 @@ import { ShopSoundComponent, ArrayListSound } from '../shop-sound/shop-sound.com
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss']
 })
-export class ShopComponent implements OnInit {
+export class ShopComponent implements OnInit, OnDestroy {
 
 
 
@@ -20,7 +20,11 @@ export class ShopComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    JonanekComponent.IsMenuOpen = true;
     JonanekComponent.Load();
+  }
+  ngOnDestroy(): void {
+    JonanekComponent.IsMenuOpen = false;
   }
 
 

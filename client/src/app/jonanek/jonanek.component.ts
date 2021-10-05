@@ -1,7 +1,8 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Type } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { ShopComponent } from '../shop/shop.component';
 
 @Component({
   selector: 'napicu-jonanek',
@@ -18,6 +19,7 @@ export class JonanekComponent implements OnInit {
   protected static gainNode: GainNode = JonanekComponent.ctx.createGain();
   public static shopOpen: boolean;
   public static song: string;
+  public static IsMenuOpen: boolean = false;
 
   public static xhr: XMLHttpRequest = new XMLHttpRequest();
 
@@ -31,12 +33,16 @@ export class JonanekComponent implements OnInit {
   worldCounter: number = 0;
   readonly URL = 'https://api.popjonanek.napicu.eu/api/update';
 
-  constructor(@Inject(DOCUMENT) private doc: Document, private http: HttpClient, public route: ActivatedRoute) {
+  constructor(
+    @Inject(DOCUMENT) private doc: Document,
+    private http: HttpClient,
+    public route: ActivatedRoute
+  ) {
     JonanekComponent.Load();
     JonanekComponent.shopOpen = true;
     JonanekComponent.Move = !this.route.routeConfig?.path ? true : false;
   }
-  
+
   ngOnInit(): void {
     this.Jonanek1 = this.doc.getElementById('Jonanek1');
     this.Jonanek2 = this.doc.getElementById('Jonanek2');
@@ -55,7 +61,6 @@ export class JonanekComponent implements OnInit {
     this.Jonanek1.addEventListener('touchend', this.ClickNormal);
     this.Jonanek2.addEventListener('mouseup', this.ClickNormal);
     this.Jonanek2.addEventListener('touchend', this.ClickNormal);
-
   }
 
   public static Load(): void {
@@ -71,7 +76,7 @@ export class JonanekComponent implements OnInit {
   get count(): number {
     return JonanekComponent.count;
   }
-  get shopOpen(): boolean{
+  get shopOpen(): boolean {
     return JonanekComponent.shopOpen;
   }
   get background1(): string {
@@ -108,7 +113,8 @@ export class JonanekComponent implements OnInit {
   }
 
   public static LoadBackground(): void {
-    var Backgrounds = window.localStorage.getItem('background') || '["/assets/Jonanek1.webp", "/assets/Jonanek2.webp"]';
+    var Backgrounds =
+      window.localStorage.getItem('background') || '["/assets/Jonanek1.webp", "/assets/Jonanek2.webp"]';
     this.background1 = JSON.parse(Backgrounds)[0];
     this.background2 = JSON.parse(Backgrounds)[1];
   }
@@ -118,6 +124,7 @@ export class JonanekComponent implements OnInit {
   }
 
   protected Click = (e: Event): void => {
+    if (JonanekComponent.IsMenuOpen) return;
     e.preventDefault();
     if (JonanekComponent.Move) {
       if (this.Clicked) return;
@@ -132,6 +139,7 @@ export class JonanekComponent implements OnInit {
   };
 
   protected ClickNormal = (e: Event): void => {
+    if (JonanekComponent.IsMenuOpen) return;
     e.preventDefault();
     if (JonanekComponent.Move) {
       this.Clicked = false;
