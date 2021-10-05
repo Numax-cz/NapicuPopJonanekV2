@@ -14,6 +14,7 @@ import { ShopSoundComponent } from './shop-sound/shop-sound.component';
 import { ShopBackgroundComponent } from './shop-background/shop-background.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SettingsAlertSessionComponent } from './settings-alert-session/settings-alert-session.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
           { path: 'sound', component: ShopSoundComponent },
           { path: 'background', component: ShopBackgroundComponent },
           { path: 'settings', component: SettingsComponent },
+          { path: 'login', component: LoginComponent },
           { path: 'settings/session', component: SettingsAlertSessionComponent },
         ],
       },
@@ -37,8 +39,24 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, JonanekComponent, ShopComponent, ErrorComponent, ShopSoundComponent, ShopBackgroundComponent, SettingsComponent, SettingsAlertSessionComponent],
-  imports: [BrowserModule, HttpClientModule, environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [], AppRoutingModule, RouterModule.forRoot(routes)],
+  declarations: [
+    AppComponent,
+    JonanekComponent,
+    ShopComponent,
+    ErrorComponent,
+    ShopSoundComponent,
+    ShopBackgroundComponent,
+    SettingsComponent,
+    SettingsAlertSessionComponent,
+    LoginComponent,
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
+    AppRoutingModule,
+    RouterModule.forRoot(routes),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
