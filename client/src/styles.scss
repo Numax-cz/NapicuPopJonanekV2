@@ -40,6 +40,13 @@
 #LoginRegisterButton:hover {
   background-color: #f3404f;
 }
+.LoginRegisterMainTitle {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+  padding: 20px;
+}
+
 #input {
   background-color: #f1f1f1;
   padding: 4px 10px;
@@ -47,14 +54,20 @@
   margin-bottom: 20px;
   outline: none;
   border: none;
-  padding: 20px;
-  font-size: 1rem;
+  padding: 18px;
+  font-size: 1.23rem;
+  font-weight: bold;
   width: 100%;
 }
-#InputTitle{
+#InputTitle {
   margin: 5%;
   font-size: 1.2rem;
-
+}
+#LoginRegisterButtons{
+  display: flex;
+  button{
+    width: 100%;
+  }
 }
 ::-webkit-scrollbar {
   width: 10px;

@@ -1,17 +1,19 @@
 <section>
   <div>
-    <div>Registrace</div>
-    <div>
-      <form class="LoginRegisterPanel">
-        <input placeholder="Jméno" id="input" type="text" />
+    <div class="LoginRegisterMainTitle">Registrace</div>
+    <div class="LoginRegisterPanel">
+      <form #data="ngForm" (ngSubmit)="onSubmit(data.value)">
+        <input #Name ngModel name="username" placeholder="Jméno" id="input" type="text" />
 
-        <input placeholder="Email" id="input" type="email" />
+        <input #Email ngModel name="email" placeholder="Email" id="input" type="text" />
 
-        <input placeholder="Heslo" id="input" type="password" />
+        <input #Pass1 ngModel name="pass1" placeholder="Heslo" id="input" type="password" />
 
-        <input placeholder="Heslo znovu" id="input" type="password" />
+        <input #Pass2 ngModel name="pass2" placeholder="Heslo znovu" id="input" type="password" />
 
-        <button id="LoginRegisterButton">Register</button>
+        <div id="LoginRegisterButtons">
+          <button type="submit" id="LoginRegisterButton">Register</button>
+        </div>
       </form>
     </div>
   </div>
