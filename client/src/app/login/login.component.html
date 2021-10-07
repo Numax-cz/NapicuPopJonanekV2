@@ -2,11 +2,13 @@
   <div>
     <div class="LoginRegisterMainTitle">Registrace</div>
     <div class="LoginRegisterPanel">
-      <form #data="ngForm" (ngSubmit)="onSubmit(data.value)">
-        <input #Name ngModel name="username" placeholder="Jméno" id="input" type="text" />
-        <input #Email ngModel name="email" placeholder="Email" id="input" type="text" />
-        <input #Pass1 ngModel name="heslo" placeholder="Heslo" id="input" type="password" />
-        <input #Pass2 ngModel name="reheslo" placeholder="Heslo znovu" id="input" type="password" />
+      <form [formGroup]="registerForm"  #data="ngForm" (ngSubmit)="onSubmit(data.value)">
+        <input  #Name ngModel formControlName="name" name="username"  placeholder="Jméno" id="input" type="text"/>
+        <input  #Email ngModel formControlName="email" name="email"  placeholder="Email" id="input" type="text" />
+        <input  #Pass1 ngModel formControlName="pass1" name="heslo" placeholder="Heslo" id="input" type="password" />
+        <input  #Pass2 ngModel formControlName="pass2" name="reheslo" placeholder="Heslo znovu" id="input" type="password" /> 
+        <!-- <div *ngIf="email?.errors?.invalid"> email je na číču</div> -->
+
         <div id="LoginRegisterButtons">
           <button type="submit" id="LoginRegisterButton">Register</button>
         </div>
@@ -14,3 +16,4 @@
     </div>
   </div>
 </section>
+

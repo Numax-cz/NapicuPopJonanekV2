@@ -16,7 +16,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { SettingsAlertSessionComponent } from './settings-alert-session/settings-alert-session.component';
 import { LoginComponent } from './login/login.component';
 import { BoardComponent } from './board/board.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -59,7 +59,8 @@ const routes: Routes = [
     environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
     AppRoutingModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
