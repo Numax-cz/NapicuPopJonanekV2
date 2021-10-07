@@ -4,13 +4,9 @@
     <div class="LoginRegisterPanel">
       <form #data="ngForm" (ngSubmit)="onSubmit(data.value)">
         <input #Name ngModel name="username" placeholder="Jméno" id="input" type="text" />
-
         <input #Email ngModel name="email" placeholder="Email" id="input" type="text" />
-
-        <input #Pass1 ngModel name="pass1" placeholder="Heslo" id="input" type="password" />
-
-        <input #Pass2 ngModel name="pass2" placeholder="Heslo znovu" id="input" type="password" />
-
+        <input #Pass1 ngModel name="heslo" placeholder="Heslo" id="input" type="password" />
+        <input #Pass2 ngModel name="reheslo" placeholder="Heslo znovu" id="input" type="password" />
         <div id="LoginRegisterButtons">
           <button type="submit" id="LoginRegisterButton">Register</button>
         </div>
