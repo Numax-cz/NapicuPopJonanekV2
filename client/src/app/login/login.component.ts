@@ -1,6 +1,20 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {
+  AfterViewInit,
+  Component,
+  Inject,
+  OnInit,
+  SystemJsNgModuleLoaderConfig,
+  ViewChild,
+} from '@angular/core';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  ValidatorFn,
+  AbstractControl,
+  ValidationErrors,
+} from '@angular/forms';
 
 declare interface ApiData {
   username: string;
@@ -29,8 +43,13 @@ export class LoginComponent implements OnInit, AfterViewInit {
   registerForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(29)]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    pass1: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(40)]),
-    pass2: new FormControl('', ),
+    pass1: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(40),
+      this.PasswordStrengthValidator(),
+    ]),
+    pass2: new FormControl(''),
   });
 
   constructor(protected http: HttpClient) {}
@@ -41,20 +60,41 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   public checkUsername() {
     this.slowInput(() => {
-      // this.http
-      //   .post<any>('/api/usernamecheck', this.getValue(this.Name))
-      //   .subscribe((data: ApiLoginRegisterR) => {
-      //     if (data.code == 0) {
-      //       this.unsetBackground(this.Name);
-      //     } else {
-      //       this.setBackground(this.Name);
-      //     }
-      //   });
+      if (this.registerForm.get('name')?.valid) {
+        // this.http
+        //   .post<any>('/api/usernamecheck', this.getValue(this.Name))
+        //   .subscribe((data: ApiLoginRegisterR) => {
+        //     if (data.code == 0) {
+        //       //todo
+        //     } else {
+        //       this.setBackground(this.Name);
+        //     }
+        //   });
+      } else {
+        //todo set error
+      }
     });
   }
 
-  public checkEmail(): void {}
-  public checkPassword(): void {}
+  public checkEmail(): void {
+    this.slowInput(() => {
+      if (this.registerForm.get('email')?.valid) {
+        //todo
+      } else {
+        //todo set error
+      }
+    });
+  }
+  public checkPassword(): void {
+    console.log(this.registerForm.get('pass1')?.errors);
+  }
+
+  public checkPasswordRe(): void {
+    if (this.Pass1 === this.Pass2) {
+    } else {
+      //TODO error
+    }
+  }
 
   protected slowInput(func: Function) {
     clearTimeout(this.timeout);
@@ -82,6 +122,24 @@ export class LoginComponent implements OnInit, AfterViewInit {
     //     //TODO SUS
     //   }
     // });
+  }
+
+  protected PasswordStrengthValidator(): ValidatorFn {
+    return (i: AbstractControl): ValidationErrors | null => {
+      const value = i.value;
+
+      if (!value) return null;
+
+      const hasUpper = /[A-Z]+/.test(value);
+
+      const hasLower = /[a-z]+/.test(value);
+
+      const hasNum = /[0-9]+/.test(value);
+
+      const passwordValid = hasNum && hasUpper && hasLower;
+
+      return !hasUpper ? { passwordhasNoUpper: true, passwordhasNoUpperd: true } : null; //TODO TODO TODO TODO TODO TODO
+    };
   }
 
   get email() {
