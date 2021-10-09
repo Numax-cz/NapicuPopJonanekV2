@@ -35,7 +35,12 @@ export class LoginComponent implements OnInit, AfterViewInit {
   public errorText: string[] | null = null;
 
   registerForm = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(29)]),
+    name: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(29),
+      this.usernameValidator(),
+    ]),
     email: new FormControl('', [Validators.required, Validators.email]),
 
     passwords: new FormGroup(
@@ -86,8 +91,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
   public checkPassword(): void {
     console.log(this.registerForm.get('passwords')?.get('pass1')?.errors);
   }
-
-
 
   protected slowInput(func: Function) {
     clearTimeout(this.timeout);
@@ -141,6 +144,17 @@ export class LoginComponent implements OnInit, AfterViewInit {
       const hasUpper = /[A-Z]+/.test(value);
 
       return !hasUpper ? { passwordhasNoUpper: !hasUpper } : null;
+    };
+  }
+  protected usernameValidator(): ValidatorFn {
+    return (i: AbstractControl): ValidationErrors | null => {
+      const value = i.value;
+
+      if (!value) return null;
+
+      const hasLowK = /^[a-zA-Z0-9\-]+$/.test(value);
+
+      return !hasLowK ? { hasBadCharacters: !hasLowK } : null;
     };
   }
 

@@ -23,6 +23,7 @@
           <ng-container *ngIf="name?.touched">
             <div *ngIf="name?.errors?.maxlength">Jméno je dlouhé</div>
             <div *ngIf="name?.errors?.minlength">Jméno je krátké</div>
+            <div *ngIf="name?.errors?.hasBadCharacters">Jméno obsahuje nepovolené znaky</div>
           </ng-container>
           <ng-container *ngIf="email?.touched && email?.value"> 
             <div *ngIf="email?.invalid">E-mail je neplatný</div>
