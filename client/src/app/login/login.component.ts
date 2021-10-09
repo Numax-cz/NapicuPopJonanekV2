@@ -47,7 +47,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
       Validators.required,
       Validators.minLength(8),
       Validators.maxLength(40),
-      this.PasswordStrengthValidator(),
+      this.passwordHasLower(),
+      this.passwordHasNumber(),
+      this.passwordHasUpper(),
     ]),
     pass2: new FormControl(''),
   });
@@ -124,7 +126,29 @@ export class LoginComponent implements OnInit, AfterViewInit {
     // });
   }
 
-  protected PasswordStrengthValidator(): ValidatorFn {
+  protected passwordHasNumber(): ValidatorFn {
+    return (i: AbstractControl): ValidationErrors | null => {
+      const value = i.value;
+
+      if (!value) return null;
+
+      const hasNum = /[0-9]+/.test(value);
+
+      return !hasNum ? { passwordhasNoNum: hasNum } : null;
+    };
+  }
+  protected passwordHasLower(): ValidatorFn {
+    return (i: AbstractControl): ValidationErrors | null => {
+      const value = i.value;
+
+      if (!value) return null;
+
+      const hasLower = /[a-z]+/.test(value);
+
+      return !hasLower ? { passwordhasNoLower: hasLower } : null;
+    };
+  }
+  protected passwordHasUpper(): ValidatorFn {
     return (i: AbstractControl): ValidationErrors | null => {
       const value = i.value;
 
@@ -132,13 +156,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
       const hasUpper = /[A-Z]+/.test(value);
 
-      const hasLower = /[a-z]+/.test(value);
-
-      const hasNum = /[0-9]+/.test(value);
-
-      const passwordValid = hasNum && hasUpper && hasLower;
-
-      return !hasUpper ? { passwordhasNoUpper: true, passwordhasNoUpperd: true } : null; //TODO TODO TODO TODO TODO TODO
+      return !hasUpper ? { passwordhasNoUpper: hasUpper } : null;
     };
   }
 
