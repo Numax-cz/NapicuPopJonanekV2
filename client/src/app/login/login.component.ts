@@ -124,6 +124,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
       return !hasNum ? { passwordhasNoNum: !hasNum } : null;
     };
   }
+  
   protected passwordHasLower(): ValidatorFn {
     return (i: AbstractControl): ValidationErrors | null => {
       const value = i.value;
@@ -135,6 +136,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
       return !hasLower ? { passwordhasNoLower: !hasLower } : null;
     };
   }
+
   protected passwordHasUpper(): ValidatorFn {
     return (i: AbstractControl): ValidationErrors | null => {
       const value = i.value;
@@ -146,6 +148,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
       return !hasUpper ? { passwordhasNoUpper: !hasUpper } : null;
     };
   }
+
   protected usernameValidator(): ValidatorFn {
     return (i: AbstractControl): ValidationErrors | null => {
       const value = i.value;
