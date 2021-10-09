@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.slowInput(() => {
       if (this.registerForm.get('name')?.valid) {
         // this.http
-        //   .post<any>('/api/usernamecheck', this.getValue(this.Name))
+        //   .post<any>(UserNameCheck, this.getValue(this.Name))
         //   .subscribe((data: ApiLoginRegisterR) => {
         //     if (data.code == 0) {
         //       //todo
@@ -103,7 +103,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   public onSubmit(data: ApiData): void {
     if (!data) return;
-    // this.http.post<any>('/api/reg', data).subscribe((data: ApiLoginRegisterR) => {
+    // this.http.post<any>(UserRegister, data).subscribe((data: ApiLoginRegisterR) => {
     //   if (data.code == 0) {
     //   } else {
     //     //TODO SUS

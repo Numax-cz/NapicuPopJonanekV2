@@ -3,6 +3,7 @@ import { Component, Inject, OnInit, Type } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { ShopComponent } from '../shop/shop.component';
+import { GlobalUpdate } from '../api';
 
 @Component({
   selector: 'napicu-jonanek',
@@ -31,7 +32,7 @@ export class JonanekComponent implements OnInit {
   SessionCounter: number = 0;
   static count: number;
   worldCounter: number = 0;
-  readonly URL = 'https://api.popjonanek.napicu.eu/api/update';
+
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
@@ -169,7 +170,7 @@ export class JonanekComponent implements OnInit {
   }
 
   protected getApiData(): void {
-    this.http.post<any>(this.URL, { ClickCounter: this.SessionCounter }).subscribe((data) => {
+    this.http.post<any>(GlobalUpdate, { ClickCounter: this.SessionCounter }).subscribe((data) => {
       this.worldCounter = data;
     });
     this.SessionCounter = 0;
