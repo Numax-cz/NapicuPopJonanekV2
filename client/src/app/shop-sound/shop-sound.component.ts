@@ -188,7 +188,7 @@ export class ShopSoundComponent implements OnInit {
     {
       title: 'Se mi laguje telefon',
       cena: 880,
-      sound: '/assets/sounds/semilagujetelefon.wav.wav',
+      sound: '/assets/sounds/semilagujetelefon.wav',
       owned: false,
       CBuy: false,
     },
