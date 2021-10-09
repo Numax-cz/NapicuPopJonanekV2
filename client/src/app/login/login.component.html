@@ -3,17 +3,42 @@
     <div class="LoginRegisterMainTitle">Registrace</div>
     <div class="LoginRegisterPanel">
       <form [formGroup]="registerForm"  #data="ngForm" (ngSubmit)="onSubmit(data.value)">
-        <input  #Name ngModel (ngModelChange)="checkUsername()" formControlName="name" name="username"  placeholder="Jméno" id="input" type="text"/>
-        <input  #Email ngModel (ngModelChange)="checkEmail()" formControlName="email" name="email"  placeholder="Email" id="input" type="text" />
+
+        <input  #Name ngModel [appFocusInput]="name" (ngModelChange)="checkUsername()" formControlName="name" name="username"  placeholder="Jméno" id="input" type="text"/>
+        <input  #Email ngModel [appFocusInput]="email" (ngModelChange)="checkEmail()"  formControlName="email"  name="email"  placeholder="Email" id="input" type="text" />
+      
         <div formGroupName="passwords">
-          <input  #Pass1 ngModel (ngModelChange)="checkPassword()" formControlName="pass1" name="heslo" placeholder="Heslo" id="input" type="password" />
-          <input  #Pass2 ngModel (ngModelChange)="checkPasswordRe()" formControlName="pass2" name="reheslo" placeholder="Heslo znovu" id="input" type="password" /> 
+      
+          <input  #Pass1 ngModel [appFocusInput]="pass1" (ngModelChange)="checkPassword()" formControlName="pass1" name="heslo" placeholder="Heslo" id="input" type="password" />
+          <input  #Pass2 ngModel [appFocusInput]="pass2" (ngModelChange)="checkPasswordRe()"formControlName="pass2" name="reheslo" placeholder="Heslo znovu" id="input" type="password" /> 
+      
         </div>
 
-
+        
         <div id="LoginRegisterButtons">
           <button type="submit" id="LoginRegisterButton">Register</button>
         </div>
+
+        <div>
+          <ng-container *ngIf="name?.touched">
+            <div *ngIf="name?.errors?.maxlength">Jméno je dlouhé</div>
+            <div *ngIf="name?.errors?.minlength">Jméno je krátké</div>
+          </ng-container>
+          <ng-container *ngIf="email?.touched"> 
+            <div *ngIf="email?.invalid">E-mail je neplatný</div>
+          </ng-container>
+          <ng-container *ngIf="pass1?.touched"> 
+            <div *ngIf="pass1?.errors?.minlength">Heslo je krátké</div>
+            <div *ngIf="pass1?.errors?.maxlength">Heslo je dlouhé</div>
+            <div *ngIf="pass1?.errors?.passwordhasNoUpper">Heslo musí obsahovat velké písmeno</div>
+            <div *ngIf="pass1?.errors?.passwordhasNoLower ">Heslo musí obsahovat malé písmeno</div>
+            <div *ngIf="pass1?.errors?.passwordhasNoNum">Heslo musí obsahovat číslici</div>
+          </ng-container>
+        </div>
+      
+      
+      
+
       </form>
     </div>
   </div>

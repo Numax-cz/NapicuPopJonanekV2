@@ -1,12 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import {
-  AfterViewInit,
-  Component,
-  Inject,
-  OnInit,
-  SystemJsNgModuleLoaderConfig,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -15,6 +8,7 @@ import {
   AbstractControl,
   ValidationErrors,
 } from '@angular/forms';
+import { passmatch } from './msg';
 
 declare interface ApiData {
   username: string;
@@ -34,28 +28,27 @@ declare interface ApiLoginRegisterR {
 })
 export class LoginComponent implements OnInit, AfterViewInit {
   protected readonly slowInputTime: number = 1000;
-  @ViewChild('Name') public declare Name: any;
-  @ViewChild('Email') public declare Email: any;
-  @ViewChild('Pass1') public declare Pass1: any;
-  @ViewChild('Pass2') public declare Pass2: any;
+  @ViewChild('Name') protected declare Name: any;
+  @ViewChild('Email') protected declare Email: any;
+  @ViewChild('Pass1') protected declare Pass1: any;
+  @ViewChild('Pass2') protected declare Pass2: any;
   protected timeout: any;
+  public errorText: string[] | null = null;
 
   registerForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(29)]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    // pass1: new FormControl('', [
-    //   Validators.required,
-    //   Validators.minLength(8),
-    //   Validators.maxLength(40),
-    //   this.passwordHasLower(),
-    //   this.passwordHasNumber(),
-    //   this.passwordHasUpper(),
-    // ]),
-    // pass2: new FormControl(''),
 
     passwords: new FormGroup(
       {
-        pass1: new FormControl('', []),
+        pass1: new FormControl('', [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(40),
+          this.passwordHasLower(),
+          this.passwordHasNumber(),
+          this.passwordHasUpper(),
+        ]),
         pass2: new FormControl('', []),
       },
       { validators: this.checkIfMatchingPasswords('pass1', 'pass2') }
@@ -96,14 +89,15 @@ export class LoginComponent implements OnInit, AfterViewInit {
     });
   }
   public checkPassword(): void {
-    
+    console.log(this.registerForm.get('passwords')?.get('pass1')?.errors);
   }
 
   public checkPasswordRe(): void {
-    if (this.registerForm.get('passwords')?.get('pass2')?.errors) {
-    } else {
-      //TODO Nice
-    }
+    // var text;
+    // var passEr = this.registerForm.get('passwords')?.get('pass2')?.errors;
+    // if (passEr?.) {
+    // } else {
+    // }
   }
 
   protected slowInput(func: Function) {
@@ -112,13 +106,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
       func();
     }, this.slowInputTime);
   }
-
-  // protected setBackground(element: any): void {
-  //   element.nativeElement.style.background = 'rgb(235, 47, 6)';
-  // }
-  // protected unsetBackground(element: any): void {
-  //   element.nativeElement.style.background = null;
-  // }
 
   protected getValue(value: any): string {
     return value.nativeElement.value;
@@ -142,7 +129,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
       const hasNum = /[0-9]+/.test(value);
 
-      return !hasNum ? { passwordhasNoNum: hasNum } : null;
+      return !hasNum ? { passwordhasNoNum: !hasNum } : null;
     };
   }
   protected passwordHasLower(): ValidatorFn {
@@ -153,7 +140,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
       const hasLower = /[a-z]+/.test(value);
 
-      return !hasLower ? { passwordhasNoLower: hasLower } : null;
+      return !hasLower ? { passwordhasNoLower: !hasLower } : null;
     };
   }
   protected passwordHasUpper(): ValidatorFn {
@@ -164,7 +151,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
       const hasUpper = /[A-Z]+/.test(value);
 
-      return !hasUpper ? { passwordhasNoUpper: hasUpper } : null;
+      return !hasUpper ? { passwordhasNoUpper: !hasUpper } : null;
     };
   }
 
@@ -190,7 +177,17 @@ export class LoginComponent implements OnInit, AfterViewInit {
   get email() {
     return this.registerForm.get('email');
   }
-  get password() {
-    return this.registerForm.get('password');
+  get name() {
+    return this.registerForm.get('name');
+  }
+  get pass1() {
+    var i = this.registerForm.get('passwords');
+    if (!i) return null;
+    return i.get('pass1');
+  }
+  get pass2() {
+    var i = this.registerForm.get('passwords');
+    if (!i) return null;
+    return i.get('pass2');
   }
 }
