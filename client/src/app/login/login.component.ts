@@ -43,15 +43,23 @@ export class LoginComponent implements OnInit, AfterViewInit {
   registerForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(29)]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    pass1: new FormControl('', [
-      Validators.required,
-      Validators.minLength(8),
-      Validators.maxLength(40),
-      this.passwordHasLower(),
-      this.passwordHasNumber(),
-      this.passwordHasUpper(),
-    ]),
-    pass2: new FormControl(''),
+    // pass1: new FormControl('', [
+    //   Validators.required,
+    //   Validators.minLength(8),
+    //   Validators.maxLength(40),
+    //   this.passwordHasLower(),
+    //   this.passwordHasNumber(),
+    //   this.passwordHasUpper(),
+    // ]),
+    // pass2: new FormControl(''),
+
+    passwords: new FormGroup(
+      {
+        pass1: new FormControl('', []),
+        pass2: new FormControl('', []),
+      },
+      { validators: this.checkIfMatchingPasswords('pass1', 'pass2') }
+    ),
   });
 
   constructor(protected http: HttpClient) {}
@@ -88,13 +96,13 @@ export class LoginComponent implements OnInit, AfterViewInit {
     });
   }
   public checkPassword(): void {
-    console.log(this.registerForm.get('pass1')?.errors);
+    
   }
 
   public checkPasswordRe(): void {
-    if (this.Pass1 === this.Pass2) {
+    if (this.registerForm.get('passwords')?.get('pass2')?.errors) {
     } else {
-      //TODO error
+      //TODO Nice
     }
   }
 
@@ -157,6 +165,25 @@ export class LoginComponent implements OnInit, AfterViewInit {
       const hasUpper = /[A-Z]+/.test(value);
 
       return !hasUpper ? { passwordhasNoUpper: hasUpper } : null;
+    };
+  }
+
+  /**
+   * @author RemyaJ
+   * @link https://stackoverflow.com/questions/43487413/password-and-confirm-password-field-validation-angular2-reactive-forms
+   * @param {string} passwordKey - Main password
+   * @param  {string} passwordConfirmationKey - authentication password
+   * @returns {ValidationErrors} ValidationErrors
+   */
+  protected checkIfMatchingPasswords(passwordKey: string, passwordConfirmationKey: string): any {
+    return (group: FormGroup) => {
+      let passwordInput = group.controls[passwordKey],
+        passwordConfirmationInput = group.controls[passwordConfirmationKey];
+      if (passwordInput.value !== passwordConfirmationInput.value) {
+        return passwordConfirmationInput.setErrors({ notEquivalent: true });
+      } else {
+        return passwordConfirmationInput.setErrors(null);
+      }
     };
   }
 

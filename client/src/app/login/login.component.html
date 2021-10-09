@@ -5,8 +5,10 @@
       <form [formGroup]="registerForm"  #data="ngForm" (ngSubmit)="onSubmit(data.value)">
         <input  #Name ngModel (ngModelChange)="checkUsername()" formControlName="name" name="username"  placeholder="Jméno" id="input" type="text"/>
         <input  #Email ngModel (ngModelChange)="checkEmail()" formControlName="email" name="email"  placeholder="Email" id="input" type="text" />
-        <input  #Pass1 ngModel (ngModelChange)="checkPassword()" formControlName="pass1" name="heslo" placeholder="Heslo" id="input" type="password" />
-        <input  #Pass2 ngModel formControlName="pass2" name="reheslo" placeholder="Heslo znovu" id="input" type="password" /> 
+        <div formGroupName="passwords">
+          <input  #Pass1 ngModel (ngModelChange)="checkPassword()" formControlName="pass1" name="heslo" placeholder="Heslo" id="input" type="password" />
+          <input  #Pass2 ngModel (ngModelChange)="checkPasswordRe()" formControlName="pass2" name="reheslo" placeholder="Heslo znovu" id="input" type="password" /> 
+        </div>
 
 
         <div id="LoginRegisterButtons">
