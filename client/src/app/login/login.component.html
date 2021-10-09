@@ -19,12 +19,12 @@
           <button type="submit" id="LoginRegisterButton">Register</button>
         </div>
 
-        <div>
+        <div class="RegisterErrors">
           <ng-container *ngIf="name?.touched">
             <div *ngIf="name?.errors?.maxlength">Jméno je dlouhé</div>
             <div *ngIf="name?.errors?.minlength">Jméno je krátké</div>
           </ng-container>
-          <ng-container *ngIf="email?.touched"> 
+          <ng-container *ngIf="email?.touched && email?.value"> 
             <div *ngIf="email?.invalid">E-mail je neplatný</div>
           </ng-container>
           <ng-container *ngIf="pass1?.touched"> 
@@ -33,6 +33,9 @@
             <div *ngIf="pass1?.errors?.passwordhasNoUpper">Heslo musí obsahovat velké písmeno</div>
             <div *ngIf="pass1?.errors?.passwordhasNoLower ">Heslo musí obsahovat malé písmeno</div>
             <div *ngIf="pass1?.errors?.passwordhasNoNum">Heslo musí obsahovat číslici</div>
+          </ng-container>
+          <ng-container *ngIf="pass2?.touched"> 
+            <div *ngIf="pass2?.errors?.notEquivalent">Hesla se neshodují</div>
           </ng-container>
         </div>
       
