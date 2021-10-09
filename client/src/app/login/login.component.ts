@@ -8,7 +8,6 @@ import {
   AbstractControl,
   ValidationErrors,
 } from '@angular/forms';
-import { passmatch } from './msg';
 
 declare interface ApiData {
   username: string;
