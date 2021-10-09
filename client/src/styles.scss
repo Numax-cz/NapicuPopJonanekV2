@@ -5,7 +5,8 @@
   margin: 0;
   box-sizing: border-box;
   user-select: none;
-  font-family: 'Source Code Pro', monospace;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
 }
 
 #Shop {
@@ -30,12 +31,21 @@
 #LoginRegisterButton {
   margin: 16px 29px;
   font-size: 1.3rem;
-  background-color: #fd4b59;
+  background-color: #f36580;
   padding: 12px;
   color: #fff;
   cursor: pointer;
-  border: none;
-  border-radius: 8px;
+  border: 0;
+  border-bottom: 5px solid #c64a61;
+  border-radius: 22px;
+}
+#LoginRegisterButtons {
+  display: flex;
+  button {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 #LoginRegisterButton:hover {
   background-color: #f3404f;
@@ -46,7 +56,7 @@
   font-weight: bold;
   padding: 20px;
 }
-.RegisterErrors{
+.RegisterErrors {
   font-size: 1.35rem;
   font-weight: bold;
   color: #aa000d;
@@ -68,12 +78,7 @@
   margin: 5%;
   font-size: 1.2rem;
 }
-#LoginRegisterButtons{
-  display: flex;
-  button{
-    width: 100%;
-  }
-}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -136,6 +141,8 @@ a {
   width: 100%;
   padding: 10px;
   background-color: white;
+  border: 0;
+  border-bottom: 5px solid rgb(172, 169, 169);
   border-radius: 10px;
   margin-bottom: 50px;
   justify-content: space-between;
@@ -160,15 +167,17 @@ a {
 }
 .noowned {
   background-color: #4cd137;
+  border-bottom: 5px solid #009432;
 }
+
 .selected {
   border: 2px solid #e74c3c;
 }
 
 .BtnBuy {
   padding: 10px;
+  border-radius: 16px;
   cursor: pointer;
-  border-radius: 10px;
   .BtnBuy-Title {
     user-select: none;
     font-size: 1.5rem;
@@ -198,10 +207,12 @@ a {
 .Button {
   font-size: 1.3rem;
   background-color: #00a8ff;
+  border: 0;
+  border-bottom: 5px solid #1281bb;
   margin-top: 5%;
+  border-radius: 16px;
   user-select: none;
   cursor: pointer;
-  border-radius: 10px;
   padding: 10px;
   width: max-content;
 }
@@ -220,6 +231,11 @@ a {
 .noowned:hover {
   background-color: #44bd32;
 }
+
+.nbuy:hover {
+  background-color: #616d7c;
+}
+
 .Right {
   display: flex;
   align-items: center;
@@ -227,6 +243,7 @@ a {
 
 .nbuy {
   background-color: #718093;
+  border-bottom: 5px solid #4f5a66;
 }
 
 .DeleteAll {
