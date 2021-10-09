@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {}
 
-  public checkUsername() {
+  public checkUsernameAvailable() {
     this.slowInput(() => {
       if (this.registerForm.get('name')?.valid) {
         // this.http

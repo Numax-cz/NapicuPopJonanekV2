@@ -4,7 +4,7 @@
     <div class="LoginRegisterPanel">
       <form [formGroup]="registerForm"  #data="ngForm" (ngSubmit)="onSubmit(data.value)">
 
-        <input  #Name ngModel [appFocusInput]="name" (ngModelChange)="checkUsername()" formControlName="name" name="username"  placeholder="Jméno" id="input" type="text"/>
+        <input  #Name ngModel [appFocusInput]="name" (ngModelChange)="checkUsernameAvailable()" formControlName="name" name="username"  placeholder="Jméno" id="input" type="text"/>
         <input  #Email ngModel [appFocusInput]="email" (ngModelChange)="checkEmail()"  formControlName="email"  name="email"  placeholder="Email" id="input" type="text" />
       
         <div formGroupName="passwords">
