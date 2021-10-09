@@ -10,7 +10,7 @@
         <div formGroupName="passwords">
       
           <input  #Pass1 ngModel [appFocusInput]="pass1" (ngModelChange)="checkPassword()" formControlName="pass1" name="heslo" placeholder="Heslo" id="input" type="password" />
-          <input  #Pass2 ngModel [appFocusInput]="pass2" (ngModelChange)="checkPasswordRe()"formControlName="pass2" name="reheslo" placeholder="Heslo znovu" id="input" type="password" /> 
+          <input  #Pass2 ngModel [appFocusInput]="pass2" formControlName="pass2" name="reheslo" placeholder="Heslo znovu" id="input" type="password" /> 
       
         </div>
 

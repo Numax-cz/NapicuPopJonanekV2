@@ -73,8 +73,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
         //       this.setBackground(this.Name);
         //     }
         //   });
-      } else {
-        //todo set error
       }
     });
   }
@@ -83,8 +81,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.slowInput(() => {
       if (this.registerForm.get('email')?.valid) {
         //todo
-      } else {
-        //todo set error
       }
     });
   }
@@ -92,13 +88,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     console.log(this.registerForm.get('passwords')?.get('pass1')?.errors);
   }
 
-  public checkPasswordRe(): void {
-    // var text;
-    // var passEr = this.registerForm.get('passwords')?.get('pass2')?.errors;
-    // if (passEr?.) {
-    // } else {
-    // }
-  }
+
 
   protected slowInput(func: Function) {
     clearTimeout(this.timeout);
