@@ -34,11 +34,11 @@ const routes: Routes = [
           { path: 'settings', component: SettingsComponent },
           { path: 'login', component: LoginComponent },
           { path: 'settings/session', component: SettingsAlertSessionComponent },
+          { path: 'ochrana-osobnich-udaju', component: OchranaOsobnichUdajuComponent },
         ],
       },
     ],
   },
-  {},
   { path: '**', component: ErrorComponent },
 ];
 
