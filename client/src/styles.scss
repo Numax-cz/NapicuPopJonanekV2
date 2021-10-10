@@ -8,10 +8,8 @@
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
 
-  scrollbar-color: rgba(0, 0, 0, 0.4) #dfdfdf;
-  scrollbar-width: thin;
-
-
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(0, 0, 0, 0.4) #dfdfdf !important;
 }
 
 ::-webkit-scrollbar {
@@ -26,7 +24,6 @@
   background-color: #dfdfdf;
   border-radius: 10px;
 }
-
 
 // ::-webkit-scrollbar {
 //   width: 10px;
@@ -46,8 +43,6 @@
 // ::-webkit-scrollbar-thumb:hover {
 //   background: #57606f;
 // }
-
-
 
 #Shop {
   position: absolute;
