@@ -26,7 +26,7 @@ const routes: Routes = [
     component: JonanekComponent,
     children: [
       {
-        path: 'shop',
+        path: 'menu',
         component: ShopComponent,
         children: [
           { path: 'sound', component: ShopSoundComponent },
