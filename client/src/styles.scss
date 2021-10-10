@@ -7,7 +7,47 @@
   user-select: none;
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
+
+  scrollbar-color: rgba(0, 0, 0, 0.4) #dfdfdf;
+  scrollbar-width: thin;
+
+
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #dfdfdf;
+  border-radius: 10px;
+}
+
+
+// ::-webkit-scrollbar {
+//   width: 10px;
+// }
+
+// /* Track */
+// ::-webkit-scrollbar-track {
+//   background: rgba(48, 70, 99, 0.637);
+// }
+
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//   background: #747d8c;
+// }
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: #57606f;
+// }
+
+
 
 #Shop {
   position: absolute;
@@ -101,39 +141,13 @@
   font-size: 1.2rem;
 }
 
-// ::-webkit-scrollbar {
-//   width: 10px;
-// }
-
-// /* Track */
-// ::-webkit-scrollbar-track {
-//   background: rgba(48, 70, 99, 0.637);
-// }
-
-// /* Handle */
-// ::-webkit-scrollbar-thumb {
-//   background: #747d8c;
-// }
-
-// /* Handle on hover */
-// ::-webkit-scrollbar-thumb:hover {
-//   background: #57606f;
-// }
-
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+.scroller {
+  width: 300px;
+  height: 100px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
 }
-::-webkit-scrollbar-track {
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #dfdfdf;
-  border-radius: 10px;
-}
-
-
 
 .Op {
   margin-top: 2%;
