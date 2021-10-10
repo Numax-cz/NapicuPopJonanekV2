@@ -18,6 +18,9 @@
         <div id="LoginRegisterButtons">
           <button type="submit" id="LoginRegisterButton">Register</button>
         </div>
+        <div class="RulInfoReg">
+          <p>S registrací účtu souhlasím s <a [routerLink]="['../ochrana-osobnich-udaju']">ochranou a zpracováním osobních</a></p>
+        </div>
 
         <div class="RegisterErrors">
           <ng-container *ngIf="name?.touched">
