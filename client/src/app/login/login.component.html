@@ -3,15 +3,14 @@
     <div class="LoginRegisterMainTitle">Registrace</div>
     <div class="LoginRegisterPanel">
       <form [formGroup]="registerForm"  #data="ngForm" (ngSubmit)="onSubmit(data.value)">
-
-        <input  #Name ngModel [appFocusInput]="name" (ngModelChange)="checkUsernameAvailable()" formControlName="name" name="username"  placeholder="Jméno" id="input" type="text"/>
-        <input  #Email ngModel [appFocusInput]="email" (ngModelChange)="checkEmail()"  formControlName="email"  name="email"  placeholder="Email" id="input" type="text" />
+        
+        <input [ngClass]="{ InputError: checkError(name),  InputSus: checkSus(name)}" #Name ngModel [appFocusInput]="name" (ngModelChange)="checkUsernameAvailable()" formControlName="name" name="username"  placeholder="Jméno" class="input" type="text"/>
+ 
+        <input  [ngClass]="{ InputError: checkError(email),  InputSus: checkSus(email)}" #Email ngModel [appFocusInput]="email" (ngModelChange)="checkEmail()"  formControlName="email"  name="email"  placeholder="Email" class="input" type="text" />
       
         <div formGroupName="passwords">
-      
-          <input  #Pass1 ngModel [appFocusInput]="pass1" (ngModelChange)="checkPassword()" formControlName="pass1" name="heslo" placeholder="Heslo" id="input" type="password" />
-          <input  #Pass2 ngModel [appFocusInput]="pass2" formControlName="pass2" name="reheslo" placeholder="Heslo znovu" id="input" type="password" /> 
-      
+          <input [ngClass]="{ InputError: checkError(pass1),  InputSus: checkSus(pass1)}"  #Pass1 ngModel [appFocusInput]="pass1" (ngModelChange)="checkPassword()" formControlName="pass1" name="heslo" placeholder="Heslo" class="input" type="password" />
+          <input [ngClass]="{ InputError: checkError(pass2),  InputSus: checkSus(pass2)}"  #Pass2 ngModel [appFocusInput]="pass2" formControlName="pass2" name="reheslo" placeholder="Heslo znovu" class="input" type="password" /> 
         </div>
 
         

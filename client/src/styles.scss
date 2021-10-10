@@ -119,17 +119,22 @@
   color: #aa000d;
 }
 
-#input {
-  background-color: #f1f1f1;
+.input {
+  border: 2px solid transparent;
   padding: 4px 10px;
   border-radius: 7px;
   margin-bottom: 20px;
   outline: none;
-  border: none;
   padding: 18px;
   font-size: 1.23rem;
   font-weight: bold;
   width: 100%;
+}
+.InputError {
+  border-color: red;
+}
+.InputSus {
+  border-color: #009432;
 }
 #InputTitle {
   margin: 5%;

@@ -113,6 +113,21 @@ export class LoginComponent implements OnInit, AfterViewInit {
     // });
   }
 
+  public checkError(i: AbstractControl | null): boolean {
+    if (i?.errors && i?.dirty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  public checkSus(i: AbstractControl | null): boolean {
+    if (!i?.errors && i?.dirty && i?.value) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   protected passwordHasNumber(): ValidatorFn {
     return (i: AbstractControl): ValidationErrors | null => {
       const value = i.value;
@@ -124,7 +139,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
       return !hasNum ? { passwordhasNoNum: !hasNum } : null;
     };
   }
-  
+
   protected passwordHasLower(): ValidatorFn {
     return (i: AbstractControl): ValidationErrors | null => {
       const value = i.value;
