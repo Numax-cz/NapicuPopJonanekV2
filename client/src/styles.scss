@@ -291,6 +291,12 @@ a {
   background-color: #616d7c;
   border-color: rgb(66, 76, 85);
 }
+.owned:hover {
+  border-color:  #daae00;
+}
+.selected:hover {
+  border-color:  #c43121;
+}
 
 .Right {
   display: flex;
