@@ -268,6 +268,16 @@ a {
   padding: 10px;
   width: max-content;
 }
+.DeleteAll {
+  background-color: #e84118;
+  border: 0;
+  border-bottom: 6px solid #c23616;
+  outline: none;
+  font-size: 1.4rem;
+  padding: 10px;
+  border-radius: 16px;
+  cursor: pointer;
+}
 .ButtonContainter {
   font-size: 1.3rem;
   background-color: #00a8ff;
@@ -286,7 +296,10 @@ a {
   background-color: #44bd32;
   border-color: #007c2a;
 }
-
+.DeleteAll:hover {
+  background-color: #d63d16;
+  border-color:  #b13014;
+}
 .nbuy:hover {
   background-color: #616d7c;
   border-color: rgb(66, 76, 85);
@@ -308,15 +321,7 @@ a {
   border-bottom: 5px solid #4f5a66;
 }
 
-.DeleteAll {
-  background-color: #ea2027;
-  border: none;
-  outline: none;
-  font-size: 1.4rem;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-}
+
 
 .block {
   display: block;
