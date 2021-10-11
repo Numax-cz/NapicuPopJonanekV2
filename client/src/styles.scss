@@ -106,6 +106,7 @@
 }
 #LoginRegisterButton:hover {
   background-color: #f3404f;
+  border-color: #af3a50;
 }
 .LoginRegisterMainTitle {
   font-size: 2rem;
@@ -277,14 +278,18 @@ a {
 }
 .Button:hover {
   background-color: #0097e6;
+  border-color: #0c6ca0;
 }
+
 
 .noowned:hover {
   background-color: #44bd32;
+  border-color: #007c2a;
 }
 
 .nbuy:hover {
   background-color: #616d7c;
+  border-color: rgb(66, 76, 85);
 }
 
 .Right {
