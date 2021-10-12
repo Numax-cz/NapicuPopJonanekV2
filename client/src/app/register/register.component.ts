@@ -21,9 +21,9 @@ declare interface ApiLoginRegisterR {
 }
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
 })
 export class LoginComponent implements OnInit, AfterViewInit {
   protected readonly slowInputTime: number = 1000;
