@@ -1,21 +1,12 @@
 <div class="TableProduct">
+  <div class="Table-settings-alert">
+    <div id="Name">Opravdu chcete smazat data?</div>
 
-    <div class="Table-settings-alert">
-        <div id="Name">Opravdu chcete smazat data?</div>
-
-        <div class="Buttons">
-            <button id="Button-Settings-Session" (click)="clear()" class="Yes">Ano</button>
-            <button id="Button-Settings-Session" (click)="noclear()" class="No">Ne</button>
-        </div>
-
-
-        <div class="Warn">
-            <ul id="Warn-Ul">
-                <div>Tímto se smaže:</div>
-                <li>Skóre</li>
-                <li>Vlastněná hudba</li>
-                <li>Vybraná hudba</li>
-            </ul>
-        </div>
+    <div class="Buttons">
+      <button id="Button-Settings-Session" (click)="clear()" class="Yes">Ano</button>
+      <button id="Button-Settings-Session" (click)="noclear()" class="No">Ne</button>
     </div>
+
+    <div class="Warn">Ztratíte své nakoupené zvuky, pozadí a skóre</div>
+  </div>
 </div>
