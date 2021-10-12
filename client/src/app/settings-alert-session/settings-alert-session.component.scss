@@ -20,13 +20,21 @@
 }
 .Yes {
   border: 0;
-  border-bottom: 5px solid #2aa118;
-  background-color: #47cd31;
+  background-color: hsl(112, 61%, 50%);
+  border-bottom: 5px solid hsl(112, 61%, 36%);;
 }
 .No {
   border: 0;
-  border-bottom: 5px solid #c23616;
-  background-color: #e84118;
+  background-color: hsl(12, 82%, 50%);
+  border-bottom: 5px solid hsl(12, 82%, 42%);
+}
+.Yes:hover {
+  background-color: hsl(112, 61%, 45%);
+  border-color: hsl(112, 74%, 31%);
+}
+.No:hover {
+  background-color: hsl(12, 82%, 45%);
+  border-color: hsl(12, 82%, 37%);
 }
 
 #Warn-Ul {
