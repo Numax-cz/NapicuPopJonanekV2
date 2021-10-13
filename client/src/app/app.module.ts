@@ -19,6 +19,7 @@ import { BoardComponent } from './board/board.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FocusInputDirective } from './focus-input.directive';
 import { OchranaOsobnichUdajuComponent } from './ochrana-osobnich-udaju/ochrana-osobnich-udaju.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
           { path: 'background', component: ShopBackgroundComponent },
           { path: 'settings', component: SettingsComponent },
           { path: 'register', component: RegisterComponent },
+          { path: 'login', component: LoginComponent },
           { path: 'settings/session', component: SettingsAlertSessionComponent },
           { path: 'ochrana-osobnich-udaju', component: OchranaOsobnichUdajuComponent },
         ],
