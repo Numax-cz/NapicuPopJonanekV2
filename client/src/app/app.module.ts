@@ -40,6 +40,7 @@ const routes: Routes = [
           { path: 'settings/session', component: SettingsAlertSessionComponent },
           { path: 'ochrana-osobnich-udaju', component: OchranaOsobnichUdajuComponent },
           { path: 'user', component: UserComponent },
+          { path: 'board', component: BoardComponent },
         ],
       },
     ],
