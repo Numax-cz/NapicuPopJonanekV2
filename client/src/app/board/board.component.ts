@@ -9,7 +9,7 @@ export class BoardComponent implements OnInit {
   public usersBoard: any[] = [
     {
       user: 'Mařka',
-      count: 43545,
+      count: 123456789101112131415161,
     },
     {
       user: 'Blažka',
