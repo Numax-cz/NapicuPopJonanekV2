@@ -25,7 +25,7 @@ declare interface ApiLoginRegisterR {
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class LoginComponent implements OnInit, AfterViewInit {
+export class RegisterComponent implements OnInit, AfterViewInit {
   protected readonly slowInputTime: number = 1000;
   @ViewChild('Name') protected declare Name: any;
   @ViewChild('Email') protected declare Email: any;

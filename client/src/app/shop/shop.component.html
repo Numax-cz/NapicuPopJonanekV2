@@ -1,32 +1,19 @@
-
-
 <section id="Shop">
+  <div class="Exit">
+    <a routerLink="">
+      <img src="/assets/icons/exit.png" id="Exit-Img" />
+    </a>
+  </div>
 
-    <div class="Exit">
-
-        <a routerLink="">
-            <img src="/assets/icons/exit.png" id="Exit-Img">
-        </a>
-
+  <div class="ShopTable">
+    <div class="ShopTitle">Menu</div>
+    <div class="Op">
+      <a routerLink="sound">Zvuky</a>
+      <a routerLink="background">Pozadí</a>
+      <a routerLink="settings">Nastavení</a>
+      <a routerLink="register">Profil</a>
     </div>
 
-
-
-    <div class="ShopTable">
-        <div class="ShopTitle">
-            Menu
-        </div>
-        <div class="Op">
-        
-            <a routerLink="sound">Zvuky</a>
-            <a routerLink="background">Pozadí</a>
-            <a routerLink="settings">Nastavení</a>
-            <a routerLink="login">Profil</a>
-
-        </div>
-
-        <router-outlet></router-outlet>
-    </div>
-    
+    <router-outlet></router-outlet>
+  </div>
 </section>
-
