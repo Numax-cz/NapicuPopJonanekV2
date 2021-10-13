@@ -39,6 +39,7 @@ const routes: Routes = [
           { path: 'login', component: LoginComponent },
           { path: 'settings/session', component: SettingsAlertSessionComponent },
           { path: 'ochrana-osobnich-udaju', component: OchranaOsobnichUdajuComponent },
+          { path: 'user', component: UserComponent },
         ],
       },
     ],
