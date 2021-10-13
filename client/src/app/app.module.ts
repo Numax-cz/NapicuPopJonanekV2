@@ -58,6 +58,7 @@ const routes: Routes = [
     BoardComponent,
     FocusInputDirective,
     OchranaOsobnichUdajuComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

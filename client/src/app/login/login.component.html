@@ -3,10 +3,19 @@
     <div class="LoginRegisterMainTitle">Přihlášení</div>
     <div class="LoginRegisterPanel">
       <form>
-        <input type="text" placeholder="Email/Jméno" name="username" class="input"/>
+        <input type="text" placeholder="Email/Jméno" name="username" class="input" />
         <input type="password" placeholder="Heslo" name="heslo" class="input" />
         <div id="LoginRegisterButtons">
           <button type="submit" id="LoginRegisterButton">Login</button>
+        </div>
+
+        <div class="RulInfoReg">
+
+            <p>
+                <a [routerLink]="['../register']">
+                    Ještě nemám účet
+                </a>
+            </p>
         </div>
       </form>
     </div>
