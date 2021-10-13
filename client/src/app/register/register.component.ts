@@ -15,7 +15,7 @@ declare interface ApiData {
   heslo: string;
   reheslo: string;
 }
-declare interface ApiLoginRegisterR {
+export declare interface ApiLoginRegisterR {
   code: number;
   msg: string;
 }
