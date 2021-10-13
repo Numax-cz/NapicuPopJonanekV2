@@ -75,9 +75,9 @@
 .urlp p {
   color: rgb(15, 15, 15);
 }
-.RulInfoReg{
+.RulInfoReg {
   text-align: center;
-  p{
+  p {
     margin: 11px 0;
   }
 }
@@ -205,6 +205,12 @@ a {
   margin-bottom: 50px;
   justify-content: space-between;
 }
+#UserBoard {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  justify-content: normal;
+}
+
 #Img {
   width: 100px;
   height: 100px;
@@ -297,24 +303,23 @@ a {
   border-color: #0c6ca0;
 }
 
-
 .noowned:hover {
   background-color: #44bd32;
   border-color: #007c2a;
 }
 .DeleteAll:hover {
   background-color: #d63d16;
-  border-color:  #b13014;
+  border-color: #b13014;
 }
 .nbuy:hover {
   background-color: #616d7c;
   border-color: rgb(66, 76, 85);
 }
 .owned:hover {
-  border-color:  #daae00;
+  border-color: #daae00;
 }
 .selected:hover {
-  border-color:  #c43121;
+  border-color: #c43121;
 }
 
 .Right {
@@ -326,8 +331,6 @@ a {
   background-color: #718093;
   border-bottom: 5px solid #4f5a66;
 }
-
-
 
 .block {
   display: block;

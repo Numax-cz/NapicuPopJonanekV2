@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     name: new FormControl('', [
       Validators.required,
       Validators.minLength(4),
-      Validators.maxLength(29),
+      Validators.maxLength(15),
       this.usernameValidator(),
     ]),
     email: new FormControl('', [Validators.required, Validators.email]),

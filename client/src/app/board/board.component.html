@@ -1,1 +1,12 @@
-<p>board works!</p>
+<div class="TableProduct">
+  <ul>
+    <li class="Item" id="UserBoard" *ngFor="let i of usersBoard">
+      <div>
+        {{ i.user }}
+      </div>
+      <div>
+        {{ i.count }}
+      </div>
+    </li>
+  </ul>
+</div>
