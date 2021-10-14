@@ -372,16 +372,18 @@ a {
   cursor: pointer;
   float: right;
 }
-@media screen and (max-width: 1691px) {
-  .Item-Title {
-    font-size: 1.6rem;
+
+@media screen and (max-width: 1600px) {
+  .TableProduct {
+    max-height: 70vh;
+    max-width: 70%;
+    padding: 20px;
   }
 }
-
 @media screen and (max-width: 1489px) {
   .Item-Title {
-    font-size: 1.5rem;
     margin-left: 1.45%;
+    font-size: 1.8rem;
   }
 }
 @media screen and (max-width: 1370px) {
@@ -390,11 +392,6 @@ a {
     margin-bottom: 4%;
     max-width: 76%;
     font-size: 1.5rem;
-  }
-  .TableProduct {
-    max-height: 70vh;
-    max-width: 60%;
-    padding: 20px;
   }
   #Shop {
     width: 60%;
@@ -435,12 +432,12 @@ a {
   .Op {
     margin-top: 2%;
     margin-bottom: 4%;
-    max-width: 60%;
+    max-width: 87%;
     font-size: 1.5rem;
   }
   .TableProduct {
-    max-height: 60vh;
-    max-width: 60%;
+    max-height: 67vh;
+    max-width: 70%;
     padding: 20px;
   }
   #Shop {
@@ -478,23 +475,6 @@ a {
   }
 }
 
-@media screen and (max-width: 1267px) {
-  .Item-Title {
-    font-size: 1.265rem;
-  }
-  .Op {
-    margin-top: 2%;
-    margin-bottom: 4%;
-    max-width: 77%;
-    font-size: 1.4rem;
-  }
-  .TableProduct {
-    max-height: 60vh;
-    max-width: 70%;
-    padding: 20px;
-  }
-}
-
 @media screen and (max-width: 981px) {
   #MenuShop {
     width: 35px;
@@ -521,6 +501,9 @@ a {
     right: -20px;
     top: -20px;
   }
+  .Item {
+    margin-bottom: 30px;
+  }
   .Button {
     font-size: 1.2rem;
     margin-top: 5%;
@@ -546,12 +529,10 @@ a {
     max-width: 97%;
     font-size: 1.25rem;
   }
-
   .TableProduct {
     max-height: 72vh;
     max-width: 87%;
   }
-
   #Shop {
     width: 95%;
     height: 90vh;
@@ -570,7 +551,7 @@ a {
     top: -10px;
   }
   .Button {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-top: 5%;
     border-radius: 10px;
     padding: 10px;
@@ -579,7 +560,7 @@ a {
     padding: 10px;
     border-radius: 10px;
     .BtnBuy-Title {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
     }
     .BtnBuy-Prize {
       font-size: 1.25rem;
@@ -587,113 +568,84 @@ a {
   }
 }
 
-@media screen and (max-width: 601px) {
-
-  #Shop {
-    width: 95%;
-    height: 90vh;
-  }
-  #Img {
-    width: 85px;
-    height: 85px;
-    min-width: 85px;
-    max-height: 85px;
-    max-width: 85px;
-  }
-  #Exit-Img {
-    width: 50px;
-    position: absolute;
-    right: -10px;
-    top: -10px;
-  }
-  .Button {
-    font-size: 1.15rem;
-    margin-top: 5%;
-    border-radius: 10px;
-    padding: 8px;
-  }
-
-  .BtnBuy {
-    padding: 8px;
-    border-radius: 10px;
-    .BtnBuy-Title {
-      font-size: 1.2rem;
-    }
-    .BtnBuy-Prize {
-      font-size: 1.05rem;
-    }
-  }
-}
-
-@media screen and (max-width: 535px) {
+@media screen and (max-width: 567px) {
   .Op {
     margin-top: 2%;
-    margin-bottom: 4%;
-    max-width: 80%;
-    font-size: 1.15rem;
+    margin-bottom: 3%;
+    max-width: 97%;
+    font-size: 1.25rem;
   }
-  #Shop {
-    width: 95%;
-    height: 90vh;
-  }
-  #Img {
-    width: 65px;
-    height: 65px;
-    min-width: 65px;
-    max-height: 65px;
-    max-width: 65px;
-  }
-  #Exit-Img {
-    width: 50px;
-    position: absolute;
-    right: -10px;
-    top: -10px;
-  }
-  .Button {
-    font-size: 1.15rem;
-    margin-top: 5%;
-    border-radius: 10px;
-    padding: 8px;
-  }
-  .BtnBuy {
-    padding: 8px;
-    border-radius: 10px;
-    .BtnBuy-Title {
-      font-size: 1.2rem;
-    }
-    .BtnBuy-Prize {
-      font-size: 1.05rem;
-    }
-  }
-}
-
-@media screen and (max-width: 443px) {
-  .Op {
-    margin-top: 2%;
-    margin-bottom: 4%;
-    max-width: 80%;
-    font-size: 1.35rem;
-  }
-
   .TableProduct {
-    max-height: 65vh;
-    max-width: 95%;
+    max-height: 72vh;
+    max-width: 90%;
+    padding: 15px;
+  }
+  .Item-Title {
+    padding: 0;
+  }
+  #Shop {
+    width: 95%;
+    height: 90vh;
+  }
+  #Img {
+    width: 90px;
+    height: 90px;
+    min-width: 90px;
+    max-height: 90px;
+    max-width: 90px;
+  }
+  #Exit-Img {
+    width: 50px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+  }
+  .Button {
+    font-size: 1rem;
+    margin-top: 5%;
+    border-radius: 10px;
     padding: 10px;
   }
-  .Item {
-    margin-bottom: 20px;
+  .BtnBuy {
+    padding: 8px;
+    border-radius: 10px;
+    .BtnBuy-Title {
+      font-size: 1.15rem;
+    }
+    .BtnBuy-Prize {
+      font-size: 1rem;
+    }
   }
+}
 
+@media screen and (max-width: 505px) {
+  .Op {
+    margin-top: 2%;
+    margin-bottom: 3%;
+    max-width: 97%;
+    font-size: 1.25rem;
+  }
+  .marginImg {
+    margin-left: 15px;
+  }
+  .TableProduct {
+    max-height: 72vh;
+    max-width: 90%;
+    padding: 15px;
+  }
+  .Item-Title {
+    padding: 0;
+  }
   #Shop {
     width: 95%;
     height: 90vh;
   }
   #Img {
-    width: 65px;
-    height: 65px;
-    min-width: 65px;
-    max-height: 65px;
-    max-width: 65px;
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    max-height: 70px;
+    max-width: 70px;
   }
   #Exit-Img {
     width: 50px;
@@ -701,18 +653,74 @@ a {
     right: -10px;
     top: -10px;
   }
-
-  .Item-Title {
-    font-size: 1rem;
+  .Button {
+    font-size: .9rem;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 10px;
   }
   .BtnBuy {
     padding: 8px;
     border-radius: 10px;
     .BtnBuy-Title {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
     }
     .BtnBuy-Prize {
-      font-size: 1.05rem;
+      font-size: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .Op {
+    margin-top: 2%;
+    margin-bottom: 3%;
+    max-width: 98%;
+    font-size: 1.1rem;
+  }
+  .marginImg {
+    margin-left: 15px;
+  }
+  .TableProduct {
+    max-height: 72vh;
+    max-width: 90%;
+    padding: 15px;
+  }
+  .Item-Title {
+    font-size: 1rem;
+    padding: 0;
+  }
+  #Shop {
+    width: 95%;
+    height: 90vh;
+  }
+  #Img {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    max-height: 70px;
+    max-width: 70px;
+  }
+  #Exit-Img {
+    width: 50px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+  }
+  .Button {
+    font-size: .9rem;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .BtnBuy {
+    padding: 8px;
+    border-radius: 10px;
+    .BtnBuy-Title {
+      font-size: 1.15rem;
+    }
+    .BtnBuy-Prize {
+      font-size: 1rem;
     }
   }
 }
