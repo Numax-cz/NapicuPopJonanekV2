@@ -388,7 +388,7 @@ a {
   .Op {
     margin-top: 2%;
     margin-bottom: 4%;
-    max-width: 60%;
+    max-width: 76%;
     font-size: 1.5rem;
   }
   .TableProduct {
@@ -427,13 +427,11 @@ a {
     }
   }
 }
+
 @media screen and (max-width: 1267px) {
   .Item-Title {
     font-size: 1.265rem;
   }
-}
-
-@media screen and (max-width: 1210px) {
   .Op {
     margin-top: 2%;
     margin-bottom: 4%;
@@ -441,7 +439,7 @@ a {
     font-size: 1.5rem;
   }
   .TableProduct {
-    max-height: 50vh;
+    max-height: 60vh;
     max-width: 60%;
     padding: 20px;
   }
@@ -480,22 +478,30 @@ a {
   }
 }
 
+@media screen and (max-width: 1267px) {
+  .Item-Title {
+    font-size: 1.265rem;
+  }
+  .Op {
+    margin-top: 2%;
+    margin-bottom: 4%;
+    max-width: 77%;
+    font-size: 1.4rem;
+  }
+  .TableProduct {
+    max-height: 60vh;
+    max-width: 70%;
+    padding: 20px;
+  }
+}
+
 @media screen and (max-width: 981px) {
   #MenuShop {
     width: 35px;
   }
-
-  .Op {
-    margin-top: 2%;
-    margin-bottom: 4%;
-    max-width: 60%;
-    font-size: 1.5rem;
-  }
-
   .TableProduct {
-    max-height: 50vh;
-    max-width: 70%;
-    padding: 20px;
+    max-height: 65vh;
+    max-width: 80%;
   }
 
   #Shop {
@@ -536,15 +542,14 @@ a {
 @media screen and (max-width: 705px) {
   .Op {
     margin-top: 2%;
-    margin-bottom: 4%;
-    max-width: 60%;
-    font-size: 1.5rem;
+    margin-bottom: 3%;
+    max-width: 97%;
+    font-size: 1.25rem;
   }
 
   .TableProduct {
-    max-height: 50vh;
-    max-width: 82%;
-    padding: 20px;
+    max-height: 72vh;
+    max-width: 87%;
   }
 
   #Shop {
@@ -583,18 +588,6 @@ a {
 }
 
 @media screen and (max-width: 601px) {
-  .Op {
-    margin-top: 2%;
-    margin-bottom: 4%;
-    max-width: 80%;
-    font-size: 1.35rem;
-  }
-
-  .TableProduct {
-    max-height: 65vh;
-    max-width: 82%;
-    padding: 20px;
-  }
 
   #Shop {
     width: 95%;
@@ -637,15 +630,8 @@ a {
     margin-top: 2%;
     margin-bottom: 4%;
     max-width: 80%;
-    font-size: 1.35rem;
+    font-size: 1.15rem;
   }
-
-  .TableProduct {
-    max-height: 65vh;
-    max-width: 95%;
-    padding: 20px;
-  }
-
   #Shop {
     width: 95%;
     height: 90vh;
@@ -727,58 +713,6 @@ a {
     }
     .BtnBuy-Prize {
       font-size: 1.05rem;
-    }
-  }
-}
-
-@media screen and (max-width: 390px) {
-  .Op {
-    margin-top: 2%;
-    margin-bottom: 4%;
-    max-width: 92%;
-    font-size: 1.1rem;
-  }
-
-  .TableProduct {
-    max-height: 65vh;
-    max-width: 95%;
-    padding: 10px;
-  }
-  .Item {
-    margin-bottom: 20px;
-  }
-
-  #Shop {
-    width: 95%;
-    height: 90vh;
-  }
-  #Img {
-    width: 56px;
-    height: 56px;
-    min-width: 56px;
-    max-height: 56px;
-    max-width: 56px;
-  }
-  #Exit-Img {
-    width: 50px;
-    position: absolute;
-    right: -10px;
-    top: -10px;
-  }
-  .Button {
-    font-size: 0.9rem;
-    margin-top: 5%;
-    border-radius: 10px;
-    padding: 6px;
-  }
-  .BtnBuy {
-    padding: 6px;
-    border-radius: 10px;
-    .BtnBuy-Title {
-      font-size: 1.1rem;
-    }
-    .BtnBuy-Prize {
-      font-size: 0.9rem;
     }
   }
 }
