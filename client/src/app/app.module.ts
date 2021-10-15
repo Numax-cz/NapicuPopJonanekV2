@@ -41,6 +41,7 @@ const routes: Routes = [
           { path: 'ochrana-osobnich-udaju', component: OchranaOsobnichUdajuComponent },
           { path: 'user', component: UserComponent },
           { path: 'board', component: BoardComponent },
+          { path: 'reset', component: ResetpassComponent },
         ],
       },
     ],
