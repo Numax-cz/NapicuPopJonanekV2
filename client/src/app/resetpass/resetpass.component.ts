@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-
+declare interface ApiData {
+  email: string;
+}
 @Component({
   selector: 'app-resetpass',
   templateUrl: './resetpass.component.html',
-  styleUrls: ['./resetpass.component.scss']
+  styleUrls: ['./resetpass.component.scss'],
 })
 export class ResetpassComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
+  public onSubmit(data: ApiData): void {}
 }

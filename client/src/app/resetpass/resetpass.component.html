@@ -1,1 +1,14 @@
-<p>resetpass works!</p>
+<section>
+  <div>
+    <div class="LoginRegisterMainTitle">Obnovení hesla</div>
+    <div class="LoginRegisterPanel">
+      <form #data="ngForm" (ngSubmit)="onSubmit(data.value)">
+        <input type="text" placeholder="Email/Jméno" name="username" class="input" />
+        <input type="password" placeholder="Heslo" name="heslo" class="input" />
+        <div id="LoginRegisterButtons">
+          <button type="submit" id="LoginRegisterButton">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
