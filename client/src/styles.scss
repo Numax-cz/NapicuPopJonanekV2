@@ -50,6 +50,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   left: 50%;
+  //background-color: #2b3034;
   background-color: rgb(39, 110, 198);
   border-radius: 15px;
 }
@@ -78,7 +79,16 @@
   text-align: center;
   p {
     margin: 11px 0;
+    color: #000000b0;
   }
+}
+#EmailSe {
+  font-size: 1.3rem;
+  background-color: #ea2027cc;
+  border-radius: 7px;
+  border: 2px solid #ff0009;
+  margin-bottom: 20px;
+  padding: 8px;
 }
 .LoginRegisterPanel {
   width: 43%;
@@ -146,25 +156,6 @@
   font-size: 1.2rem;
 }
 
-.scroller {
-  width: 300px;
-  height: 100px;
-  overflow-y: scroll;
-  scrollbar-color: rebeccapurple green;
-  scrollbar-width: thin;
-}
-.ApiPassreset {
-  font-size: 1.2rem;
-  animation: example 500ms ease-in-out;
-}
-@keyframes example {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .Op {
   margin-top: 2%;
   margin-bottom: 4%;
