@@ -7,7 +7,6 @@
   user-select: none;
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
-
   scrollbar-width: thin !important;
   scrollbar-color: rgba(0, 0, 0, 0.4) #dfdfdf !important;
 }
@@ -529,9 +528,15 @@ a {
     max-width: 97%;
     font-size: 1.25rem;
   }
+  #UserBoard {
+    font-size: 1.5rem;
+  }
   .TableProduct {
     max-height: 72vh;
     max-width: 87%;
+  }
+  .LoginRegisterPanel {
+    width: 80%;
   }
   #Shop {
     width: 95%;
@@ -625,6 +630,9 @@ a {
     max-width: 97%;
     font-size: 1.25rem;
   }
+  .input {
+    font-size: 1rem;
+  }
   .marginImg {
     margin-left: 15px;
   }
@@ -632,6 +640,9 @@ a {
     max-height: 72vh;
     max-width: 90%;
     padding: 15px;
+  }
+  #UserBoard {
+    font-size: 1.25rem;
   }
   .Item-Title {
     padding: 0;
@@ -672,6 +683,9 @@ a {
 }
 
 @media screen and (max-width: 460px) {
+  .ShopTitle {
+    font-size: 1.8rem;
+  }
   .Op {
     margin-top: 2%;
     margin-bottom: 3%;
@@ -738,6 +752,9 @@ a {
   .Item {
     padding: 7px;
     margin-bottom: 20px;
+  }
+  #UserBoard {
+    font-size: 1rem;
   }
   .TableProduct {
     max-height: 72vh;
@@ -833,7 +850,7 @@ a {
     padding: 6px;
     border-radius: 10px;
     .BtnBuy-Title {
-      font-size: .9rem;
+      font-size: 0.9rem;
     }
     .BtnBuy-Prize {
       font-size: 0.75rem;
