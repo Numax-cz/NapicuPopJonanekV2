@@ -17,6 +17,24 @@
     `id` int(11) NOT NULL,
     `counter` int(11) NOT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+    CREATE TABLE `Users` (
+    `ID` INT NOT NULL AUTO_INCREMENT,
+    `Username` TEXT NOT NULL,
+    `SHA256Password` VARCHAR(64) NOT NULL,
+    `Email` VARCHAR(50) NOT NULL,
+    `Clicks` INT NOT NULL DEFAULT '0',
+    PRIMARY KEY (`ID`)
+    );
+
+    CREATE TABLE `PasswordReset` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`User_ID` INT NOT NULL,
+	`Code` TEXT NOT NULL,
+	`CreationTimestamp` BIGINT NOT NULL,
+	PRIMARY KEY (`ID`)
+    );
+
     ```
 3. Vložte údaje do `.env` 
     ```
