@@ -1,22 +1,19 @@
 <div class="TableProduct">
-    <div class="options">
-        <div class="Item" id="DisplayBlock">
-            <div class="Title">Všechny Zvuky</div>
-            <div class="ButtonZvuky">
-                <label class="switch">
-                    <input type="checkbox" (change)="Change($event)" [checked]="Checked">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-        </div>
-
-        <div class="Item" id="DisplayBlock">
-            <div class="Title">Vymazat všechny data</div>
-            <div class="ButtonCl">
-                <button class="DeleteAll" routerLink="/menu/settings/session">Vymazat</button>
-            </div>
-        </div>
-
-
+  <div class="options">
+    <div class="Item" id="DisplayBlock">
+      <div class="Title">Všechny Zvuky</div>
+      <div class="ButtonZvuky">
+        <label class="switch">
+          <input type="checkbox" (change)="Change($event)" [checked]="Checked" />
+          <span class="slider round"></span>
+        </label>
+      </div>
     </div>
+    <div class="Item" id="DisplayBlock">
+      <div class="Title">Vymazat všechny data</div>
+      <div class="ButtonCl">
+        <button class="DeleteAll" routerLink="/menu/settings/session">Vymazat</button>
+      </div>
+    </div>
+  </div>
 </div>
