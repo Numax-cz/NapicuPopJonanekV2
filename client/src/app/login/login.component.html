@@ -2,7 +2,7 @@
   <div>
     <div class="LoginRegisterMainTitle">Přihlášení</div>
     <div class="LoginRegisterPanel">
-      <form  #data="ngForm" (ngSubmit)="onSubmit(data.value)">
+      <form #data="ngForm" (ngSubmit)="onSubmit(data.value)">
         <input type="text" placeholder="Email/Jméno" name="username" class="input" />
         <input type="password" placeholder="Heslo" name="heslo" class="input" />
         <div id="LoginRegisterButtons">
@@ -10,12 +10,12 @@
         </div>
 
         <div class="RulInfoReg">
-
-            <p>
-                <a [routerLink]="['../register']">
-                    Nemám účet
-                </a>
-            </p>
+          <p>
+            <a [routerLink]="['../reset']"> Zapomněl jsem heslo </a>
+          </p>
+          <p>
+            <a [routerLink]="['../register']"> Nemám účet </a>
+          </p>
         </div>
       </form>
     </div>
