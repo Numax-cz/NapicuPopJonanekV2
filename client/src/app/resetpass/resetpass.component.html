@@ -3,12 +3,13 @@
     <div class="LoginRegisterMainTitle">Obnovení hesla</div>
     <div class="LoginRegisterPanel">
       <form #data="ngForm" (ngSubmit)="onSubmit(data.value)" style="width: 100%">
-        <input type="text" placeholder="Email" name="email" class="input" />
+        <input type="text" placeholder="Email" name="email" class="input" [disabled]="formS === true" />
         <div id="LoginRegisterButtons">
           <button type="submit" id="LoginRegisterButton">Obnovit</button>
         </div>
       </form>
-      <div class="RulInfoReg">
+      <div class="RulInfoReg ApiPassreset">
+        <p>Email byl úspěšně odeslán!</p>
         <p>Jestli vám nepříjde email, zkuste to prosím později</p>
       </div>
     </div>

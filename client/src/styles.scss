@@ -153,7 +153,18 @@
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
 }
-
+.ApiPassreset {
+  font-size: 1.2rem;
+  animation: example 500ms ease-in-out;
+}
+@keyframes example {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .Op {
   margin-top: 2%;
   margin-bottom: 4%;
