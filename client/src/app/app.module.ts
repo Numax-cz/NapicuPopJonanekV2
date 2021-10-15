@@ -22,6 +22,7 @@ import { OchranaOsobnichUdajuComponent } from './ochrana-osobnich-udaju/ochrana-
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { ResetpassComponent } from './resetpass/resetpass.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,7 @@ const routes: Routes = [
     LoginComponent,
     UserComponent,
     ResetpassComponent,
+    ResetpasswordComponent,
   ],
   imports: [
     BrowserModule,
