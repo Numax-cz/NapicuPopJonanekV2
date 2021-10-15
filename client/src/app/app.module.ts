@@ -21,6 +21,7 @@ import { FocusInputDirective } from './focus-input.directive';
 import { OchranaOsobnichUdajuComponent } from './ochrana-osobnich-udaju/ochrana-osobnich-udaju.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
+import { ResetpassComponent } from './resetpass/resetpass.component';
 
 const routes: Routes = [
   {
@@ -63,6 +64,7 @@ const routes: Routes = [
     OchranaOsobnichUdajuComponent,
     LoginComponent,
     UserComponent,
+    ResetpassComponent,
   ],
   imports: [
     BrowserModule,
