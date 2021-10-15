@@ -43,11 +43,12 @@ const routes: Routes = [
           { path: 'user', component: UserComponent },
           { path: 'board', component: BoardComponent },
           { path: 'reset', component: ResetpassComponent },
+          { path: 'reset-password/:code', component: ResetpasswordComponent },
         ],
       },
     ],
   },
-  { path: '**', component: ErrorComponent },
+  { path: '**', component: JonanekComponent },
 ];
 
 @NgModule({
