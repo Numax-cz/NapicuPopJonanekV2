@@ -25,7 +25,6 @@
 #TableP {
   display: table-cell;
   vertical-align: middle;
-  padding-top: 130px;
   padding-bottom: 100px;
 }
 #Table {
@@ -37,7 +36,7 @@
 }
 #Table > div {
   padding: 17px;
-  font-size: 1.7vh;
+  font-size: 1.8vh;
 }
 #ImgCon {
   width: 100%;
@@ -58,7 +57,7 @@
 }
 #Button {
   margin: 16px 29px;
-  font-size: 1.3rem;
+  font-size: 2vh;
   display: block;
   text-align: center;
   background-color: #f36580;
@@ -69,5 +68,4 @@
   border-bottom: 5px solid #c64a61;
   border-radius: 22px;
   text-decoration: none;
-
 }
