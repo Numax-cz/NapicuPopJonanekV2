@@ -64,6 +64,19 @@ input:checked + .slider:before {
   color: black;
   margin-bottom: 15px;
 }
+
+@media screen and (max-width: 705px) {
+  .switch {
+    width: 52px;
+    height: 26px;
+  }
+  .slider:before {
+    content: '';
+    height: 18px;
+    width: 18px;
+  }
+}
+
 @media screen and (max-width: 505px) {
   .DeleteAll {
     padding-inline-end: 12px;
