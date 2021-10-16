@@ -27,7 +27,13 @@
 #Table > div {
   padding: 17px;
 }
-
+#ImgCon {
+  width: 100%;
+  display: flex;
+  max-width: 100%;
+  margin: auto;
+  justify-content: space-around;
+}
 #Text {
   padding: 11px;
 }
