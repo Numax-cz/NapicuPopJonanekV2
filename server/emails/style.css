@@ -19,16 +19,19 @@
   width: 100%;
   max-width: 30%;
   margin: auto;
-  transform: translateY(30%);
+  transform: translateY(14%);
   height: 70%;
   background-color: #dfdfdf;
   border-radius: 16px;
 }
 #Table > div {
-  padding: 20px;
+  padding: 17px;
+}
+.silver{
+    color: #bdc3c7;
 }
 #Text {
-  padding: 20px;
+  padding: 11px;
 }
 
 #Logo {
