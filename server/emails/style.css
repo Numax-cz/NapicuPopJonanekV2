@@ -1,0 +1,57 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(0, 0, 0, 0.4) #dfdfdf !important;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(39, 110, 198);
+}
+#Blue {
+  color: rgba(32, 105, 194, 0.712);
+  text-decoration: none;
+}
+#Table {
+  width: 100%;
+  max-width: 30%;
+  margin: auto;
+  transform: translateY(30%);
+  height: 70%;
+  background-color: #dfdfdf;
+  border-radius: 16px;
+}
+#Table > div {
+  padding: 20px;
+}
+#Text {
+  padding: 20px;
+}
+#Logo {
+  width: 120px;
+  border-radius: 50%;
+}
+#Button {
+  margin: 16px 29px;
+  position: absolute;
+  font-size: 1.3rem;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f36580;
+  padding: 12px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  border-bottom: 5px solid #c64a61;
+  border-radius: 22px;
+  text-decoration: none;
+}
