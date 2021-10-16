@@ -9,6 +9,11 @@ const passHasher = crypto.createHmac("sha256", process.env.PASSWORD_HASH_SECRET)
 
 const connection = require('./mysql');
 const mail = require("./mail");
+<<<<<<< HEAD
+
+app.use("/public", express.static("public"))
+=======
+>>>>>>> 170baac508e1dba855760d4854d3d15d848713ed
 
 app.use(express.json());
 app.use(cookieSession({
@@ -37,8 +42,11 @@ app.use(express.urlencoded({ extended: true }));
 //Login check
 app.use((req, res, next) => {
     let logined = false;
+<<<<<<< HEAD
+=======
     req.session.username= "Mám rád velký černý ptáky xd";
     console.log(req.session.username);
+>>>>>>> 170baac508e1dba855760d4854d3d15d848713ed
     if (req.session.username & req.session.password) {
         connection.query("SELECT * FROM Users WHERE Username LIKE '" + req.session.username+ "' AND SHA256Password LIKE '" + req.session.password + "' LIMIT 1", (err, result) => {
             if (!err) {
@@ -106,7 +114,11 @@ app.post("/api/reg", RegLimiter, (req, res) => {
                             from: "noreply@popjonanek.napicu.eu",
                             to: req.body.email,
                             subject: "Registrace | popjoanek.napicu.eu",
+<<<<<<< HEAD
+                            html: fs.readFileSync("./emails/welcome.html").toString().replaceAll("$USERNAME$", result[0].Username).replace("$RESETCODE$", ResetCode).replaceAll("$IP$", req.headers["X-Real-IP"]).replaceAll("$MAINLINK$", process.env.MAIN_LINK).replaceAll("$STYLE$", fs.readFileSync("./emails/style.css").toString())
+=======
                             html: fs.readFileSync("./emails/welcomne.html").toString().replaceAll("$USERNAME$", result[0].Username).replace("$RESETCODE$", ResetCode).replaceAll("$IP$", req.headers['x-forwarded-for'])
+>>>>>>> 170baac508e1dba855760d4854d3d15d848713ed
                         })
                     }
                 })
@@ -172,7 +184,11 @@ app.post("/api/resetpassword", (req, res) => {
                             from: "noreply@popjonanek.napicu.eu",
                             to: req.body.email,
                             subject: "Žádost o resetování hesla | popjoanek.napicu.eu",
+<<<<<<< HEAD
+                            html: fs.readFileSync("./emails/passwordreset.html").toString().replaceAll("$USERNAME$", result[0].Username).replace("$RESETCODE$", ResetCode).replaceAll("$IP$", req.headers["X-Real-IP"]).replaceAll("$MAINLINK$", process.env.MAIN_LINK).replaceAll("$STYLE$", fs.readFileSync("./emails/style.css").toString())
+=======
                             html: fs.readFileSync("./emails/passwordreset.html").toString().replaceAll("$USERNAME$", result[0].Username).replace("$RESETCODE$", ResetCode).replaceAll("$IP$", req.headers['x-forwarded-for'])
+>>>>>>> 170baac508e1dba855760d4854d3d15d848713ed
                         })
                         .catch(() => {
                             console.log("[Chyba] Nepodařilo se odeslat kód pro resetování hesla.");
@@ -250,4 +266,8 @@ connection.connect(function (e) {
     setInterval(() => {
         connection.ping();
     }, 30 * 60 * 1000);
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> 170baac508e1dba855760d4854d3d15d848713ed
