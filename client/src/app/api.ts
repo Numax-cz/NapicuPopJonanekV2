@@ -1,8 +1,6 @@
-export const GlobalUpdate = 'https://api.popjonanek.napicu.eu/api/update';
-export const UserNameCheck = 'https://api.popjonanek.napicu.eu/api/usernamecheck';
-export const UserRegister = 'https://api.popjonanek.napicu.eu/api/reg';
-/**
- * Body: `email` - password reset request, sends an email and creates an entry in the PasswordReset table, code 0 = successful
- */
-export const UserResetPass = 'https://api.popjonanek.napicu.eu/api/resetpassword';
-export const UserResetPassCheck = 'https://api.popjonanek.napicu.eu/api/resetpassword/check';
+export const domain = 'https://api.popjonanek69.napicu.eu/';
+export const GlobalUpdate = `${domain}/api/update`;
+export const UserNameCheck = `${domain}/api/usernamecheck`;
+export const UserRegister = `${domain}/api/reg`;
+export const UserResetPass = `${domain}/api/resetpassword`;
+export const UserResetPassCheck = `${domain}/api/resetpassword/check`;
