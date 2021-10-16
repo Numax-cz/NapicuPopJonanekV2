@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 #bg {
   width: 100%;
-=======
-*,
-*::before,
-*::after {
->>>>>>> 170baac508e1dba855760d4854d3d15d848713ed
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -14,12 +8,6 @@
   font-weight: 500;
   scrollbar-width: thin !important;
   scrollbar-color: rgba(0, 0, 0, 0.4) #dfdfdf !important;
-<<<<<<< HEAD
-=======
-}
-#bg {
-  width: 100%;
->>>>>>> 170baac508e1dba855760d4854d3d15d848713ed
   height: 100vh;
   background-color: rgb(39, 110, 198);
 }
@@ -62,8 +50,4 @@
   border-bottom: 5px solid #c64a61;
   border-radius: 22px;
   text-decoration: none;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 170baac508e1dba855760d4854d3d15d848713ed
