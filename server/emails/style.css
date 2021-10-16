@@ -25,18 +25,19 @@
 #TableP {
   display: table-cell;
   vertical-align: middle;
+
   padding-bottom: 100px;
 }
 #Table {
-  width: 100%;
-  max-width: 30%;
+  width: auto;
   margin: auto;
+  max-width: 530px;
   background-color: #dfdfdf;
   border-radius: 16px;
 }
 #Table > div {
   padding: 17px;
-  font-size: 1.8vh;
+  font-size: 1.7vh;
 }
 #ImgCon {
   width: 100%;
@@ -57,7 +58,7 @@
 }
 #Button {
   margin: 16px 29px;
-  font-size: 2vh;
+  font-size: 1.3rem;
   display: block;
   text-align: center;
   background-color: #f36580;
