@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "NapicuPopJonanek",
   "version": "1.0.0",
@@ -20,3 +21,31 @@
     "nodemon": "^2.0.13"
   }
 }
+=======
+{
+  "name": "NapicuPopJonanek",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-session": "^1.4.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.4.0",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
+>>>>>>> 6e92fbbf5352811370436cbe2b1c13383e907822
