@@ -1,6 +1,6 @@
 <section>
   <div>
-    <div class="LoginRegisterMainTitle">Registrace</div>
+    <div class="MainTitleAero">Registrace</div>
     <div class="LoginRegisterPanel">
       <form [formGroup]="registerForm"  #data="ngForm" (ngSubmit)="onSubmit(data.value)">
         
@@ -15,7 +15,7 @@
 
         
         <div id="LoginRegisterButtons">
-          <button type="submit" id="LoginRegisterButton">Register</button>
+          <button type="submit" id="RedButtonAero">Register</button>
         </div>
         <div class="RulInfoReg">
           <p>S registrací účtu souhlasím s <a [routerLink]="['../ochrana-osobnich-udaju']">ochranou a zpracováním osobních</a></p>
