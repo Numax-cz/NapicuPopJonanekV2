@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { GlobalBoard } from '../api';
 
 declare interface ApiData {
   user: string;
@@ -12,14 +13,14 @@ declare interface ApiData {
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
-  public usersBoard: ApiData[] = [];
+  public usersBoard: ApiData[] = this.getBoardData();
   constructor(protected http: HttpClient) {}
 
   ngOnInit(): void {}
 
   private getBoardData(): ApiData[] {
     var dataReturn = [];
-    this.http.get<any>('https://api.npms.io/v2/search?q=scope:angular').subscribe((data) => {
+    this.http.get<any>(GlobalBoard).subscribe((data: ApiData[]) => {
       dataReturn = data;
     });
     return [];
