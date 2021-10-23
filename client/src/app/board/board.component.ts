@@ -13,10 +13,12 @@ declare interface ApiData {
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
-  public usersBoard: ApiData[] = this.getBoardData();
+  public declare usersBoard: ApiData[];
   constructor(protected http: HttpClient) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.usersBoard = this.getBoardData();
+  }
 
   private getBoardData(): ApiData[] {
     var dataReturn = [];
