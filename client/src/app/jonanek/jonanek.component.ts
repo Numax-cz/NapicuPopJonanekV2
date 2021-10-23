@@ -4,11 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { ShopComponent } from '../shop/shop.component';
 import { GlobalUpdate, UserCheck } from '../api';
-declare interface ApiUserCeck {
-  loginedin: boolean;
-  username: string;
-  email: string;
-}
+
 
 @Component({
   selector: 'napicu-jonanek',
@@ -176,9 +172,5 @@ export class JonanekComponent implements OnInit {
       this.worldCounter = data;
     });
     this.SessionCounter = 0;
-  }
-
-  protected getApiUserLogin(): void {
-    this.http.get<any>(UserCheck).subscribe((data: ApiUserCeck) => {});
   }
 }
