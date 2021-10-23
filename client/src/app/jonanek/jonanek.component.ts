@@ -26,10 +26,8 @@ export class JonanekComponent implements OnInit {
   public static shopOpen: boolean;
   public static song: string;
   public static IsMenuOpen: boolean = false;
-
   public static xhr: XMLHttpRequest = new XMLHttpRequest();
-
-  public static background1: string; //Výchozí
+  public static background1: string; 
   public static background2: string;
 
   public static SoundsVoice: boolean;
