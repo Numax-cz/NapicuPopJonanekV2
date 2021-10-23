@@ -1,10 +1,12 @@
 <div class="TableProduct">
   <ul>
-    <li class="Item" id="UserBoard" *ngFor="let i of usersBoard; let index = index">
-      <div style="display: flex;align-items: center;">#{{ index + 1 }} {{ i.user }}</div>
-      <div style="word-break: break-all;">
-        {{ i.count}}
-      </div>
-    </li>
+    <ng-container *ngIf="usersBoard?.length">
+      <li class="Item" id="UserBoard" *ngFor="let i of usersBoard; let index = index">
+        <div style="display: flex; align-items: center">#{{ index + 1 }} {{ i.user }}</div>
+        <div style="word-break: break-all">
+          {{ i.count }}
+        </div>
+      </li>
+    </ng-container>
   </ul>
 </div>

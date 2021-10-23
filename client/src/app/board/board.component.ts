@@ -1,4 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+
+declare interface ApiData {
+  user: string;
+  count: string;
+}
 
 @Component({
   selector: 'app-board',
@@ -6,45 +12,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
-  public usersBoard: any[] = [
-    {
-      user: 'Mařka',
-      count: 123456789101112131415161,
-    },
-    {
-      user: 'Blažka',
-      count: 654,
-    },
-    {
-      user: 'Konař',
-      count: 345345,
-    },
-    {
-      user: 'Jana',
-      count: 123123,
-    },
-    {
-      user: 'Maru',
-      count: 4324,
-    },
-    {
-      user: 'Terka',
-      count: 456,
-    },
-    {
-      user: 'Jan',
-      count: 43426567564,
-    },
-    {
-      user: 'Bořek',
-      count: 5432,
-    },
-    {
-      user: 'Stanislav',
-      count: 123,
-    },
-  ];
-  constructor() {}
+  public usersBoard: ApiData[] = [];
+  constructor(protected http: HttpClient) {}
 
   ngOnInit(): void {}
+
+  private getBoardData(): ApiData[] {
+    var dataReturn = [];
+    this.http.get<any>('https://api.npms.io/v2/search?q=scope:angular').subscribe((data) => {
+      dataReturn = data;
+    });
+    return [];
+  }
 }
