@@ -10,6 +10,7 @@ export interface ArrayListSound {
   owned: boolean;
   CBuy: boolean;
 }
+
 @Component({
   selector: 'app-shop-sound',
   templateUrl: './shop-sound.component.html',

@@ -8,6 +8,7 @@ import {
   AbstractControl,
   ValidationErrors,
 } from '@angular/forms';
+import { UserRegister } from '../api';
 
 declare interface ApiData {
   username: string;
@@ -88,9 +89,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       }
     });
   }
-  public checkPassword(): void {
-    console.log(this.registerForm.get('passwords')?.get('pass1')?.errors);
-  }
 
   protected slowInput(func: Function) {
     clearTimeout(this.timeout);
@@ -105,12 +103,15 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
   public onSubmit(data: ApiData): void {
     if (!data) return;
-    // this.http.post<any>(UserRegister, data).subscribe((data: ApiLoginRegisterR) => {
-    //   if (data.code == 0) {
-    //   } else {
-    //     //TODO SUS
-    //   }
-    // });
+    console.log(data);
+    
+    this.http.post<any>(UserRegister, data).subscribe((dataApi: ApiLoginRegisterR) => {
+      console.log(dataApi);
+      if (dataApi.code == 0) {
+      } else {
+        //TODO SUS
+      }
+    });
   }
 
   public checkError(i: AbstractControl | null): boolean {

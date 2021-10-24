@@ -55,7 +55,7 @@
   border-radius: 15px;
 }
 #rul {
-  width: 80%;
+  width: 98%;
   margin: auto;
 }
 .Titlerul {
@@ -81,6 +81,7 @@
   text-align: center;
   p {
     margin: 11px 0;
+    font-size: 1rem;
     color: #000000b0;
   }
 }
@@ -101,7 +102,7 @@
   flex-wrap: wrap;
   align-content: center;
 }
-#LoginRegisterButton {
+#RedButtonAero {
   margin: 16px 29px;
   font-size: 1.3rem;
   background-color: #f36580;
@@ -120,11 +121,11 @@
     margin-right: auto;
   }
 }
-#LoginRegisterButton:hover {
+#RedButtonAero:hover {
   background-color: #f3404f;
   border-color: #af3a50;
 }
-.LoginRegisterMainTitle {
+.MainTitleAero {
   font-size: 2rem;
   text-align: center;
   font-weight: bold;
@@ -197,6 +198,7 @@ a {
   text-decoration: none;
   color: white;
 }
+
 .Item {
   display: flex;
   width: 100%;
@@ -532,6 +534,18 @@ a {
     max-width: 97%;
     font-size: 1.25rem;
   }
+  #RedButtonAero {
+    font-size: 1rem;
+    padding: 10px;
+  }
+  .input {
+    font-size: 1rem;
+    padding: 15px;
+  }
+  .MainTitleAero {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
   #UserBoard {
     font-size: 1.5rem;
   }
@@ -638,10 +652,6 @@ a {
     max-width: 97%;
     font-size: 1.25rem;
   }
-
-  .input {
-    font-size: 1rem;
-  }
   .marginImg {
     margin-left: 15px;
   }
@@ -700,6 +710,19 @@ a {
     margin-bottom: 3%;
     max-width: 98%;
     font-size: 1.1rem;
+  }
+  .input {
+    font-size: 0.8rem;
+    padding: 12px;
+  }
+  #RedButtonAero {
+    margin: 0;
+  }
+  .RulInfoReg {
+    p {
+      margin: 7px 0;
+      font-size: 0.8rem;
+    }
   }
   .marginImg {
     margin-left: 15px;
@@ -824,7 +847,6 @@ a {
     margin-bottom: 20px;
   }
   .TableProduct {
-    max-height: 75vh;
     max-width: 98%;
     padding: 15px;
   }

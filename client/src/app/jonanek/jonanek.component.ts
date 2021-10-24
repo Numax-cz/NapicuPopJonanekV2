@@ -3,7 +3,8 @@ import { Component, Inject, OnInit, Type } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { ShopComponent } from '../shop/shop.component';
-import { GlobalUpdate } from '../api';
+import { GlobalUpdate, UserCheck } from '../api';
+
 
 @Component({
   selector: 'napicu-jonanek',
@@ -21,10 +22,8 @@ export class JonanekComponent implements OnInit {
   public static shopOpen: boolean;
   public static song: string;
   public static IsMenuOpen: boolean = false;
-
   public static xhr: XMLHttpRequest = new XMLHttpRequest();
-
-  public static background1: string; //Výchozí
+  public static background1: string; 
   public static background2: string;
 
   public static SoundsVoice: boolean;
@@ -32,7 +31,6 @@ export class JonanekComponent implements OnInit {
   SessionCounter: number = 0;
   static count: number;
   worldCounter: number = 0;
-
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,

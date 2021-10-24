@@ -1,21 +1,21 @@
 <section>
   <div>
-    <div class="LoginRegisterMainTitle">Registrace</div>
+    <div class="MainTitleAero">Registrace</div>
     <div class="LoginRegisterPanel">
       <form [formGroup]="registerForm"  #data="ngForm" (ngSubmit)="onSubmit(data.value)">
         
-        <input [ngClass]="{ InputError: checkError(name),  InputSus: checkSus(name)}" #Name ngModel [appFocusInput]="name" (ngModelChange)="checkUsernameAvailable()" formControlName="name" name="username"  placeholder="Jméno" class="input" type="text"/>
+        <input [ngClass]="{ InputError: checkError(name),  InputSus: checkSus(name)}" #Name ngModel [appFocusInput]="name"  formControlName="name" name="username"  placeholder="Jméno" class="input" type="text"/>
  
-        <input  [ngClass]="{ InputError: checkError(email),  InputSus: checkSus(email)}" #Email ngModel [appFocusInput]="email" (ngModelChange)="checkEmail()"  formControlName="email"  name="email"  placeholder="Email" class="input" type="text" />
+        <input  [ngClass]="{ InputError: checkError(email),  InputSus: checkSus(email)}" #Email ngModel [appFocusInput]="email"   formControlName="email"  name="email"  placeholder="Email" class="input" type="text" />
       
         <div formGroupName="passwords">
-          <input [ngClass]="{ InputError: checkError(pass1),  InputSus: checkSus(pass1)}"  #Pass1 ngModel [appFocusInput]="pass1" (ngModelChange)="checkPassword()" formControlName="pass1" name="heslo" placeholder="Heslo" class="input" type="password" />
+          <input [ngClass]="{ InputError: checkError(pass1),  InputSus: checkSus(pass1)}"  #Pass1 ngModel [appFocusInput]="pass1" formControlName="pass1" name="heslo" placeholder="Heslo" class="input" type="password" />
           <input [ngClass]="{ InputError: checkError(pass2),  InputSus: checkSus(pass2)}"  #Pass2 ngModel [appFocusInput]="pass2" formControlName="pass2" name="reheslo" placeholder="Heslo znovu" class="input" type="password" /> 
         </div>
 
         
         <div id="LoginRegisterButtons">
-          <button type="submit" id="LoginRegisterButton">Register</button>
+          <button type="submit" id="RedButtonAero">Register</button>
         </div>
         <div class="RulInfoReg">
           <p>S registrací účtu souhlasím s <a [routerLink]="['../ochrana-osobnich-udaju']">ochranou a zpracováním osobních</a></p>
