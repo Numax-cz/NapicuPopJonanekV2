@@ -1,6 +1,6 @@
 const express = require('express');
 const crypto = require('crypto');
-const cookieSession = require('express-session');
+const cookieSession = require('cookie-session');
 const expressRateLimit = require('express-rate-limit');
 const codes = require('./codes.json');
 const app = express();
@@ -34,10 +34,12 @@ const LogLimiter = expressRateLimit({
 console.log(codes[0]);
 
 app.use(express.urlencoded({ extended: true }));
+
 app.all('/*', function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Origin', 'http://localhost:4200'); //! Změnit na požadovanou URL
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+  res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
 
