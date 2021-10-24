@@ -1,4 +1,4 @@
-export const domain = 'https://api.popjonanek69.napicu.eu';
+export const domain = 'http://localhost:8080';
 export const GlobalUpdate = `${domain}/api/update`;
 export const UserNameCheck = `${domain}/api/usernamecheck`;
 export const UserRegister = `${domain}/api/reg`;
