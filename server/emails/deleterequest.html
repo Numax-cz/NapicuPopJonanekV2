@@ -132,10 +132,14 @@
                               >
                                 Ahoj $USERNAME$,
                               </h2>
-                              <p>Váš účet $USERNAME$ byl úspěšně smazán</p>
+                              <p>
+                                Někdo zažádal o smazání vašeho účtu. Pokud jste akci provedli vy
+                                klikněte na talčítko níže, pokud ne doporučujeme změnit heslo. Kód je
+                                aktivní 30 minut
+                              </p>
 
                               <p>
-                                Smazání účtu bylo provedeno z IP adresy
+                                Žádost o smazání účtu přišla z IP adresy
                                 <span style="font-family: 'Rubik', sans-serif; color: #5865f2">$IP$</span>.
                               </p>
                             </div>
@@ -151,6 +155,40 @@
                                 width: 100%;
                               "
                             ></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="word-break: break-word; font-size: 0px; padding: 0px" align="left">
+                            <div
+                              style="
+                                color: #747f8d;
+                                font-family: 'Rubik', sans-serif;
+                                padding: 20px 10px 10px;
+                                font-size: 13px;
+                                line-height: 16px;
+                                text-align: left;
+                              "
+                            >
+                              <p align="center">
+                                <a
+                                  href="https://popjonanek.napicu.eu/resetpassword/$RESETCODE$"
+                                  style="
+                                    background-color: #f36580;
+                                    max-width: 250px;
+                                    margin: auto;
+                                    padding: 20px;
+                                    color: white;
+                                    font-size: 20px;
+                                    border: 0;
+                                    text-decoration: none;
+                                    border-bottom: 5px solid #c64a61;
+                                    border-radius: 16px;
+                                  "
+                                >
+                                  Smazat účet
+                                </a>
+                              </p>
+                            </div>
                           </td>
                         </tr>
                       </tbody>
