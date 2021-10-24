@@ -27,9 +27,10 @@
     PRIMARY KEY (`ID`)
     );
 
-    CREATE TABLE `PasswordReset` (
+    CREATE TABLE `EmailCodes` (
 	`ID` INT NOT NULL AUTO_INCREMENT,
 	`User_ID` INT NOT NULL,
+	`CodeType` INT NOT NULL,
 	`Code` TEXT NOT NULL,
 	`CreationTimestamp` BIGINT NOT NULL,
 	PRIMARY KEY (`ID`)
@@ -54,9 +55,3 @@
     ```sh
     npm run start
     ```
-## Použité balíčky 
-* dotenv@8.2.0
-* ejs@3.1.6
-* express@4.17.1
-* mysql@2.18.1
-* nodemon@2.0.7

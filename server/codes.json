@@ -1,0 +1,18 @@
+{
+    "0": {"code": 0, "msg": "Úšpěšná akce"},
+    "6001": {"code": 6001, "msg": "Nebylo vyplněno povinné pole"},
+    "6002": {"code": 6002, "msg": "Zadaná hesla se neshodují"},
+    "6003": {"code": 6003, "msg": "Zadaný email není platný"},
+    "6004": {"code": 6004, "msg": "Přezdívka je příliš krátká nebo příliš dlouhá, přezdívka musí mít 4-29 znaků"},
+    "6005": {"code": 6005, "msg": "Heslo nesplňuje požadavky. Musí být minimálně 8 a maximálně 4O znaků, musí mít alespoň jedno číslo, velké a malé písmeno"},
+    "6006": {"code": 6006, "msg": "Zadaný email nebo uživatelské jméno již někdo využívá"},
+    "6007": {"code": 6007, "msg": "Nastala chyba při zapisování nebo čtení z nebo do databáze"},
+    "6008": {"code": 6008, "msg": "Zadané špatné uživatelské jméno nebo heslo"},
+    "6009": {"code": 6009, "msg": "Zadaný email žádný uživatel nevyužívá"},
+    "6010": {"code": 6010, "msg": "Kód pro resetování hesla již byl odeslán, další lze vygenerovat za 30 minut od odeslání"},
+    "6011": {"code": 6011, "msg": "Kód pro resetování hesla není platný"},
+    "6012": {"code": 6012, "msg": "Kód pro resetování hesla již expiroval, kód je platný pouze 30 minut"},
+    "6013": {"code": 6013, "msg": "Tato akce je pouze pro nepřihlášené uživatele"},
+    "6014": {"code": 6014, "msg": "Tato akce je pouze pro přihlášené uživatele"},
+    "6015": {"code": 6015, "msg": "Zadaná přezdívka obsahuje nepovolené znaky"}
+}
