@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { JonanekComponent } from './jonanek/jonanek.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -14,15 +13,10 @@ import { ShopSoundComponent } from './shop-sound/shop-sound.component';
 import { ShopBackgroundComponent } from './shop-background/shop-background.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SettingsAlertSessionComponent } from './settings-alert-session/settings-alert-session.component';
-import { RegisterComponent } from './register/register.component';
 import { BoardComponent } from './board/board.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FocusInputDirective } from './focus-input.directive';
-import { OchranaOsobnichUdajuComponent } from './ochrana-osobnich-udaju/ochrana-osobnich-udaju.component';
-import { LoginComponent } from './login/login.component';
-import { UserComponent } from './user/user.component';
-import { ResetpassComponent } from './resetpass/resetpass.component';
-import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+
 
 const routes: Routes = [
   {
@@ -36,18 +30,11 @@ const routes: Routes = [
           { path: 'sound', component: ShopSoundComponent },
           { path: 'background', component: ShopBackgroundComponent },
           { path: 'settings', component: SettingsComponent },
-          // { path: 'register', component: RegisterComponent },
-          // { path: 'login', component: LoginComponent },
           { path: 'settings/session', component: SettingsAlertSessionComponent },
-          // { path: 'ochrana-osobnich-udaju', component: OchranaOsobnichUdajuComponent },
-          // { path: 'user', component: UserComponent },
-          // { path: 'board', component: BoardComponent },
-          // { path: 'reset', component: ResetpassComponent },
         ],
       },
     ],
   },
-  // { path: 'reset-password/:code', component: ResetpasswordComponent },
   { path: '**', redirectTo: '/' },
 ];
 
@@ -61,14 +48,8 @@ const routes: Routes = [
     ShopBackgroundComponent,
     SettingsComponent,
     SettingsAlertSessionComponent,
-    RegisterComponent,
     BoardComponent,
     FocusInputDirective,
-    OchranaOsobnichUdajuComponent,
-    LoginComponent,
-    UserComponent,
-    ResetpassComponent,
-    ResetpasswordComponent,
   ],
   imports: [
     BrowserModule,
