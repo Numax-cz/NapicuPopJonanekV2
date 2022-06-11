@@ -1,6 +1,8 @@
-# PopJonanek 2 - Api
-* Api pro [PopJonanek](https://popjonanek.napicu.eu)
-* Aplikace pro zobrazení světového skore
+# PopJonanek 2 - Api OLD
+* Zastaraná verze Api pro [PopJonanek](https://popjonanek.napicu.eu)
+*  Novou verzi najdete na [NapicuWebAPI](https://github.com/Numax-cz/NapicuWebAPI)
+
+---
 ## Instalace 
 1. Naklonování repozitáře
     ```sh
