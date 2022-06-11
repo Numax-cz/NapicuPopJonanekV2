@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { JonanekComponent } from '../jonanek/jonanek.component';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {JonanekComponent} from '../jonanek/jonanek.component';
 
-import { ArrayListImg } from '../shop-background/shop-background.component';
-import { ShopSoundComponent, ArrayListSound } from '../shop-sound/shop-sound.component';
+import {ArrayListImg} from '../shop-background/shop-background.component';
+import {ArrayListSound} from '../shop-sound/shop-sound.component';
 
 @Component({
   selector: 'shop',

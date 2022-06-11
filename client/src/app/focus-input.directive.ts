@@ -1,5 +1,5 @@
-import { Directive, HostListener, Input } from '@angular/core';
-import { AbstractControl } from '@angular/forms';
+import {Directive, HostListener, Input} from '@angular/core';
+import {AbstractControl} from '@angular/forms';
 
 @Directive({
   selector: '[appFocusInput]',

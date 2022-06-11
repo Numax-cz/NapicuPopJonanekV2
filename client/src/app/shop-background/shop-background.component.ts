@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { JonanekComponent } from '../jonanek/jonanek.component';
-import { ShopComponent } from '../shop/shop.component';
+import {Component, OnInit} from '@angular/core';
+import {JonanekComponent} from '../jonanek/jonanek.component';
+import {ShopComponent} from '../shop/shop.component';
 
 interface ArrayImg {
   img1: string;

@@ -1,9 +1,8 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, Inject, OnInit, Type } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
-import { ShopComponent } from '../shop/shop.component';
-import { GlobalUpdate, UserCheck } from '../api';
+import {DOCUMENT} from '@angular/common';
+import {Component, Inject, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {ActivatedRoute} from '@angular/router';
+import {GlobalUpdate} from '../api';
 
 
 @Component({
@@ -23,7 +22,7 @@ export class JonanekComponent implements OnInit {
   public static song: string;
   public static IsMenuOpen: boolean = false;
   public static xhr: XMLHttpRequest = new XMLHttpRequest();
-  public static background1: string; 
+  public static background1: string;
   public static background2: string;
 
   public static SoundsVoice: boolean;

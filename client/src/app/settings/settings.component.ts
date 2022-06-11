@@ -1,5 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { JonanekComponent } from '../jonanek/jonanek.component';
+import {Component, OnInit} from '@angular/core';
+import {JonanekComponent} from '../jonanek/jonanek.component';
 
 @Component({
   selector: 'app-settings',
@@ -12,7 +12,7 @@ export class SettingsComponent implements OnInit {
 
 
   constructor() {
-    this.Checked = JonanekComponent.SoundsVoice; 
+    this.Checked = JonanekComponent.SoundsVoice;
   }
 
   ngOnInit(): void {

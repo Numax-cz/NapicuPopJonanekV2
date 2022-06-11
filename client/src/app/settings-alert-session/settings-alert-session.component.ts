@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { JonanekComponent } from '../jonanek/jonanek.component';
-import { ShopComponent } from '../shop/shop.component';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {JonanekComponent} from '../jonanek/jonanek.component';
+import {ShopComponent} from '../shop/shop.component';
 
 @Component({
   selector: 'app-settings-alert-session',
