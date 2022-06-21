@@ -1,9 +1,10 @@
 import {DOCUMENT} from '@angular/common';
 import {Component, Inject, OnInit} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpStatusCode} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {GlobalUpdate} from '../api';
 import {NapicuPopJonanekControllerService} from "@Napicu/OpenAPI/api/napicuPopJonanekController.service";
+import {RequestExceptionSchema} from "@Napicu/OpenAPI/model/requestExceptionSchema";
 
 
 @Component({
@@ -169,8 +170,12 @@ export class JonanekComponent implements OnInit {
 
     this.service.setGetCounter({counter: this.SessionCounter}).subscribe((data) => {
       this.worldCounter = data.counter;
-    }, (err: HttpErrorResponse) => {
-      this.err = "Server je momentálně nedostupný :("
+    }, (error: HttpErrorResponse) => {
+      let api_err = error.error as RequestExceptionSchema;
+      this.err = null;
+      if(api_err?.status == HttpStatusCode.TooManyRequests){
+        this.err = "Příliš mnoho požadavků z vaší IPadresy. Zkuste to prosím později :)";
+      } else this.err = "Server je momentálně nedostupný :("
     });
     this.SessionCounter = 0;
 
