@@ -2,15 +2,23 @@
     <div id="count">{{count}}</div>
     <img id="Jonanek1" class="block" [src]="background2" #Jonanek1>
     <img id="Jonanek2" class="none" [src]="background1" #Jonanek2>
- 
+
     <section id="Stats">
         <div class="Table">
+          <ng-container *ngIf="!err">
             <div>
-                Světově: <span id="CounterLink">{{worldCounter}}</span>
+              Světově: <span >{{worldCounter}}</span>
             </div>
+          </ng-container>
+          <ng-container *ngIf="err">
             <div>
-                <img src="assets/list.webp" id="MenuShop" title="Shop" routerLink="/menu/sound">
+              <span>{{this.err}}</span>
             </div>
+          </ng-container>
+            <div>
+              <img src="assets/list.webp" id="MenuShop" title="Shop" routerLink="/menu/sound">
+            </div>
+
         </div>
     </section>
 </section>

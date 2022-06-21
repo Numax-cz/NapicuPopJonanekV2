@@ -1,8 +1,9 @@
 import {DOCUMENT} from '@angular/common';
 import {Component, Inject, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {GlobalUpdate} from '../api';
+import {NapicuPopJonanekControllerService} from "@Napicu/OpenAPI/api/napicuPopJonanekController.service";
 
 
 @Component({
@@ -30,11 +31,12 @@ export class JonanekComponent implements OnInit {
   SessionCounter: number = 0;
   static count: number;
   worldCounter: number = 0;
+  public err: string | null = null;
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
-    private http: HttpClient,
-    public route: ActivatedRoute
+    private service: NapicuPopJonanekControllerService,
+    public route: ActivatedRoute,
   ) {
     JonanekComponent.Load();
     JonanekComponent.shopOpen = true;
@@ -74,9 +76,7 @@ export class JonanekComponent implements OnInit {
   get count(): number {
     return JonanekComponent.count;
   }
-  get shopOpen(): boolean {
-    return JonanekComponent.shopOpen;
-  }
+
   get background1(): string {
     return JonanekComponent.background1;
   }
@@ -84,7 +84,6 @@ export class JonanekComponent implements OnInit {
     return JonanekComponent.background2;
   }
 
-  ngAfterViewInit(): void {}
 
   public static SetCounter(): void {
     window.localStorage.setItem('counter', JonanekComponent.count.toString());
@@ -167,9 +166,13 @@ export class JonanekComponent implements OnInit {
   }
 
   protected getApiData(): void {
-    this.http.post<any>(GlobalUpdate, { ClickCounter: this.SessionCounter }).subscribe((data) => {
-      this.worldCounter = data;
+
+    this.service.setGetCounter({counter: this.SessionCounter}).subscribe((data) => {
+      this.worldCounter = data.counter;
+    }, (err: HttpErrorResponse) => {
+      this.err = "Server je momentálně nedostupný :("
     });
     this.SessionCounter = 0;
+
   }
 }
