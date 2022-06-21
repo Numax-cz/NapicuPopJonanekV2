@@ -167,7 +167,6 @@ export class JonanekComponent implements OnInit {
   }
 
   protected getApiData(): void {
-
     this.service.setGetCounter({counter: this.SessionCounter}).subscribe((data) => {
       this.worldCounter = data.counter;
     }, (error: HttpErrorResponse) => {
@@ -178,6 +177,5 @@ export class JonanekComponent implements OnInit {
       } else this.err = "Server je momentálně nedostupný :("
     });
     this.SessionCounter = 0;
-
   }
 }
