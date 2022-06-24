@@ -34,7 +34,7 @@ import { Configuration }                                     from '../configurat
 })
 export class NapicuPocasiControllerService {
 
-    protected basePath = 'https://api2.napicu.eu';
+    protected basePath = 'https://api.napicu.eu';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
     public encoder: HttpParameterCodec;

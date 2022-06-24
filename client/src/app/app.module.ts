@@ -15,6 +15,8 @@ import {SettingsComponent} from './settings/settings.component';
 import {SettingsAlertSessionComponent} from './settings-alert-session/settings-alert-session.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FocusInputDirective} from './focus-input.directive';
+import {ApiModule} from "@Napicu/OpenAPI/api.module";
+import {Configuration} from "@Napicu/OpenAPI/configuration";
 
 
 const routes: Routes = [
