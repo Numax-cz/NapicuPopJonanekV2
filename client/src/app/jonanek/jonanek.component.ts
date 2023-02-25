@@ -47,10 +47,10 @@ export class JonanekComponent implements OnInit {
   ngOnInit(): void {
     this.Jonanek1 = this.doc.getElementById('Jonanek1');
     this.Jonanek2 = this.doc.getElementById('Jonanek2');
-    this.getApiData();
-    setInterval(() => {
-      this.getApiData();
-    }, 1000 * 10);
+    // this.getApiData();
+    // setInterval(() => {
+    //   this.getApiData();
+    // }, 1000 * 10);
 
     window.addEventListener('keydown', this.Click);
     this.Jonanek1.addEventListener('touchstart', this.Click);
